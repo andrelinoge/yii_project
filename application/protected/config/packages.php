@@ -27,7 +27,7 @@ $client_script_packages = [
     ],
 
     'file_uploader' => [
-        'baseUrl' => '/application/public/common/js/plugins/fileupload/',
+        'baseUrl' => '/application/public/common/js/plugins/fileuploader/',
         'js' => [ 'fileuploader.js' ],
         'css' => [ 'fileuploader.css' ],
         'depends' => [ 'jquery' ]
@@ -36,7 +36,7 @@ $client_script_packages = [
     'uploader' => [
         'baseUrl' => $js_controllers_path,
         'js' => [ 'uploadController.js'],
-        'depends' => [ 'fileUploader' ]
+        'depends' => [ 'file_uploader' ]
     ],
 
     'applicationEndController' => [

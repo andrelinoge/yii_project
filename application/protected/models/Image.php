@@ -6,7 +6,8 @@
  * The followings are the available columns in table 'images':
  * @property integer $id
  * @property string $image
- * @property string $text
+ * @property string $title
+ * @property string $description
  * @property string $type
  * @property integer $owner_id
  */
@@ -15,12 +16,13 @@ class Image extends CActiveRecord
 	public function behaviors()
     {
         return [
-            'imagable' => [
-                'class' => 'ImageBehavior',
-                'image_field' => 'image',
-                'image_folder' => 'public/uploads/images/gallery',
-                'temp_folder' => 'public/uploads/temp',
-                'thumbnails' => [
+            'file' => [
+				'class'                 => 'ImageBehavior',
+				'image_field'           => 'image',
+				'is_ajax_upload'        => true,
+				'image_folder'          => 'public/uploads/images/gallery',
+				'temp_folder'           => 'public/uploads/temp',
+				'thumbnails'            => [
                     'm' => [300, 300],
                     's' => [100, 100]
                 ]
@@ -42,8 +44,8 @@ class Image extends CActiveRecord
 	public function rules()
 	{
 		return array(
-			array('image, text, type', 'required'),
-			array('image, text', 'length', 'max'=>255),
+			array('image, type', 'required'),
+			array('image, description, title,', 'length', 'max'=>255),
 			array('type', 'length', 'max'=>20),
 			array('id, image, text, type, owner_id', 'safe', 'on'=>'search'),
 		);
@@ -63,11 +65,12 @@ class Image extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'image' => 'Image',
-			'text' => 'Text',
-			'type' => 'Type',
-			'owner_id' => 'Owner',
+			'id'          => 'ID',
+			'image'       => 'Image',
+			'title'       => 'Title',
+			'description' => 'Text',
+			'type'        => 'Type',
+			'owner_id'    => 'Owner of image'
 		);
 	}
 
@@ -78,12 +81,6 @@ class Image extends CActiveRecord
 	public function search()
 	{
 		$criteria = new CDbCriteria;
-
-		$criteria->compare('id',$this->id);
-		$criteria->compare('image',$this->image,true);
-		$criteria->compare('text',$this->text,true);
-		$criteria->compare('type',$this->type,true);
-		$criteria->compare('owner_id',$this->owner_id);
 
 		$pagination = new CPagination();
         $pagination->pageSize = 20;

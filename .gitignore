@@ -1,0 +1,13 @@
+.svn
+.idea
+error.log
+access.log
+application/protected/config/main.php
+
+application/public/assets/*
+!application/public/assets/.gitignore
+application/protected/runtime/*
+!application/protected/runtime/.gitignore
+application/protected/data/*.db
+application/public/uploads/temp/*
+application/public/uploads/gallery/*

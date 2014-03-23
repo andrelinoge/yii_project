@@ -111,5 +111,11 @@ $assets = $this->get_behavioral_url();
 
 </div>
 
+<script type="text/javascript">
+    $(function(){
+        new ApplicationController();
+    });
+</script>>
+
 </body>
 </html>

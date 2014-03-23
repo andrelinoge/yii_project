@@ -6,7 +6,8 @@
             </a>
         </div>
         <div class="block-content npt text-muted">
-            <div class="pull-left"><?= $data->text?></div>
+            <div class="pull-left"><h6><?= $data->title; ?></h6></div>
+            <div class="pull-left"><?= $data->description; ?></div>
         </div>
     </div>                            
 </div>

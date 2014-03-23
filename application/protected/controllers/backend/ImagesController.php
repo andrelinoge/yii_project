@@ -32,18 +32,27 @@ class ImagesController extends BackendController
             'view' => [
                 'class'                 => 'application.actions.crud.ViewAction',
             ],
-            'gallery' => [
-                'class'                 => 'application.actions.crud.IndexAction',
-                'view'                  => 'gallery',
-                'ajax_view'             => '_gallery',
-                'getter_collection_provider_method' => 'get_gallery'
+            'upload' => [
+                'class'                 => 'application.actions.crud.UploadImageAction',
+                'upload_and_save'       => true,
+                'ajax_view'             => '_thumbnail'
             ]
         ];
     }
 
     public function create_model()
     {
-        return new Image();
+        $model = new Image();
+        $model->type = get_param('type');
+
+        if (empty($model->type))
+        {
+            throw new CException("Type not specified");
+        }
+
+        $model->owner_id = get_param('owner_id');
+
+        return $model;
     }
 
     public function load_model($id)
@@ -53,11 +62,17 @@ class ImagesController extends BackendController
 
     public function get_collection_provider()
     {
-        $image = new Image();
-        $image->type = get_param('type');
-        $image->owner_id = get_param('id');
+        $model = new Image();
+        $model->type = get_param('type');
 
-        return $image->search();
+        if (empty($model->type))
+        {
+            throw new CException("Type not specified");
+        }
+
+        $model->owner_id = get_param('owner_id');
+
+        return $model->search();
     }
 
     /**                                     FILTERS                                **/
@@ -73,7 +88,7 @@ class ImagesController extends BackendController
             [
                 'allow',
                 'actions' => [
-                    'index', 'new', 'create', 'update', 'delete'
+                    'index', 'new', 'create', 'update', 'delete', 'upload'
                 ],
                 'roles' => ['admin']
             ],

@@ -6,6 +6,7 @@ $this->widget(
 		'template'     => "{items}\n{pager}",
 		'itemView'     => '_thumbnail',
 		'pagerCssClass' => 'widget-foot',
+		'itemsCssClass' => 'images',
 		'pager' => [
             'class' => 'bootstrap.widgets.TbJsonPager',
             'header' => '<div class="clearfix"></div><div class="col-md-4">',

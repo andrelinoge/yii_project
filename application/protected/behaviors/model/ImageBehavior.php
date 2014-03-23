@@ -40,21 +40,9 @@ class ImageBehavior extends CActiveRecordBehavior
 
     public function upload_to_temp_folder()
     {
-        // folder for uploaded files
         $temp_folder = $this->get_absolute_temp_path();
-
-        if (!is_writable( $temp_folder ) )
-        {
-            throw new CException( 'temporary folder is not exists or not writable. Path:' . $temp_folder );
-        }
-
-        $uploader = new FileUploader(
-            $this->allowed_file_extensions,
-            $this->file_size_limit
-        );
-
-        $result = $uploader->handleUpload( $temp_folder );
-
+        $result = $this->upload($temp_folder);
+    
         if ( !isset( $result['error'] ) )
         {
             $image_handler = new CImageHandler();
@@ -71,11 +59,11 @@ class ImageBehavior extends CActiveRecordBehavior
             }
             catch (CException $e)
             {
+                // TODO: delete invalid file from temp folder
                 throw new CException($e->message);
             }
-            
 
-            $this->image = $image_handler->getBaseFileName();
+            $this->owner->{$this->image_field} = $image_handler->getBaseFileName();
 
             return [
                 'file_name' => $image_handler->getBaseFileName(),
@@ -86,6 +74,21 @@ class ImageBehavior extends CActiveRecordBehavior
         {
             throw new CException($result[ 'error' ]);
         }
+    }
+
+    protected function upload($folder)
+    {
+        if (!is_writable( $folder ) )
+        {
+            throw new CException( 'Folder is not exists or not writable. Path:' . $folder );
+        }
+
+        $uploader = new FileUploader(
+            $this->allowed_extensions,
+            $this->size_limit
+        );
+
+        return $uploader->handleUpload( $folder );
     }
 
     public function get_image_url($prefix = '')
@@ -120,15 +123,15 @@ class ImageBehavior extends CActiveRecordBehavior
     {
         $image_path = $this->get_absolute_image_path();
 
-        @unlink($image_path . $this->owner->{$this->image_field});
+        @unlink($image_path . $this->initial_image);
         if (is_array(array_keys($this->thumbnails)))
         {
             foreach(array_keys($this->thumbnails) as $prefix)
             {
-                @unlink($image_path . $prefix .  $this->owner->{$this->image_field});
+                @unlink($image_path . $prefix .  $this->owner->initial_image);
             }
         }
-        $this->owner->{$this->image_field} = '';
+        $this->initial_image = '';
     }
 
     protected function ajax_upload()
@@ -146,6 +149,7 @@ class ImageBehavior extends CActiveRecordBehavior
             $this->delete_old_image();
 
             $image_handler = new CImageHandler();
+
             $image_handler->load( $temp_folder . $this->owner->{$this->image_field} );
             $image_handler->save( $image_folder . $image_handler->getBaseFileName() );
 

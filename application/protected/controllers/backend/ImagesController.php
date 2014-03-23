@@ -10,20 +10,12 @@ class ImagesController extends BackendController
                 'view'                  => 'index',
                 'ajax_view'             => '_index'
             ],
-            'new' => [
-                'class'                 => 'application.actions.crud.NewAction',
-                'view'                  => 'add'
-            ],
-            'create' => [
-                'class'                 => 'application.actions.crud.CreateAction',
-                'view'                  => 'add'
-            ],
             'edit' => [
                 'class'                 => 'application.actions.crud.EditAction',
                 'view'                  => 'edit'
             ],
             'update' => [
-                'class'                 => 'application.actions.crud.UpdateAction',
+                'class'                 => 'application.actions.crud.UpdateImageAction',
                 'view'                  => 'edit'
             ],
             'delete' => [
@@ -60,6 +52,27 @@ class ImagesController extends BackendController
         return Image::model()->findByPk($id);
     }
 
+    public function before_update($model)
+    {
+        $model->detachBehavior('file');
+        $model->attachBehavior('file', [
+            'class'                 => 'ImageBehavior',
+            'image_field'           => 'image',
+            'is_ajax_upload'        => false,
+            'image_folder'          => 'public/uploads/images/gallery',
+            'temp_folder'           => 'public/uploads/temp',
+            'thumbnails'            => [
+                'm' => [300, 300],
+                's' => [100, 100]
+            ]
+        ]);
+    }
+
+    public function before_upload($model)
+    {
+        $model->setScenario('ajax_create');
+    }
+
     public function get_collection_provider()
     {
         $model = new Image();
@@ -88,7 +101,7 @@ class ImagesController extends BackendController
             [
                 'allow',
                 'actions' => [
-                    'index', 'new', 'create', 'update', 'delete', 'upload'
+                    'index', 'edit', 'update', 'delete', 'upload'
                 ],
                 'roles' => ['admin']
             ],

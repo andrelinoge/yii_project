@@ -4,7 +4,11 @@ $this->breadcrumbs = [
     ['name' => 'Images']
 ];
 
-Yii::app()->clientScript->registerPackage('uploader');
+$assets = $this->get_behavioral_url();
+
+Yii::app()->clientScript
+    ->registerPackage('uploader')
+    ->registerScriptFile($assets . '/js/controllers/imageController.js');
 
 
 ?>
@@ -31,6 +35,9 @@ Yii::app()->clientScript->registerPackage('uploader');
 <script type="text/javascript">
   $(function(){
     var uploader = new UploaderController();
+    var image_controller = new ImageController();
+
+    image_controller.initialize_index_page();
 
     uploader.initialize(
         '<?= url("images/upload", ["owner_id" => get_param("owner_id"), "type" => get_param("type")]); ?>',

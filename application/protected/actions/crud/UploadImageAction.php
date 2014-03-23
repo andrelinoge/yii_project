@@ -13,19 +13,27 @@ class UploadImageAction extends BaseCrudAction
         if ( is_ajax() )
         {
             $model = $this->controller->create_model();
+            $this->client_callback('before_upload', $model);
+
             try
             {
                 if ($this->upload_and_save)
                 {
                     $response = $model->upload_to_temp_folder();
-                    $model->save();
+
+                    if (!$model->save())
+                    {
+                        failure('invalid image', ['errors' => $model->errors]);
+                        Yii::app()->end();
+                    }
 
                     $response['id'] = $model->id;
 
                     if (!empty($this->ajax_view))
                     {
                         $partial = $this->getController()->renderPartial($this->ajax_view, ['data' => $model], true);
-                        success('', ['html' => $partial]);
+                        $response['html'] = $partial;
+                        success('', $response);
                     }
                     else
                     {

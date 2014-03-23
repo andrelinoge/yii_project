@@ -32,7 +32,7 @@ class Article extends CActiveRecord
 		return [
 			['title, text', 'required'],
 			['title, alias', 'length', 'max' => 255],
-            ['cover', 'file', 'allowEmpty' => true, 'types' => 'jpg,jpeg,gif,png'],
+            ['cover', 'file', 'allowEmpty' => true, 'types' => 'jpg,jpeg,png'],
 			['id, created_at, updated_at, cover, title, text, meta_keywords, meta_description, alias', 'safe', 'on'=>'search']
 		];
 	}

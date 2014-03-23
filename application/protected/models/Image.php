@@ -43,12 +43,14 @@ class Image extends CActiveRecord
 	 */
 	public function rules()
 	{
-		return array(
-			array('image, type', 'required'),
-			array('image, description, title,', 'length', 'max'=>255),
-			array('type', 'length', 'max'=>20),
-			array('id, image, text, type, owner_id', 'safe', 'on'=>'search'),
-		);
+		return [
+			[ 'type', 'required' ],
+			[ 'image', 'file', 'allowEmpty' => false, 'types' => 'jpg, jpeg, png', 'on' => 'create' ],
+			[ 'image', 'file', 'allowEmpty' => true, 'types' => 'jpg, jpeg, png', 'on' => 'ajax_create' ],
+			[ 'image, description, title,', 'length', 'max' => 255 ],
+			[ 'type', 'length', 'max' => 20 ],
+			[ 'id, image, text, type, owner_id', 'safe', 'on' => 'search' ]
+		];
 	}
 
 	/**
@@ -83,7 +85,7 @@ class Image extends CActiveRecord
 		$criteria = new CDbCriteria;
 
 		$pagination = new CPagination();
-        $pagination->pageSize = 20;
+        $pagination->pageSize = 30;
 
 		return new CActiveDataProvider($this, array(
 			'criteria'   => $criteria,

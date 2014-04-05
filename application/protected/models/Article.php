@@ -13,6 +13,7 @@
  * @property string $meta_keywords
  * @property string $meta_description
  * @property string $alias
+ * @property string $type
  */
 class Article extends CActiveRecord
 {
@@ -42,7 +43,9 @@ class Article extends CActiveRecord
 	 */
 	public function relations()
 	{
-		return array();
+		return array(
+			'category' => [static::BELONGS_TO, 'Category', 'category_id']
+		);
 	}
 
     public function behaviors()
@@ -74,21 +77,21 @@ class Article extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'created_at' => 'Created At',
-			'updated_at' => 'Updated At',
-			'cover' => 'Cover',
-			'title' => 'Title',
-			'text' => 'Text',
-			'meta_keywords' => 'Meta Keywords',
+			'id'               => 'ID',
+			'created_at'       => 'Created At',
+			'updated_at'       => 'Updated At',
+			'cover'            => 'Cover',
+			'title'            => 'Title',
+			'text'             => 'Text',
+			'meta_keywords'    => 'Meta Keywords',
 			'meta_description' => 'Meta Description',
-			'alias' => 'Transliterated Title',
+			'alias'            => 'Transliterated Title'
 		);
 	}
 
 	public function search()
 	{
-		$criteria=new CDbCriteria;
+		$criteria = new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('created_at',$this->created_at,true);
@@ -97,11 +100,11 @@ class Article extends CActiveRecord
 		$criteria->compare('alias',$this->alias,true);
 
         $pagination = new CPagination();
-        $pagination->pageSize = 5;
+        $pagination->pageSize = 15;
 
         $sort = new CSort();
-        $sort->defaultOrder = 'id';
-        $sort->attributes = ['id', 'title', 'created_at'];
+		$sort->defaultOrder = 'id';
+		$sort->attributes   = ['id', 'title', 'created_at'];
 
 		return new CActiveDataProvider($this, array(
 			'criteria' => $criteria,

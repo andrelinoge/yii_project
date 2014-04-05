@@ -1,15 +1,5 @@
 <?php
 
-// uncomment the following to define a path alias
-// Yii::setPathOfAlias('local','path/to/local-folder');
-
-// This is the main Web application configuration. Any writable
-// CWebApplication properties can be configured here.
-
-/*
-TODO: merge include those arrays in this config in production
-*/
-
 require_once 'routes.php'; // contains $routes
 require_once 'params.php'; // contains $applicationParams
 require_once 'packages.php'; // contains clientScript packages settings
@@ -71,41 +61,40 @@ return [
         ],
 
 		'user' => [
-			'allowAutoLogin' => TRUE, // enable cookie-based authentication
-            'class' => 'WebUser', // located in components/system/ and is inherit for CWebUser
-            'loginUrl' => 'site/login'
+            'allowAutoLogin' => TRUE, // enable cookie-based authentication
+            'class'          => 'WebUser', // located in components/system/ and is inherit for CWebUser
+            'loginUrl'       => 'site/login'
 		],
 
         'authManager' => [
-            'class' => 'phpAuthManager',
+            'class'        => 'phpAuthManager',
             'defaultRoles' => [ 'guest' ]
         ],
 
         // URLs
 		'urlManager' => [
-            'urlFormat' => 'path',
+            'class'          => 'UrlManager',
+            'urlFormat'      => 'path',
             'showScriptName' => false,
-            'rules' => $routes
+            'rules'          => $routes
 		],
 
         // DB
 		'db' => [
-            //local
-
-            'connectionString' => 'mysql:host=localhost;dbname=test',
-            'username' => 'root',
-            'password' => 'root',
-
-            'emulatePrepare' => true,
-			'charset' => 'utf8',
-            'schemaCachingDuration'=> 3600,
+            'connectionString'      => 'mysql:host=localhost;dbname=test',
+            'username'              => 'root',
+            'password'              => 'root',
+            
+            'emulatePrepare'        => true,
+            'charset'               => 'utf8',
+            'schemaCachingDuration' => 3600,
             'enableProfiling'       => TRUE,
             'enableParamLogging'    => TRUE
 		],
 
         // Error
 		'errorHandler' => [
-			'errorAction'=>'site/error',
+            'errorAction' =>'site/error'
 		],
 
         // Log
@@ -114,14 +103,14 @@ return [
 			'routes' => [
 				[
 					//'class'=>'CFileLogRoute',
-                    'class'=>'ext.yii-debug-toolbar.YiiDebugToolbarRoute', // comment in production version
-					'levels'=>'error, warning',
+                    'class'  =>'ext.yii-debug-toolbar.YiiDebugToolbarRoute', // comment in production version
+                    'levels' =>'error, warning',
 				]
 			]
 		],
 
         'gettext' => [
-            'class' => 'ext.yii-gettext.GetText',
+            'class'  => 'ext.yii-gettext.GetText',
             'domain' => 'frontend'
         ],
 
@@ -135,37 +124,30 @@ return [
 
         // Mail
         'mail' => [
-            'class' => 'ext.yii-mail.YiiMail',
-            'transportType' => 'smtp',
-            'viewPath' => 'application.views.mailer',
-            'logging' => true,
-            'dryRun' => false,
+            'class'            => 'ext.yii-mail.YiiMail',
+            'transportType'    => 'smtp',
+            'viewPath'         => 'application.views.mailer',
+            'logging'          => true,
+            'dryRun'           => false,
             'transportOptions' => [
-                'host' => 'ssl://smtp.gmail.com',
+                'host'     => 'ssl://smtp.gmail.com',
                 'username' => 'name',
                 'password' => 'pass',
-                'port' => 465
+                'port'     => 465
             ],
         ],
 
         // ClientScript
         'clientScript' => [
-            'class' => 'ClientScript',
-            'packages' => $client_script_packages,
+            'class'              => 'ClientScript',
+            'packages'           => $client_script_packages,
             'coreScriptPosition' => CClientScript::POS_END
         ],
-
-        // Redis
-        'redis' => [
-            'class' => 'ext.phpredis.ARedisConnection',
-            'hostname' => 'localhost',
-            'port' => '6379'
-        ]
     ],
 
-	'params' => $application_params,
+    'params'         => $application_params,
     // Locale settings
     'sourceLanguage' => 'uk_UA',
-    'language' => 'en',
-    'charset' => 'utf-8'
+    'language'       => 'en',
+    'charset'        => 'utf-8'
 ];

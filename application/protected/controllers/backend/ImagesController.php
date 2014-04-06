@@ -54,10 +54,11 @@ class ImagesController extends BackendController
 
     public function before_update($model)
     {
+        $model->setScenario('update');
         $model->detachBehavior('file');
         $model->attachBehavior('file', [
             'class'                 => 'ImageBehavior',
-            'image_field'           => 'image',
+            'image_attribute'       => 'image',
             'is_ajax_upload'        => false,
             'image_folder'          => 'public/uploads/images/gallery',
             'temp_folder'           => 'public/uploads/temp',
@@ -127,10 +128,10 @@ class ImagesController extends BackendController
 
         if (empty($model->type))
         {
-            throw new CException("Type not specified");
+            throw new CHttpException("Type not specified");
         }
 
-        $model->owner_id = get_param('owner_id');
+        $model->owner_id = get_param('owner_id', null);
 
         return $model->search();
     }

@@ -28,35 +28,18 @@ class Text
 
     public static function to_param($source)
     {
-         $replace=array(
-            "." => "",
-            "," => "",
-            "!" => "",
-            "?" => "",
-            ":" => "",
-            ";" => "",
-            "#" => "",
-            "+" => "",
-            "-" => '',
-            " " => "-",
-            "'" => "",
-            "`" => "",
+         $replace = array(
+            "." => "", "," => "", "!" => "", "?" => "", ":" => "", ";" => "", "#" => "", 
+            "+" => "", "-" => '', " " => "-", "'" => "", "`" => "" 
         );
-        $string = strtr( $string, $replace );
 
+        $string = strtr( $source, $replace );
         $string = trim( $string);
 
-        if ( $toTranslit )
-        {
-            return $this->getTranslit( strtolower( $string ) );
-        }
-        else
-        {
-            return strtolower( $string ) ;
-        }
+        return strtolower( $string ) ;
     }
 
-    public static function transliterate($string)
+    public static function transliterate($source)
     {
         $replace = [
             " " => "-", "'" =>"", "`" =>"", "а" =>"a", "А"=>"a", "б" =>"b", "Б"=>"b", "в" =>"v", "В"=>"v",
@@ -73,7 +56,7 @@ class Text
             "UTF-8",
             "CP1251//IGNORE",
             strtr(
-                $string,
+                $source,
                 $replace
             )
         );

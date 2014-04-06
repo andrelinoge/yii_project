@@ -17,6 +17,7 @@ $this->widget(
                 'htmlOptions' => ['style' => 'width: 50px;']
             ],
             'title',
+            'alias',
             [
                 'name' => 'created_at',
                 'type' => 'datetime',
@@ -26,7 +27,7 @@ $this->widget(
                 'header' => _('Actions'),
                 'class' => 'bootstrap.widgets.TbJsonButtonColumn',
                 'htmlOptions' => ['style' => 'width: 125px; text-align: center' ],
-                'template' => '{gallery} {view} {update} {delete}',
+                'template' => '{view} {update} {delete}',
                 'buttons' => [
                     'update' => [
                         'options' => [

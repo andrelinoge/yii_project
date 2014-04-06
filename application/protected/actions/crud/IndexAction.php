@@ -18,7 +18,7 @@ class IndexAction extends BaseCrudAction
             $this->controller->renderPartial(
                 $this->ajax_view, [
                     'data_provider' => $data_provider,
-                    'model' => $data_provider->model
+                    'model'         => $data_provider->model
                 ]
             );
         }
@@ -27,7 +27,8 @@ class IndexAction extends BaseCrudAction
             $this->controller->render(
                 $this->view, array_merge($this->view_assigns, [
                     'data_provider' => $data_provider,
-                    'model' => $data_provider->model
+                    'model'         => $data_provider->model,
+                    'partial_view'  => $this->ajax_view
                 ])
             );
         }

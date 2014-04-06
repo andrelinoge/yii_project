@@ -24,14 +24,27 @@
         <? endif; ?>
     </div>
 
-    <div class="form-group" <? if ($model->hasErrors('category')): ?> has-error <? endif; ?>>
-        <label class="control-label">Category</label>
-        <select class="form-control">
-            <option>1</option>
-        </select>
+    <div class="form-group <? if ($model->hasErrors('alias')): ?> has-error <? endif; ?>">
+        <label class="control-label">Alias</label>
+        <?= $form->textField($model, 'alias', ['class' => 'form-control']); ?>
 
-        <? if ($model->hasErrors('category')): ?>
-            <span class="error"><?= $model->getError('category')?></span>
+        <? if ($model->hasErrors('alias')): ?>
+            <span class="error"><?= $model->getError('alias')?></span>
+        <? endif; ?>
+    </div>
+
+    <div class="form-group" <? if ($model->hasErrors('category_id')): ?> has-error <? endif; ?>>
+        <label class="control-label">Category</label>
+
+        <?= $form->dropDownList(
+            $model, 
+            'category_id', 
+            ['' => '[Select category]'] + ArticleCategory::model()->get_titles_list()
+            , ['class' => 'form-control']
+        ); ?>
+
+        <? if ($model->hasErrors('category_id')): ?>
+            <span class="error"><?= $model->getError('category_id')?></span>
         <? endif; ?>
     </div>
 

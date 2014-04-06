@@ -53,7 +53,7 @@ class CategoryBehavior extends CActiveRecordBehavior
         $result = [];
         foreach($items as $item)
         {
-            $result[$item[$this->aliasAttribute]] = $item[$this->titleAttribute];
+            $result[$item[$this->alias_attribute]] = $item[$this->title_attribute];
         }
 
         return $result;

@@ -11,9 +11,9 @@
  * @property string $title
  * @property string $lang
  */
-class Slide extends Image
+class WorkGallery extends Image
 {
-    public $type = 'Slider';
+    public $type = 'WorkGallery';
 
     public function behaviors()
     {
@@ -25,7 +25,7 @@ class Slide extends Image
                 'image_folder'          => 'public/uploads/images/slider',
                 'temp_folder'           => 'public/uploads/temp',
                 'thumbnails'            => [
-                    'm' => [700, 700],
+                    'm' => [260, 180],
                     's' => [100, 100]
                 ]
             ]

@@ -2,7 +2,7 @@
 class ImageBehavior extends CActiveRecordBehavior
 {
     public $image_folder;
-    public $image_field;
+    public $image_attribute;
     public $temp_folder;
     public $thumbnails = [];
 
@@ -27,14 +27,14 @@ class ImageBehavior extends CActiveRecordBehavior
 
     public function afterFind($event)
     {
-        $this->initial_image = $this->owner->{$this->image_field};
+        $this->initial_image = $this->owner->{$this->image_attribute};
     }
 
     public function afterSave()
     {
-        if ( $this->initial_image != $this->owner->{$this->image_field} )
+        if ( $this->initial_image != $this->owner->{$this->image_attribute} )
         {
-            $this->initial_image = $this->owner->{$this->image_field};
+            $this->initial_image = $this->owner->{$this->image_attribute};
         }
     }
 
@@ -63,11 +63,11 @@ class ImageBehavior extends CActiveRecordBehavior
                 throw new CException($e->message);
             }
 
-            $this->owner->{$this->image_field} = $image_handler->getBaseFileName();
+            $this->owner->{$this->image_attribute} = $image_handler->getBaseFileName();
 
             return [
                 'file_name' => $image_handler->getBaseFileName(),
-                'image_src' => '/application/' . $this->temp_folder . $image_handler->getBaseFileName()
+                'image_src' => '/application/' . $this->temp_folder . '/'. $image_handler->getBaseFileName()
             ];
         }
         else
@@ -95,11 +95,11 @@ class ImageBehavior extends CActiveRecordBehavior
     {
         if (!empty($prefix) && in_array($prefix, array_keys($this->thumbnails)))
         {
-            return $this->get_base_image_path() . $prefix . $this->owner->{$this->image_field};
+            return $this->get_base_image_path() . $prefix . $this->owner->{$this->image_attribute};
         }
         else
         {
-            return $this->get_base_image_path() . $this->owner->{$this->image_field};
+            return $this->get_base_image_path() . $this->owner->{$this->image_attribute};
         }
     }
 
@@ -136,7 +136,7 @@ class ImageBehavior extends CActiveRecordBehavior
 
     protected function ajax_upload()
     {
-        if (!empty($this->owner->{$this->image_field}))
+        if (!empty($this->owner->{$this->image_attribute}))
         {
             $image_folder = $this->get_absolute_image_path();
             $temp_folder = $this->get_absolute_temp_path();
@@ -150,17 +150,17 @@ class ImageBehavior extends CActiveRecordBehavior
 
             $image_handler = new CImageHandler();
 
-            $image_handler->load( $temp_folder . $this->owner->{$this->image_field} );
+            $image_handler->load( $temp_folder . $this->owner->{$this->image_attribute} );
             $image_handler->save( $image_folder . $image_handler->getBaseFileName() );
 
-            @unlink( $temp_folder . $this->owner->{$this->image_field} );
+            @unlink( $temp_folder . $this->owner->{$this->image_attribute} );
             $this->create_thumbnails($image_handler->getBaseFileName());
         }
     }
 
     protected function non_ajax_upload()
     {
-        $image = CUploadedFile::getInstance($this->owner, $this->image_field);
+        $image = CUploadedFile::getInstance($this->owner, $this->image_attribute);
         if ($image)
         {
             $image_folder = $this->get_absolute_image_path();
@@ -173,7 +173,7 @@ class ImageBehavior extends CActiveRecordBehavior
             $this->delete_old_image();
             $image->saveAs($image_folder . $image->name);
 
-            $this->owner->{$this->image_field} = $image->name;
+            $this->owner->{$this->image_attribute} = $image->name;
             $this->create_thumbnails($image->name);
         }
     }

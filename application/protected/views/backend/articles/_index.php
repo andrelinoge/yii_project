@@ -17,6 +17,12 @@ $this->widget(
                 'htmlOptions' => ['style' => 'width: 50px;']
             ],
             'title',
+            'alias',
+            [
+                'name' => 'category_id',
+                'value' => '$data->category->title',
+                'htmlOptions' => ['style' => 'width: 175px;']
+            ],
             [
                 'name' => 'created_at',
                 'type' => 'datetime',

@@ -9,8 +9,8 @@ class BackendMenu
     {
         $menuItems = [];
         $menuItems[] = [
-            'title' => _( 'Home' ) ,
-            'url' => url( 'site/index' ),
+            'title'          => _( 'Home' ) ,
+            'url'            => url( 'site/index' ),
             'activityMarker' => 'site'
         ];
 
@@ -19,10 +19,10 @@ class BackendMenu
             'activityMarker' => 'Slider',
             'items' => [
                 [
-                    'title' => _( 'Все' ),
-                    'url' => url( 'Slider/index' ),
+                    'title'          => _( 'Все' ),
+                    'url'            => url( 'slider/index', ['type' => 'Slide'] ),
                     'activityMarker' => 'index'
-                ]
+                ],
             ]
         ];
 
@@ -31,13 +31,13 @@ class BackendMenu
             'activityMarker' => 'articles',
             'items' => [
                 [
-                    'title' => _( 'All' ),
-                    'url' => url( 'articles/index' ),
+                    'title'          => _( 'All' ),
+                    'url'            => url( 'articles/index' ),
                     'activityMarker' => 'index'
                 ],
                 [
-                    'title' => _( 'New' ),
-                    'url' => url( 'articles/new' ),
+                    'title'          => _( 'New' ),
+                    'url'            => url( 'articles/new' ),
                     'activityMarker' => 'new'
                 ]
             ]
@@ -48,13 +48,13 @@ class BackendMenu
             'activityMarker' => 'articleCategories',
             'items' => [
                 [
-                    'title' => _( 'All' ),
-                    'url' => url( 'articleCategories/index' ),
+                    'title'          => _( 'All' ),
+                    'url'            => url( 'articleCategories/index' ),
                     'activityMarker' => 'index'
                 ],
                 [
-                    'title' => _( 'New' ),
-                    'url' => url( 'articleCategories/new' ),
+                    'title'          => _( 'New' ),
+                    'url'            => url( 'articleCategories/new' ),
                     'activityMarker' => 'new'
                 ]
             ]
@@ -65,13 +65,13 @@ class BackendMenu
             'activityMarker' => 'faqs',
             'items' => [
                 [
-                    'title' => _( 'All' ),
-                    'url' => url( 'faqs/index' ),
+                    'title'          => _( 'All' ),
+                    'url'            => url( 'faqs/index' ),
                     'activityMarker' => 'index'
                 ],
                 [
-                    'title' => _( 'New' ),
-                    'url' => url( 'faqs/new' ),
+                    'title'          => _( 'New' ),
+                    'url'            => url( 'faqs/new' ),
                     'activityMarker' => 'new'
                 ]
             ]
@@ -82,20 +82,32 @@ class BackendMenu
             'activityMarker' => 'messages',
             'items' => [
                 [
-                    'title' => _( 'All' ),
-                    'url' => url( 'messages/index' ),
+                    'title'          => _( 'All' ),
+                    'url'            => url( 'messages/index' ),
                     'activityMarker' => 'index'
                 ],
                 [
-                    'title' => _( 'Read' ),
-                    'url' => url( 'messages/read' ),
+                    'title'          => _( 'Read' ),
+                    'url'            => url( 'messages/read' ),
                     'activityMarker' => 'read'
                 ],
                 [
-                    'title' => _( 'Unread' ),
-                    'url' => url( 'messages/unread' ),
+                    'title'          => _( 'Unread' ),
+                    'url'            => url( 'messages/unread' ),
                     'activityMarker' => 'unread'
                 ]
+            ]
+        ];
+
+        $menuItems[] = [
+            'title' => _( 'Our works' ),
+            'activityMarker' => 'WorkGallery',
+            'items' => [
+                [
+                    'title'          => _( 'Все' ),
+                    'url'            => url( 'workGallery/index', ['type' => 'WorkGallery'] ),
+                    'activityMarker' => 'index'
+                ],
             ]
         ];
 

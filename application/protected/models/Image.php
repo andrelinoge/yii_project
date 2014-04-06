@@ -18,7 +18,7 @@ class Image extends CActiveRecord
         return [
             'file' => [
 				'class'                 => 'ImageBehavior',
-				'image_field'           => 'image',
+				'image_attribute'       => 'image',
 				'is_ajax_upload'        => true,
 				'image_folder'          => 'public/uploads/images/gallery',
 				'temp_folder'           => 'public/uploads/temp',
@@ -47,6 +47,7 @@ class Image extends CActiveRecord
 			[ 'type', 'required' ],
 			[ 'image', 'file', 'allowEmpty' => false, 'types' => 'jpg, jpeg, png', 'on' => 'create' ],
 			[ 'image', 'file', 'allowEmpty' => true, 'types' => 'jpg, jpeg, png', 'on' => 'ajax_create' ],
+			[ 'image', 'file', 'allowEmpty' => true, 'types' => 'jpg, jpeg, png', 'on' => 'update' ],
 			[ 'image, description, title,', 'length', 'max' => 255 ],
 			[ 'type', 'length', 'max' => 20 ],
 			[ 'id, image, text, type, owner_id', 'safe', 'on' => 'search' ]
@@ -83,6 +84,8 @@ class Image extends CActiveRecord
 	public function search()
 	{
 		$criteria = new CDbCriteria;
+		$criteria->compare('type', $this->type);
+		$criteria->compare('owner_id', $this->owner_id);
 
 		$pagination = new CPagination();
         $pagination->pageSize = 30;

@@ -1,0 +1,183 @@
+/* Main Style */
+.switcher h3 {
+	font-size:13px;
+	margin: 1px 0 6px 0;
+	color:#626064;
+}
+
+.switcher {
+	background: url(../images/headerbg.png);
+	border-radius: 5px 0 5px 5px;
+    left:0;
+	width:140px;
+    padding: 10px;
+    position: fixed;
+    top:180px;
+    z-index: 1000;
+	font-family: "Segoe UI";
+}
+.switcher-inner{
+	background: none repeat scroll 0 0 #EFEFEF;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 8px rgba(50, 50, 50, 0.5);
+    padding:5px 15px;
+}
+
+.switcher h2 {
+	color: #626064;
+	font-size: 14px;
+	border-bottom:1px dotted #ccc;
+	padding: 5px 0 6px 0;
+	margin:0;
+}
+.switcher h2 a {
+	background: url(../images/Setting-icon.png) no-repeat 0 0;
+	border-radius: 0 4px 4px 0;
+    display: block;
+    height: 47px;
+    position: absolute;
+    right: -35px;
+    text-indent: -9999px;
+    top: 35px;
+    width:45px;
+	outline:none;
+}
+
+.switcher .content {
+	padding:5px 0 5px 0;
+	overflow:hidden;
+}
+
+/* Layout Box */
+.layout-switcher {
+	margin:0 0 10px 0;
+	overflow:hidden;
+}
+
+.layout-switcher a.layout {
+	padding: 6px 7px 8px 7px;
+	border-radius: 2px;
+	color: #797878;
+	border: 2px solid #EAEAEA;
+	width: 39px;
+	cursor: pointer;
+	float: left;
+	display: block;
+	margin: 0 6px 0 0;
+	text-align: center;
+	background: white;
+}
+
+/*.layout-switcher a.layout.selected3 {
+	color: #474646;
+	cursor: default;
+	border: 2px solid #474646;
+}
+
+*/
+
+/* Color Box */
+.switcher-box {
+	height:auto;
+	overflow:hidden;
+	margin-bottom:6px;
+}
+ul.color_schemes{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+ul.color_schemes li{
+	color:#000;
+	font-size:12px;
+	line-height:25px;
+}
+ul.color_schemes li a{
+	display: inline-block;
+}
+ul.color_schemes li a{
+	width:100px;
+    height:25px;
+	color:#fff;
+	font-weight:bold;
+	font-size:12px;
+	line-height:25px;
+	font-family:Arial, Helvetica, sans-serif;
+	text-align:center;
+	display:inline-block;
+	border-radius: 5px;
+	margin: 0 4px 4px 0;
+	cursor:pointer;
+}
+ul.color_schemes li a:hover{
+	text-decoration:none;
+}
+/*.styleswitch.selected { box-shadow: 0 0 0 2px #474646 inset; }*/
+
+.styleswitch#default{ background-color:#649300; }
+.styleswitch#default:hover{ background-color:#7fb902; }
+
+.styleswitch#dark{background-color:#373c0c; }
+.styleswitch#dark:hover{background-color:#555b22; }
+
+.styleswitch#grey{background-color:#222626; }
+.styleswitch#grey:hover{background-color:#444e4e; }
+
+.styleswitch#blue {background-color:#07a9c0; }
+.styleswitch#blue:hover{background-color:#11d7f3; }
+
+.styleswitch#purple{background-color:#3b0032; }
+.styleswitch#purple:hover{background-color:#5f0351; }
+
+/*ul.color_schemes li a.blue   { color:#0577c5; }
+ul.color_schemes li a.golden { color:#976b2e; }
+ul.color_schemes li a.purple { color:#48164d; }
+ul.color_schemes li a.red    { color:#bf0000; }
+ul.color_schemes li a.default  { color:#c0306f; }*/
+
+/* Background Box */
+.bg {
+	height:auto;
+	overflow:hidden;
+	margin-bottom:6px;
+}
+
+.pattern {
+	width: 21px;
+    height: 24px;
+	display: block;
+	cursor: pointer;
+	margin: 0 4px 4px 0;
+	float:left;
+	box-shadow: 0 0 0 1px #D6D2D2 inset;
+}
+
+/*.pattern.selected2 { box-shadow: 0 0 0 2px #474646 inset; }*/
+
+.pattern#crossed { background: url("http://themes.jozoor.com/crevision/white/css/layout/icons/crossed.png") no-repeat ; }
+.pattern#fabric  { background: url("http://themes.jozoor.com/crevision/white/css/layout/icons/fabric.png") no-repeat ; }
+.pattern#linen   { background: url("http://themes.jozoor.com/crevision/white/css/layout/icons/linen.png") no-repeat ; }
+.pattern#wood    { background: url("http://themes.jozoor.com/crevision/white/css/layout/icons/wood.png") no-repeat ; }
+.pattern#diagmonds    { background: url("http://themes.jozoor.com/crevision/white/css/layout/icons/diagmonds.png") no-repeat ; }
+.pattern#triangles    { background: url("http://themes.jozoor.com/crevision/white/css/layout/icons/triangles.png") no-repeat ; }
+.pattern#black_mamba    { background: url("http://themes.jozoor.com/crevision/white/css/layout/icons/black_mamba.png") no-repeat ; }
+.pattern#vichy    { background: url("http://themes.jozoor.com/crevision/white/css/layout/icons/vichy.png") no-repeat ; }
+.pattern#back_pattern    { background: url("http://themes.jozoor.com/crevision/white/css/layout/icons/back_pattern.png") no-repeat ; }
+.pattern#checkered_pattern    { background: url("http://themes.jozoor.com/crevision/white/css/layout/icons/checkered_pattern.png") no-repeat ; }
+.pattern#diamond_upholstery    { background: url("http://themes.jozoor.com/crevision/white/css/layout/icons/diamond_upholstery.png") no-repeat ; }
+.pattern#lyonnette    { background: url("http://themes.jozoor.com/crevision/white/css/layout/icons/lyonnette.png") no-repeat ; }
+.pattern#graphy    { background: url("http://themes.jozoor.com/crevision/white/css/layout/icons/graphy.png") no-repeat ; }
+.pattern#black_thread    { background: url("http://themes.jozoor.com/crevision/white/css/layout/icons/black_thread.png") no-repeat ; }
+.pattern#subtlenet2    { background: url("http://themes.jozoor.com/crevision/white/css/layout/icons/subtlenet2.png") no-repeat ; }
+
+/* Dark Style */
+a.dark-style {
+	display:block;
+	padding:9px 0 11px 0;
+	text-align:center;
+	background:#292929;
+	color:#fff;
+}
+
+/* Media Queries
+================================================== */

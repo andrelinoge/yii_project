@@ -1,7 +1,4 @@
 <?php
-/* @var $this SiteController */
-/* @var $model LoginForm */
-/* @var $form CActiveForm  */
 
 Yii::app()
     ->clientScript
@@ -16,8 +13,8 @@ Yii::app()
         '',
         'post',
         [
-            'id' => 'login-form',
-            'name' => get_class( $model ),
+            'id'    => 'login-form',
+            'name'  => get_class( $model ),
             'class' => 'ajax-form'
         ]
     );
@@ -29,7 +26,7 @@ Yii::app()
                 'email',
                 [
                     'placeholder' => 'Email',
-                    'class' => 'form-control'
+                    'class'       => 'form-control'
                 ]
             );
             ?>
@@ -41,7 +38,7 @@ Yii::app()
                 'password',
                 [
                     'placeholder' => 'Password',
-                    'class' => 'form-control'
+                    'class'       => 'form-control'
                 ]
             );
             ?>

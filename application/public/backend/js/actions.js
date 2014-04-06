@@ -1,8 +1,4 @@
-/* file:           actions.js
- * version:        1.2
- * last changed:   13.02.2014
- * description:    In this file you will find all template actions and controllers
-*/
+
 $(document).ready(function(){        
     
     navigation_state = navigation_state_was = $(".page-navigation").hasClass('page-navigation-closed');

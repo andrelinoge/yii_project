@@ -24,12 +24,12 @@
         <? endif; ?>
     </div>
 
-    <div class="form-group <? if ($model->hasErrors('text')): ?> has-error <? endif; ?>">
+    <div class="form-group <? if ($model->hasErrors('content')): ?> has-error <? endif; ?>">
         <label class="control-label">Text</label>
-        <?= $form->textArea($model, 'text', ['class' => 'ckeditor']); ?>
+        <?= $form->textArea($model, 'content', ['class' => 'ckeditor']); ?>
 
-        <? if ($model->hasErrors('text')): ?>
-            <span class="error"><?= $model->getError('text')?></span>
+        <? if ($model->hasErrors('content')): ?>
+            <span class="error"><?= $model->getError('content')?></span>
         <? endif; ?>
     </div>
 

@@ -59,7 +59,7 @@ $assets = $this->get_behavioral_url();
                         <li class="dropdown-header" role="presentation">Profile Menu</li>
                         <li><a href="#">Settings</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Logout</a></li>
+                        <li><a href="<?= url('site/logout'); ?>">Logout</a></li>
                     </ul>
                 </div>
             </div>

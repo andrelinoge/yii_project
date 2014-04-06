@@ -1,8 +1,7 @@
 <?
-/** @var $this BackendController */
 $this->breadcrumbs = [
-    ['name' => 'Faqs', 'url' => url('faqs/index')],
-    ['name' => 'Edit article']
+    ['title' => 'Faqs', 'url' => url('faqs/index')],
+    ['title' => 'Edit article']
 ];
 ?>
 
@@ -17,7 +16,7 @@ $this->breadcrumbs = [
                 <? $this->renderPartial(
                     '_form',
                     [
-                        'model' => $model,
+                        'model'       => $model,
                         'form_action' => $this->createUrl('update', ['id' => $model->id])
                     ]
                 ); ?>

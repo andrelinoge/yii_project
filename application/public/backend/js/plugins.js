@@ -216,5 +216,7 @@ $(document).ready(function(){
          return jQuery(a).text().toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
      };        
     //  
+
+    $('.dropdown-toggle').dropdown()
     
 });

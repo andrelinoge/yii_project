@@ -1,7 +1,8 @@
 <?
+/** @var $this BackendController */
 $this->breadcrumbs = [
-    ['title' => 'Faqs', 'url' => url('faqs/index')],
-    ['title' => 'New article']
+    ['title' => 'Article categories', 'url' => url('articleCategories/index')],
+    ['title' => 'Edit category']
 ];
 ?>
 
@@ -9,7 +10,7 @@ $this->breadcrumbs = [
     <div class="col-md-12">
         <div class="block">
             <div class="block-head">
-                <h2>New faq</h2>
+                <h2>Edit category "<?= $model->title; ?>"</h2>
             </div>
 
             <div class="block-content">
@@ -17,7 +18,7 @@ $this->breadcrumbs = [
                     '_form',
                     [
                         'model'       => $model,
-                        'form_action' => $this->createUrl('create')
+                        'form_action' => $this->createUrl('update', ['id' => $model->id])
                     ]
                 ); ?>
             </div>

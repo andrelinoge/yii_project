@@ -1,8 +1,7 @@
 <?
-/** @var $this BackendController */
 $this->breadcrumbs = [
-    ['name' => 'Faqs', 'url' => url('faqs/index')],
-    ['name' => 'New article']
+    ['title' => 'Faqs', 'url' => url('faqs/index')],
+    ['title' => 'New article']
 ];
 ?>
 
@@ -19,7 +18,7 @@ $this->breadcrumbs = [
         <?
             $this->renderPartial('_index', [
                 'data_provider' => $data_provider,
-                'model' => $model
+                'model'         => $model
             ]);
         ?>
     </div>

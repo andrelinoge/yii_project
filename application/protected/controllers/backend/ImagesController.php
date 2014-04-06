@@ -8,7 +8,7 @@ class ImagesController extends BackendController
             'index' => [
                 'class'                 => 'application.actions.crud.IndexAction',
                 'view'                  => 'index',
-                'ajax_view'             => '_index'
+                'ajax_view'             => '_index',
             ],
             'edit' => [
                 'class'                 => 'application.actions.crud.EditAction',
@@ -71,6 +71,53 @@ class ImagesController extends BackendController
     public function before_upload($model)
     {
         $model->setScenario('ajax_create');
+    }
+
+    public function before_index($data_provider)
+    {
+        $type     = get_param('type');
+        $owner_id = get_param('owner_id');
+        $owner    = false;
+
+        if ($type && $owner_id)
+        {
+            $type = ucfirst($type);
+            $owner_model = new $type;
+            $owner = $owner_model->findByPk($owner_id);
+        }
+         
+        if ($owner)
+        {
+            switch($type)
+            {
+                case 'Article': 
+                    $collection_url = url('articles/index');
+                    $item_url       = url('articles/view', ['id' => $owner_id]);
+                    break;
+
+                default:
+                    $collection_url = '#';
+                    $item_url       = '#';
+            }
+
+            $this->breadcrumbs = [
+                [
+                    'url' => $collection_url,
+                    'title' => 'Articles'
+                ],
+                [
+                    'url' => $item_url,
+                    'title' => $owner->title
+                ],
+                ['title' => 'Gallery']
+            ];
+        }
+        else
+        {
+            $this->breadcrumbs = [
+                ['title' => 'Gallery']
+            ];
+        }
     }
 
     public function get_collection_provider()

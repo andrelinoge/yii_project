@@ -1,8 +1,7 @@
 <?
-/** @var $this BackendController */
 $this->breadcrumbs = [
-    ['name' => 'Articles', 'url' => url('articles/index')],
-    ['name' => 'Preview']
+    ['title' => 'Articles', 'url' => url('articles/index')],
+    ['title' => 'Preview']
 ];
 ?>
 
@@ -14,7 +13,7 @@ $this->breadcrumbs = [
             </div>                 
         </div>
         <div class="block-content">
-            <p><?= $model->text; ?></p>
+            <p><?= $model->content; ?></p>
         </div>
     </div>
 </div>

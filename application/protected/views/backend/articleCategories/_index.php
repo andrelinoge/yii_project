@@ -16,17 +16,7 @@ $this->widget(
                 'header' => '#',
                 'htmlOptions' => ['style' => 'width: 50px;']
             ],
-            'name',
-            'email',
-            [
-                'name' => 'content',
-                'value' => 'Text::truncate($data->content, 50, true)'
-            ],
-            [
-                'name' => 'is_read',
-                'type' => 'boolean',
-                'htmlOptions' => ['style' => 'width: 75px;']
-            ],
+            'title',
             [
                 'name' => 'created_at',
                 'type' => 'datetime',
@@ -35,22 +25,22 @@ $this->widget(
             [
                 'header' => _('Actions'),
                 'class' => 'bootstrap.widgets.TbJsonButtonColumn',
-                'htmlOptions' => ['style' => 'width: 75px; text-align: center' ],
-                'template' => '{view} {delete}',
+                'htmlOptions' => ['style' => 'width: 125px; text-align: center' ],
+                'template' => '{gallery} {view} {update} {delete}',
                 'buttons' => [
-                    'view' => [
+                    'update' => [
                         'options' => [
-                            'class' => 'btn btn-xs btn-default'
+                            'class' => 'btn btn-xs btn-warning'
                         ],
-                        'icon' => 'fa fa-eye',
-                        'url' => 'url("messages/view", ["id" => $data->id])'
+                        'icon' => 'fa fa-pencil',
+                        'url' => 'url("articleCategories/edit", ["id" => $data->id])'
                     ],
                     'delete' => [
                         'options' => [
                             'class' => 'btn btn-xs btn-danger'
                         ],
                         'icon' => 'fa fa-times',
-                        'url' => 'url("messages/delete", ["id" => $data->id])'
+                        'url' => 'url("articleCategories/delete", ["id" => $data->id])'
                     ]
                 ]
             ]

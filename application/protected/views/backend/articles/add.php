@@ -1,8 +1,8 @@
 <?
 /** @var $this BackendController */
 $this->breadcrumbs = [
-    ['name' => 'Articles', 'url' => url('articles/index')],
-    ['name' => 'New article']
+    ['title' => 'Articles', 'url' => url('articles/index')],
+    ['title' => 'New article']
 ];
 ?>
 

@@ -35,29 +35,6 @@
         <? endif; ?>
     </div>
 
-    <div class="form-group <? if ($model->hasErrors('cover_image')): ?> has-error <? endif; ?>">
-        <? if ($model->cover_image): ?>
-            <div class="pull-left col-md-2">
-                <div class="block">
-                    <div class="block-content">
-                        <img class="fancybox" src="<?= $model->cover->get_image_url('s'); ?>">
-                    </div>
-                </div>
-            </div>
-        <? endif; ?>
-
-        <div class="pull-left">
-            <label class="control-label">Cover</label>
-            <?= $form->fileField($model, 'cover_image'); ?>
-
-            <? if ($model->hasErrors('cover_image')): ?>
-                <span class="error"><?= $model->getError('cover_image')?></span>
-            <? endif; ?>
-        </div>
-    </div>
-
-    <div class="clearfix"></div>
-
 
     <div class="form-group <? if ($model->hasErrors('content')): ?> has-error <? endif; ?>">
         <label class="control-label">Text</label>

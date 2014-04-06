@@ -6,7 +6,7 @@
  * The followings are the available columns in table 'faqs':
  * @property integer $id
  * @property string $title
- * @property string $text
+ * @property string $content
  */
 class Faq extends CActiveRecord
 {
@@ -24,9 +24,9 @@ class Faq extends CActiveRecord
 	public function rules()
 	{
 		return array(
-			array('title, text', 'required'),
+			array('title, content', 'required'),
 			array('title', 'length', 'max'=>255),
-			array('id, title, text', 'safe', 'on'=>'search'),
+			array('id, title, content', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -44,9 +44,9 @@ class Faq extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'title' => 'Title',
-			'text' => 'Text',
+			'id'      => 'ID',
+			'title'   => 'Title',
+			'content' => 'Text',
 		);
 	}
 
@@ -57,7 +57,6 @@ class Faq extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('title',$this->title,true);
-		$criteria->compare('text',$this->text,true);
 
         $pagination = new CPagination();
         $pagination->pageSize = 25;
@@ -67,9 +66,9 @@ class Faq extends CActiveRecord
         $sort->attributes = ['id', 'title'];
 
         return new CActiveDataProvider($this, array(
-            'criteria' => $criteria,
-            'pagination' => $pagination,
-            'sort' => $sort
+			'criteria'   => $criteria,
+			'pagination' => $pagination,
+			'sort'       => $sort
         ));
 	}
 

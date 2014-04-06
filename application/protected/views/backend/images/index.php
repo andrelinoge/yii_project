@@ -1,16 +1,10 @@
 <?
-/** @var $this BackendController */
-$this->breadcrumbs = [
-    ['name' => 'Images']
-];
 
 $assets = $this->get_behavioral_url();
 
 Yii::app()->clientScript
     ->registerPackage('uploader')
     ->registerScriptFile($assets . '/js/controllers/imageController.js');
-
-
 ?>
 
 <div class="row">

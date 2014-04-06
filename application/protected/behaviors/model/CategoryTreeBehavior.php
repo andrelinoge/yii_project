@@ -229,7 +229,7 @@ class CategoryTreeBehavior extends CategoryBehavior
      * @param string $separator
      * @return string
      */
-    public function getPath($separator='/', $limit = 10)
+    public function get_url($separator='/', $limit = 10)
     {
 		$category = $this->getOwner();
 		$uri      = [$category->{$this->alias_attribute}];
@@ -248,9 +248,9 @@ class CategoryTreeBehavior extends CategoryBehavior
      * @param bool $lastLink if you can have link in last element
      * @return array
      */
-    public function get_breadcrumbs($last_link=false, $limit = 10)
+    public function get_breadcrumbs($last_link = false, $limit = 10)
     {
-        if ($lastLink)
+        if ($last_link)
         {
             $breadcrumbs = [[
 				'title' => $this->getOwner()->{$this->title_attribute},

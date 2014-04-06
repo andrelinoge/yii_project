@@ -7,7 +7,7 @@
  * @property integer $id
  * @property string $name
  * @property string $email
- * @property string $text
+ * @property string $content
  * @property string $created_at
  * @property string $updated_at
  * @property integer $is_read
@@ -28,10 +28,10 @@ class ContactMessage extends CActiveRecord
 	public function rules()
 	{
 		return array(
-			array('name, email, text, created_at, updated_at, is_read', 'required'),
+			array('name, email, content, created_at, updated_at, is_read', 'required'),
 			array('is_read', 'numerical', 'integerOnly'=>true),
 			array('name, email', 'length', 'max'=>255),
-			array('id, name, email, text, created_at, updated_at, is_read', 'safe', 'on'=>'search'),
+			array('id, name, email, content, created_at, updated_at, is_read', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -49,13 +49,13 @@ class ContactMessage extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'name' => 'Name',
-			'email' => 'Email',
-			'text' => 'Text',
+			'id'         => 'ID',
+			'name'       => 'Name',
+			'email'      => 'Email',
+			'content'    => 'Text',
 			'created_at' => 'Created At',
 			'updated_at' => 'Updated At',
-			'is_read' => 'Is Read',
+			'is_read'    => 'Is Read'
 		);
 	}
 
@@ -70,7 +70,6 @@ class ContactMessage extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('email',$this->email,true);
-		$criteria->compare('text',$this->text,true);
 		$criteria->compare('created_at',$this->created_at,true);
 		$criteria->compare('updated_at',$this->updated_at,true);
 		$criteria->compare('is_read',$this->is_read);
@@ -93,9 +92,9 @@ class ContactMessage extends CActiveRecord
         $sort->attributes = ['id', 'name', 'email', 'created_at'];
 
         return new CActiveDataProvider($this, array(
-            'criteria' => $criteria,
-            'pagination' => $pagination,
-            'sort' => $sort
+			'criteria'   => $criteria,
+			'pagination' => $pagination,
+			'sort'       => $sort
         ));
     }
 
@@ -112,9 +111,9 @@ class ContactMessage extends CActiveRecord
         $pagination->pageSize = 5;
 
         return new CActiveDataProvider($this, array(
-            'criteria' => $criteria,
-            'pagination' => $pagination,
-            'sort' => $sort
+			'criteria'   => $criteria,
+			'pagination' => $pagination,
+			'sort'       => $sort
         ));
     }
 

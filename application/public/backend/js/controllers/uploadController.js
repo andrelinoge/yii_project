@@ -8,10 +8,10 @@ UploaderController = (function() {
     function UploaderController()
     {}
 
-    UploaderController.prototype.initialize = function( handler_url, element_id, uploader_settings, data_to_send )
+    UploaderController.prototype.initialize = function( handler_url, button_id, uploader_settings, data_to_send )
     {
         uploader_settings.action = handler_url;
-        uploader_settings.button = document.getElementById( element_id );
+        uploader_settings.button = document.getElementById( button_id );
         uploader_settings.debug = false;
         uploader_settings.showMessage = function(message){ console.log(message) }
         uploader_settings.maxConnections = 2;

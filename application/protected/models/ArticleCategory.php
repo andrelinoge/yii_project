@@ -1,29 +1,40 @@
-<?
+<?php
 
 /**
- * This is the model class for table "articles".
+ * This is the model class for table "article_categories".
  *
- * The followings are the available columns in table 'articles':
+ * The followings are the available columns in table 'categories':
  * @property integer $id
- * @property integer $category_id
- * @property string $created_at
- * @property string $updated_at
- * @property string $cover_image
  * @property string $title
  * @property string $content
+ * @property string $alias
  * @property string $meta_keywords
  * @property string $meta_description
- * @property string $alias
- * @property string $type
+ * @property integer $type
+ * @property integer $parent_id
  */
-class Article extends BaseArticle
+class ArticleCategory extends BaseCategory
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'articles';
+		return 'article_categories';
+	}
+
+	/**
+	 * @return array validation rules for model attributes.
+	 */
+	public function rules()
+	{
+		return array(
+			array('title, content', 'required'),
+			array('type, parent_id', 'numerical', 'integerOnly'=>true),
+			array('title, alias, meta_keywords, meta_description', 'length', 'max'=>255),
+			
+			array('id, title, content, alias, meta_keywords, meta_description, type, parent_id', 'safe', 'on'=>'search'),
+		);
 	}
 
 	/**
@@ -32,7 +43,7 @@ class Article extends BaseArticle
 	public function relations()
 	{
 		return [
-			'category' => [static::BELONGS_TO, 'ArticleCategory', 'category_id']
+			'parent' => [static::BELONGS_TO, 'ArticleCategory', 'parent_id']
 		];
 	}
 
@@ -43,14 +54,13 @@ class Article extends BaseArticle
 	{
 		return array(
 			'id'               => 'ID',
-			'created_at'       => 'Created At',
-			'updated_at'       => 'Updated At',
-			'cover'            => 'Cover',
 			'title'            => 'Title',
-			'text'             => 'Text',
+			'content'          => 'Content',
+			'alias'            => 'Alias',
 			'meta_keywords'    => 'Meta Keywords',
 			'meta_description' => 'Meta Description',
-			'alias'            => 'Transliterated Title'
+			'type'             => 'Type',
+			'parent_id'        => 'Parent',
 		);
 	}
 
@@ -59,8 +69,6 @@ class Article extends BaseArticle
 		$criteria = new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('created_at',$this->created_at,true);
-		$criteria->compare('updated_at',$this->updated_at,true);
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('alias',$this->alias,true);
 
@@ -84,13 +92,13 @@ class Article extends BaseArticle
 	}
 
 	private $_url;
-
+	
 	public function get_url()
     {
         if ($this->_url === null)
         {
-            $this->_url = url($this->_route, ['category' => $this->category->alias, 'id' => $this->id]);
+            $this->_url = url($this->_route, ['category' => $this->alias]);
         }
         return $this->_url;
-    }   
+    }
 }

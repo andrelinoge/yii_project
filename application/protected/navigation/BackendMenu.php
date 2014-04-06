@@ -44,6 +44,23 @@ class BackendMenu
         ];
 
         $menuItems[] = [
+            'title' => _( 'Article categories' ),
+            'activityMarker' => 'articleCategories',
+            'items' => [
+                [
+                    'title' => _( 'All' ),
+                    'url' => url( 'articleCategories/index' ),
+                    'activityMarker' => 'index'
+                ],
+                [
+                    'title' => _( 'New' ),
+                    'url' => url( 'articleCategories/new' ),
+                    'activityMarker' => 'new'
+                ]
+            ]
+        ];
+
+        $menuItems[] = [
             'title' => _( 'Faq' ),
             'activityMarker' => 'faqs',
             'items' => [

@@ -19,7 +19,7 @@ class BreadCrumbs extends CWidget
             throw new CException( 'Wrong options format. Look widget php-doc for help.');
         }
 
-        $this->items = array_merge([[ 'name' => 'Dashboard', 'url' => url('site/index') ]], $this->items);   
+        $this->items = array_merge([[ 'title' => 'Dashboard', 'url' => url('site/index') ]], $this->items);   
     }
 
     public function run()

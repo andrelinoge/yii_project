@@ -1,7 +1,7 @@
 <?
 /** @var $this BackendController */
 $this->breadcrumbs = [
-    ['name' => 'Contact messages']
+    ['title' => 'Contact messages']
 ];
 ?>
 
@@ -18,7 +18,7 @@ $this->breadcrumbs = [
         <?
             $this->renderPartial('_index', [
                 'data_provider' => $data_provider,
-                'model' => $model
+                'model'         => $model
             ]);
         ?>
     </div>

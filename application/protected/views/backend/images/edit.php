@@ -2,10 +2,10 @@
 /** @var $this BackendController */
 $this->breadcrumbs = [
     [
-        'name' => 'Images', 
-        'url' => url('image/index', ['owner_id' => $model->owner_id, 'type' => $model->type])
+        'title' => 'Images', 
+        'url'   => url('image/index', ['owner_id' => $model->owner_id, 'type' => $model->type])
     ],
-    [ 'name' => 'Edit image' ]
+    [ 'title' => 'Edit image' ]
 ];
 
 ?>
@@ -21,7 +21,7 @@ $this->breadcrumbs = [
                 <? $this->renderPartial(
                     '_form',
                     [
-                        'model' => $model,
+                        'model'       => $model,
                         'form_action' => $this->createUrl('update', ['id' => $model->id])
                     ]
                 ); ?>

@@ -3,23 +3,6 @@ abstract class BaseCategory extends CActiveRecord
 {    
     protected $_route = '';
 
-    public function behaviors()
-    {
-        return array(
-            'Category' => [
-                'class'            => 'CategoryBehavior',
-                'title_attribute'  => 'title',
-                'alias_attribute'  => 'alias',
-                'default_criteria' => ['order' => 't.title ASC']
-            ],
-            'AliasBehavior' => [
-                'class'            => 'AliasBehavior',
-                'source_attribute' => 'title',
-                'alias_attribute'  => 'alias',
-            ]
-        );
-    } 
-
     public function rules()
     {
         return array(

@@ -8,7 +8,7 @@ $assets = $this->get_behavioral_url();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Gemini</title>
+    <title><?= Yii::app()->params['name']; ?></title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />

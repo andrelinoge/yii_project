@@ -38,6 +38,11 @@ class ImageBehavior extends CActiveRecordBehavior
         }
     }
 
+    public function afterDelete()
+    {
+        $this->delete_old_image();
+    }
+
     public function upload_to_temp_folder()
     {
         $temp_folder = $this->get_absolute_temp_path();
@@ -194,7 +199,7 @@ class ImageBehavior extends CActiveRecordBehavior
                 $image_handler->load( $image_folder . $file_name );
                 list( $width, $height ) = $dimensions;
                 $image_handler
-                    ->squareThumb( $width, $height )
+                    ->adaptiveThumb( $width, $height )
                     ->save( $image_folder . $prefix . $file_name );
             }
         }

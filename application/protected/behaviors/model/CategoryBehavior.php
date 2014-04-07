@@ -9,11 +9,23 @@ class CategoryBehavior extends CActiveRecordBehavior
     public $title_attribute = 'title';
     public $alias_attribute = 'alias';
     public $default_criteria = [];
+    public $category_item_relation = null;
 
     protected $_primary_key;
     protected $_table_schema;
     protected $_table_name;
     protected $_criteria;
+
+    public function beforeDelete()
+    {
+        if (!empty($this->category_item_relation))
+        {
+            foreach ($$this->getOwner()->{$this->category_item_relation} as $item) 
+            {
+                $item->delete();
+            }
+        }
+    }
 
     /**
      * Returns associated array ($id=>$title, $id=>$title, ...)
@@ -82,21 +94,6 @@ class CategoryBehavior extends CActiveRecordBehavior
     public function get_url()
     {
         return '#';
-    }
-
-    /**
-     * Finds model by alias attribute
-     * @param $alias
-     * @return CActiveRecord model
-     */
-    public function find_by_alias($alias)
-    {
-        $model = $this->_cached($this->getOwner())->find(array(
-            'condition' => 't.' . $this->alias_attribute . '=:alias',
-            'params'    => [ ':alias' => $alias ]
-        ));
-
-        return $model;
     }
 
     protected function _get_items_array($attributes)

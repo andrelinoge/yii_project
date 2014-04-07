@@ -1,20 +1,16 @@
 <?
 /** @var $this BackendController */
 $this->breadcrumbs = [
-    [
-        'title' => 'Slider', 
-        'url'   => url('slider/index')
-    ],
-    [ 'title' => 'Edit slide' ]
+    ['title' => 'Product categories', 'url' => url('productCategories/index')],
+    ['title' => 'Edit category']
 ];
-
 ?>
 
 <div class="row">
     <div class="col-md-12">
         <div class="block">
             <div class="block-head">
-                <h2>Edit slide </h2>
+                <h2>Edit category "<?= $model->title; ?>"</h2>
             </div>
 
             <div class="block-content">

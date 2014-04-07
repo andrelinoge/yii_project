@@ -18,11 +18,16 @@
  *
  * @property BaseCategory $category
  */
-class Article extends BaseArticle
+class News extends BaseArticle
 {
-	/**
-	 * @return string the associated database table name
-	 */
+	public $type = 'News';
+	protected $_route = 'news/show';
+
+	public function defaultScope()
+    {
+        return [ 'condition' => "type = '{$this->type}'" ];
+    }
+
 	public function tableName()
 	{
 		return 'articles';
@@ -33,16 +38,10 @@ class Article extends BaseArticle
         return parent::model($className);
     }
 
-	/**
-	 * @return array relational rules.
-	 */
 	public function relations()
 	{
-		return [
-			'category' => [static::BELONGS_TO, 'ArticleCategory', 'category_id']
-		];
+		return [];
 	}
-
 
 	private $_url;
 
@@ -50,7 +49,7 @@ class Article extends BaseArticle
     {
         if ($this->_url === null)
         {
-            $this->_url = url($this->_route, ['category' => $this->category->alias, 'id' => $this->id]);
+            $this->_url = url($this->_route, ['alias' => $this->alias]);
         }
         return $this->_url;
     }   

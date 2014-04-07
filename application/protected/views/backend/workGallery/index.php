@@ -34,7 +34,7 @@ Yii::app()->clientScript
     image_controller.initialize_index_page();
 
     uploader.initialize(
-        '<?= url("images/upload", ["owner_id" => get_param("owner_id"), "type" => get_param("type")]); ?>',
+        '<?= url("workGallery/upload", ["type" => "Slider"]); ?>',
         'uploader',
         {
             onComplete: function(id, fileName, response)
@@ -49,6 +49,7 @@ Yii::app()->clientScript
                 $container.find('ul.thumbnails').append(response.html);
                 $('.scroll').mCustomScrollbar("update");
                 $(".fancybox").fancybox({padding: 5});
+            }
         }
     );
   });

@@ -1,20 +1,16 @@
 <?
 /** @var $this BackendController */
 $this->breadcrumbs = [
-    [
-        'title' => 'Slider', 
-        'url'   => url('slider/index')
-    ],
-    [ 'title' => 'Edit slide' ]
+    ['title' => 'Product categories', 'url' => url('productCategories/index')],
+    ['title' => 'New category']
 ];
-
 ?>
 
 <div class="row">
     <div class="col-md-12">
         <div class="block">
             <div class="block-head">
-                <h2>Edit slide </h2>
+                <h2>New category</h2>
             </div>
 
             <div class="block-content">
@@ -22,7 +18,7 @@ $this->breadcrumbs = [
                     '_form',
                     [
                         'model'       => $model,
-                        'form_action' => $this->createUrl('update', ['id' => $model->id])
+                        'form_action' => $this->createUrl('create')
                     ]
                 ); ?>
             </div>

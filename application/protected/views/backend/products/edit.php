@@ -1,27 +1,23 @@
 <?
 /** @var $this BackendController */
 $this->breadcrumbs = [
-    [
-        'title' => 'Slider', 
-        'url'   => url('slider/index')
-    ],
-    [ 'title' => 'Edit slide' ]
+    ['title' => 'Products', 'url' => url('products/index')],
+    ['title' => 'Edit product']
 ];
-
 ?>
 
 <div class="row">
     <div class="col-md-12">
         <div class="block">
             <div class="block-head">
-                <h2>Edit slide </h2>
+                <h2>Edit product "<?= $model->title; ?>"</h2>
             </div>
 
             <div class="block-content">
                 <? $this->renderPartial(
                     '_form',
                     [
-                        'model'       => $model,
+                        'model' => $model,
                         'form_action' => $this->createUrl('update', ['id' => $model->id])
                     ]
                 ); ?>

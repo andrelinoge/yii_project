@@ -15,46 +15,87 @@ class BackendMenu
         ];
 
         $menuItems[] = [
+            'title' => _( 'Static pages' ),
+            'activityMarker' => 'staticPage',
+            'items' => [
+                [
+                    'title'          => _( 'All' ),
+                    'url'            => url( 'staticPage/index' ),
+                    'activityMarker' => 'index'
+                ]
+            ]
+        ];
+
+        $menuItems[] = [
             'title' => _( 'Slider' ),
             'activityMarker' => 'Slider',
             'items' => [
                 [
                     'title'          => _( 'Все' ),
-                    'url'            => url( 'slider/index', ['type' => 'Slide'] ),
+                    'url'            => url( 'slider/index' ),
                     'activityMarker' => 'index'
                 ],
             ]
         ];
 
         $menuItems[] = [
-            'title' => _( 'Articles' ),
-            'activityMarker' => 'articles',
+            'title' => _( 'Our works' ),
+            'activityMarker' => 'WorkGallery',
+            'items' => [
+                [
+                    'title'          => _( 'Все' ),
+                    'url'            => url( 'workGallery/index' ),
+                    'activityMarker' => 'index'
+                ],
+            ]
+        ];
+
+        $menuItems[] = [
+            'title' => _( 'News' ),
+            'activityMarker' => 'news',
             'items' => [
                 [
                     'title'          => _( 'All' ),
-                    'url'            => url( 'articles/index' ),
+                    'url'            => url( 'news/index' ),
                     'activityMarker' => 'index'
                 ],
                 [
                     'title'          => _( 'New' ),
-                    'url'            => url( 'articles/new' ),
+                    'url'            => url( 'news/new' ),
                     'activityMarker' => 'new'
                 ]
             ]
         ];
 
         $menuItems[] = [
-            'title' => _( 'Article categories' ),
-            'activityMarker' => 'articleCategories',
+            'title' => _( 'Product categories' ),
+            'activityMarker' => 'productCategories',
             'items' => [
                 [
                     'title'          => _( 'All' ),
-                    'url'            => url( 'articleCategories/index' ),
+                    'url'            => url( 'productCategories/index' ),
                     'activityMarker' => 'index'
                 ],
                 [
                     'title'          => _( 'New' ),
-                    'url'            => url( 'articleCategories/new' ),
+                    'url'            => url( 'productCategories/new' ),
+                    'activityMarker' => 'new'
+                ]
+            ]
+        ];
+
+        $menuItems[] = [
+            'title' => _( 'Products' ),
+            'activityMarker' => 'products',
+            'items' => [
+                [
+                    'title'          => _( 'All' ),
+                    'url'            => url( 'products/index' ),
+                    'activityMarker' => 'index'
+                ],
+                [
+                    'title'          => _( 'New' ),
+                    'url'            => url( 'products/new' ),
                     'activityMarker' => 'new'
                 ]
             ]
@@ -96,18 +137,6 @@ class BackendMenu
                     'url'            => url( 'messages/unread' ),
                     'activityMarker' => 'unread'
                 ]
-            ]
-        ];
-
-        $menuItems[] = [
-            'title' => _( 'Our works' ),
-            'activityMarker' => 'WorkGallery',
-            'items' => [
-                [
-                    'title'          => _( 'Все' ),
-                    'url'            => url( 'workGallery/index', ['type' => 'WorkGallery'] ),
-                    'activityMarker' => 'index'
-                ],
             ]
         ];
 

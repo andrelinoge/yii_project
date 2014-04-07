@@ -29,9 +29,9 @@ class ContactMessageForm extends CFormModel
             array(
                 'verify_code',
                 'captcha',
-                'allowEmpty'=>!CCaptcha::checkRequirements(),
+                'allowEmpty'    => !CCaptcha::checkRequirements(),
                 'captchaAction' => Yii::app()->createUrl( 'captcha/new' ),
-                'message' => _('неправильный код')
+                'message'       => _('неправильный код')
             ),
         );
     }

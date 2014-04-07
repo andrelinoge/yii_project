@@ -12,9 +12,9 @@ if (APPLICATION_END == 'backend')
 }
 
 return [
-	'basePath' => $applicationDir . '/protected',
+    'basePath'    => $applicationDir . '/protected',
     'runtimePath' => $applicationDir . '/public/runtime',
-	'name' => 'Yii project',
+    'name'        => 'Ekodekor',
 
 	// preloading 'log' component
 	'preload' => ['log', 'gettext'],
@@ -81,7 +81,7 @@ return [
 
         // DB
 		'db' => [
-            'connectionString'      => 'mysql:host=localhost;dbname=test',
+            'connectionString'      => 'mysql:host=localhost;dbname=ekodekor',
             'username'              => 'root',
             'password'              => 'root',
             

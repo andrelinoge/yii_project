@@ -5,6 +5,8 @@
 
 class FrontendController extends ApplicationController
 {
+    public $page_name = 'Home';
+
     public function init()
     {
         $this->pageTitle = Yii::app()->name;

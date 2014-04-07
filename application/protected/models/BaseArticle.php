@@ -3,35 +3,6 @@ abstract class BaseArticle extends CActiveRecord
 {    
     protected $_route = '';
 
-    public function behaviors()
-    {
-        return [
-            'timestampable' => [
-                'class'             => 'zii.behaviors.CTimestampBehavior',
-                'setUpdateOnCreate' => false,
-                'createAttribute'   => 'created_at',
-                'updateAttribute'   => 'updated_at',
-            ],
-
-            'cover' => [
-                'class'           => 'ImageBehavior',
-                'image_attribute' => 'cover_image',
-                'image_folder'    => 'public/uploads/images/articles',
-                'temp_folder'     => 'public/uploads/temp',
-                'thumbnails'      => [
-                    'm' => [300, 300],
-                    's' => [100, 100]
-                ]
-            ],
-
-            'alias' => [
-                'class'            => 'AliasBehavior',
-                'source_attribute' => 'title',
-                'alias_attribute'  => 'alias',
-            ]
-        ];
-    } 
-
     public function rules()
     {
         return [

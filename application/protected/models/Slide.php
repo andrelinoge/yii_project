@@ -15,6 +15,11 @@ class Slide extends Image
 {
     public $type = 'Slider';
 
+    public function defaultScope()
+    {
+        return [ 'condition' => "type = '{$this->type}'" ];
+    }
+
     public function behaviors()
     {
         return [
@@ -26,18 +31,12 @@ class Slide extends Image
                 'temp_folder'           => 'public/uploads/temp',
                 'thumbnails'            => [
                     'm' => [700, 700],
-                    's' => [100, 100]
+                    's' => [250, 125]
                 ]
             ]
         ];
     }
 
-    /**
-     * Returns the static model of the specified AR class.
-     * Please note that you should have this exact method in all your CActiveRecord descendants!
-     * @param string $className active record class name.
-     * @return Image the static model class
-     */
     public static function model($className=__CLASS__)
     {
         return parent::model($className);

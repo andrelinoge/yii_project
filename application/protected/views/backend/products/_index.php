@@ -39,28 +39,28 @@ $this->widget(
                             'class' => 'btn btn-xs btn-default'
                         ],
                         'icon' => 'fa fa-picture-o',
-                        'url' => 'url("images/index", ["owner_id" => $data->id, "type" => "Article"])'
+                        'url' => 'url("images/index", ["owner_id" => $data->id, "type" => "Product"])'
                     ],
                     'view' => [
                         'options' => [
                             'class' => 'btn btn-xs btn-default'
                         ],
                         'icon' => 'fa fa-eye',
-                        'url' => 'url("articles/view", ["id" => $data->id])'
+                        'url' => 'url("products/view", ["id" => $data->id])'
                     ],
                     'update' => [
                         'options' => [
                             'class' => 'btn btn-xs btn-warning'
                         ],
                         'icon' => 'fa fa-pencil',
-                        'url' => 'url("articles/edit", ["id" => $data->id])'
+                        'url' => 'url("products/edit", ["id" => $data->id])'
                     ],
                     'delete' => [
                         'options' => [
                             'class' => 'btn btn-xs btn-danger'
                         ],
                         'icon' => 'fa fa-times',
-                        'url' => 'url("articles/delete", ["id" => $data->id])'
+                        'url' => 'url("products/delete", ["id" => $data->id])'
                     ]
                 ]
             ]

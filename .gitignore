@@ -9,5 +9,5 @@ application/public/assets/*
 application/protected/runtime/*
 !application/protected/runtime/.gitignore
 application/protected/data/*.db
-application/public/uploads/temp/*
-application/public/uploads/gallery/*
+application/public/uploads/*
+**/application/public/uploads

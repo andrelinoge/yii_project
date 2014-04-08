@@ -49,6 +49,7 @@ Yii::app()->clientScript
                 $container.find('ul.thumbnails').append(response.html);
                 $('.scroll').mCustomScrollbar("update");
                 $(".fancybox").fancybox({padding: 5});
+            }
         }
     );
   });

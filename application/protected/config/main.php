@@ -17,7 +17,7 @@ return [
     'name'        => 'Ekodekor',
 
 	// preloading 'log' component
-	'preload' => ['log', 'gettext'],
+	'preload' => ['log', 'bootstrap'],
 
 	// autoloading model and component classes
 	'import' => array(
@@ -102,9 +102,9 @@ return [
 			'class'=>'CLogRouter',
 			'routes' => [
 				[
-					//'class'=>'CFileLogRoute',
-                    'class'  =>'ext.yii-debug-toolbar.YiiDebugToolbarRoute', // comment in production version
-                    'levels' =>'error, warning',
+					'class'=>'CFileLogRoute',
+                    //'class'  =>'ext.yii-debug-toolbar.YiiDebugToolbarRoute', // comment in production version
+                    //'levels' =>'error, warning',
 				]
 			]
 		],
@@ -142,6 +142,13 @@ return [
             'class'              => 'ClientScript',
             'packages'           => $client_script_packages,
             'coreScriptPosition' => CClientScript::POS_END
+        ],
+
+        'bootstrap' => [
+            'class'        => 'ext.bootstrap.components.Bootstrap',
+            'coreCss'      => false,
+            'bootstrapCss' => false,
+            'yiiCss'       => false
         ],
     ],
 

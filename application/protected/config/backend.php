@@ -40,10 +40,10 @@ return CMap::mergeArray(
             ],
 
             'bootstrap' => [
-                'class' => 'ext.bootstrap.components.Bootstrap',
-                'coreCss' => false,
+                'class'        => 'ext.bootstrap.components.Bootstrap',
+                'coreCss'      => false,
                 'bootstrapCss' => false,
-                'yiiCss' => false
+                'yiiCss'       => false
             ],
         ],
 

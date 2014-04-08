@@ -15,7 +15,7 @@ class FrontendMenu
         $menu[] = [
             'title'          => 'Наші роботи',
             'activityMarker' => 'ourWorks',
-            'url'            => '#',
+            'url'            => url('gallery/index'),
             'items'          => null
         ];
 

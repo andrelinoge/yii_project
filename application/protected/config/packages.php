@@ -20,6 +20,12 @@ $client_script_packages = [
         'position' => CClientScript::POS_END
     ],
 
+    'independent-form' => [
+        'baseUrl' => '/application/public/common/js/',
+        'js' => [ 'jquery.form.js' ],
+        'position' => CClientScript::POS_END
+    ],
+
     'validation' => [
         'baseUrl' => '/application/public/common/js/',
         'js' => [ 'jquery.validate.js', 'additional-validators.min.js' ],
@@ -51,17 +57,11 @@ $client_script_packages = [
         'depends' => [ 'jquery' ]
     ],
 
-    'jeditable' => [
-        'baseUrl' => '/application/public/backend/js/plugins/jeditable/',
-        'js' => [ 'jquery.jeditable.js' ],
-        'depends' => [ 'jquery' ]
-    ],
-
     'frontend' => [
         'baseUrl' => '/application/public/frontend/js/controllers/',
         'js' => [
-            'applicationController.js', 'authorizationController.js'
+            'applicationController.js'
         ],
-        'depends' => [ 'jquery', 'form' ]
+        'depends' => [ 'independent-form' ]
     ]
 ];

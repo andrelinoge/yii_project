@@ -62,5 +62,14 @@ abstract class BaseArticle extends CActiveRecord
         ));
     }
 
+    public function scopes()
+    {
+        return [
+            'recently' => [
+                'order' => 'id DESC',
+            ]
+        ];
+    }
+
     abstract public function get_url();
 }

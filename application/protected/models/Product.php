@@ -59,8 +59,8 @@ class Product extends BaseArticle
                 'image_folder'    => 'public/uploads/images/articles',
                 'temp_folder'     => 'public/uploads/temp',
                 'thumbnails'      => [
-                    'm' => [220, 70],
-                    's' => [80, 80]
+                    'm' => [355, 115],
+                    's' => [110, 110]
                 ]
             ],
 

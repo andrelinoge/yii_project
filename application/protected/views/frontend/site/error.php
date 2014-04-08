@@ -19,7 +19,7 @@ $this->pageTitle = Yii::app()->name . ' - ' . _('Ошибка');
                         <?= $error['message']; ?>
                     </p>
                     <p>
-                        <a class="btn btn-large" href="<?= $this->createUrl('index'); ?>">Back</a>
+                        <a class="btn btn-small" href="<?= $this->createUrl('index'); ?>">На головну</a>
                     </p>
                 </div>
             </div>

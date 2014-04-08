@@ -1,11 +1,10 @@
 <? $assets_path = $this->controller->get_behavioral_url(); ?>
 
-<h2>Latest Blog Post</h2>
+<h2>Останні новинки</h2>
 <div class="f-img-holder">
-	<a href="#"> 
-		<img src="<?= $assets_path; ?>/images/image18.jpg" class="f-blog-img" alt=""/> 
+	<a href="<?= $article->get_url(); ?>"> 
+		<img src="<?= $article->get_image_url('m'); ?>" class="f-blog-img" alt=""/> 
 	</a> 
-	<span class="p-date">22 <br> May</span> 
 </div>
-<p>Maecenas laoreet lectus est, eget ultricies eros. Aliquam ipsum nunc, tincidunt non fringilla.Maecenas laoreet lectus est, eget ultricies eros. Aliquam ipsum nunc, tincidunt non fringilla.</p>
-<a href="#" class="more-btn2">+ Read More</a> 
+<p><?= Text::truncate($article->content, 150, true); ?></p>
+<a href="<?= $article->get_url(); ?>" class="more-btn2">+ Читати далі</a> 

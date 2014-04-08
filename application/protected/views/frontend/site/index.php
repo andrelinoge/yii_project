@@ -1,3 +1,3 @@
-<? /* @var $this Controller */ ?>
-
-empty
+<figure class="span9">
+	<?= $content; ?>
+</figure>

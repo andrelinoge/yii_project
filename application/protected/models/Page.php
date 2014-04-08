@@ -36,6 +36,17 @@ class Page extends CActiveRecord
 		);
 	}
 
+	public function behaviors()
+    {
+        return [
+            '_alias' => [
+                'class'            => 'AliasBehavior',
+                'source_attribute' => 'title',
+                'alias_attribute'  => 'alias',
+            ]
+        ];
+    }
+
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */

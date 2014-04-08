@@ -7,6 +7,7 @@
  * @property integer $id
  * @property string $name
  * @property string $email
+ * @property string $phone
  * @property string $content
  * @property string $created_at
  * @property string $updated_at
@@ -28,7 +29,7 @@ class ContactMessage extends CActiveRecord
 	public function rules()
 	{
 		return array(
-			array('name, email, content, created_at, updated_at, is_read', 'required'),
+			array('name, phone, content, is_read', 'required'),
 			array('is_read', 'numerical', 'integerOnly'=>true),
 			array('name, email', 'length', 'max'=>255),
 			array('id, name, email, content, created_at, updated_at, is_read', 'safe', 'on'=>'search'),
@@ -70,22 +71,30 @@ class ContactMessage extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('email',$this->email,true);
-		$criteria->compare('created_at',$this->created_at,true);
-		$criteria->compare('updated_at',$this->updated_at,true);
+		$criteria->compare('phone',$this->phone,true);
 		$criteria->compare('is_read',$this->is_read);
 
-		return new CActiveDataProvider($this, array(
-			'criteria' => $criteria,
-		));
+		$pagination = new CPagination();
+        $pagination->pageSize = 15;
+
+        $sort = new CSort();
+        $sort->defaultOrder = 'id';
+        $sort->attributes = ['id', 'name', 'email', 'created_at'];
+
+        return new CActiveDataProvider($this, array(
+			'criteria'   => $criteria,
+			'pagination' => $pagination,
+			'sort'       => $sort
+        ));
 	}
 
     public function search_read()
     {
         $criteria = new CDbCriteria;
-        $criteria->compare('is_read', true);
+        $criteria->compare('is_read', 1);
 
         $pagination = new CPagination();
-        $pagination->pageSize = 5;
+        $pagination->pageSize = 15;
 
         $sort = new CSort();
         $sort->defaultOrder = 'id';
@@ -108,7 +117,7 @@ class ContactMessage extends CActiveRecord
         $sort->attributes = ['id', 'name', 'email', 'created_at'];
 
         $pagination = new CPagination();
-        $pagination->pageSize = 5;
+        $pagination->pageSize = 15;
 
         return new CActiveDataProvider($this, array(
 			'criteria'   => $criteria,

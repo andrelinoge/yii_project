@@ -19,11 +19,6 @@ $this->widget(
             'title',
             'alias',
             [
-                'name' => 'category_id',
-                'value' => '$data->category->title',
-                'htmlOptions' => ['style' => 'width: 175px;']
-            ],
-            [
                 'name' => 'created_at',
                 'type' => 'datetime',
                 'htmlOptions' => ['style' => 'width: 175px;']
@@ -32,7 +27,7 @@ $this->widget(
                 'header' => _('Actions'),
                 'class' => 'bootstrap.widgets.TbJsonButtonColumn',
                 'htmlOptions' => ['style' => 'width: 125px; text-align: center' ],
-                'template' => '{gallery} {view} {update} {delete}',
+                'template' => '{view} {update} {delete}',
                 'buttons' => [
                     'view' => [
                         'options' => [

@@ -1,29 +1,43 @@
 <?
 class FrontendMenu
 {
-    public static function get($controller, $action = '')
+    public static function get()
     {
         $menu = array();
 
         $menu[] = [
-            'title' => _( 'Главная' ),
+            'title'          => 'Головна',
             'activityMarker' => 'site',
-            'active' => $controller,
-            'url' => url( 'site/index' ),
-            'items' => null
+            'url'            => url( 'site/index' ),
+            'items'          => null
         ];
 
         $menu[] = [
-            'title' => _( 'Аккаунт' ),
-            'activityMarker' => 'user',
-            'active' => $controller,
-            'url' => '#',
-            'items' => [[
-                'title' => _( 'Профайл' ),
-                'activityMarker' => 'edit',
-                'active' => $controller,
-                'url' => url( 'user/edit' ),
-            ]]
+            'title'          => 'Наші роботи',
+            'activityMarker' => 'ourWorks',
+            'url'            => '#',
+            'items'          => null
+        ];
+
+        $menu[] = [
+            'title'          => 'Новини',
+            'activityMarker' => 'news',
+            'url'            => url('news/index'),
+            'items'          => null
+        ];
+
+        $menu[] = [
+            'title'          => 'Часті питання',
+            'activityMarker' => 'faq',
+            'url'            => url('faq/index'),
+            'items'          => null
+        ];
+
+        $menu[] = [
+            'title'          => 'Контакти',
+            'activityMarker' => 'contactUs',
+            'url'            => url('contactUs/new'),
+            'items'          => null
         ];
 
         return $menu;

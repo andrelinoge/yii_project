@@ -3,7 +3,7 @@ class LastNews extends CWidget
 {
     public function run()
     {
-    	$article = null;
+    	$article = News::model()->recently()->find();
         $this->render( 'last_news', [ 'article' => $article ] );
     }
 }

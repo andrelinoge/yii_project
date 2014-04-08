@@ -15,7 +15,7 @@ class BackendMenu
         ];
 
         $menuItems[] = [
-            'title' => _( 'Static pages' ),
+            'title'          => _( 'Static pages' ),
             'activityMarker' => 'staticPage',
             'items' => [
                 [
@@ -27,7 +27,7 @@ class BackendMenu
         ];
 
         $menuItems[] = [
-            'title' => _( 'Slider' ),
+            'title'          => _( 'Slider' ),
             'activityMarker' => 'Slider',
             'items' => [
                 [
@@ -39,7 +39,7 @@ class BackendMenu
         ];
 
         $menuItems[] = [
-            'title' => _( 'Our works' ),
+            'title'          => _( 'Our works' ),
             'activityMarker' => 'WorkGallery',
             'items' => [
                 [
@@ -51,7 +51,7 @@ class BackendMenu
         ];
 
         $menuItems[] = [
-            'title' => _( 'News' ),
+            'title'          => _( 'News' ),
             'activityMarker' => 'news',
             'items' => [
                 [
@@ -68,7 +68,7 @@ class BackendMenu
         ];
 
         $menuItems[] = [
-            'title' => _( 'Product categories' ),
+            'title'          => _( 'Product categories' ),
             'activityMarker' => 'productCategories',
             'items' => [
                 [
@@ -85,7 +85,7 @@ class BackendMenu
         ];
 
         $menuItems[] = [
-            'title' => _( 'Products' ),
+            'title'          => _( 'Products' ),
             'activityMarker' => 'products',
             'items' => [
                 [
@@ -102,7 +102,7 @@ class BackendMenu
         ];
 
         $menuItems[] = [
-            'title' => _( 'Faq' ),
+            'title'          => _( 'Faq' ),
             'activityMarker' => 'faqs',
             'items' => [
                 [
@@ -119,7 +119,7 @@ class BackendMenu
         ];
 
         $menuItems[] = [
-            'title' => _( 'Contact messages' ),
+            'title'          => _( 'Contact messages' ),
             'activityMarker' => 'messages',
             'items' => [
                 [

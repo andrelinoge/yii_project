@@ -147,7 +147,7 @@ return [
 
     'params'         => $application_params,
     // Locale settings
-    'sourceLanguage' => 'uk_UA',
-    'language'       => 'en',
+    'sourceLanguage' => 'uk',
+    'language'       => 'uk',
     'charset'        => 'utf-8'
 ];

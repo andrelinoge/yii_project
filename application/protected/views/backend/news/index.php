@@ -1,7 +1,7 @@
 <?
 /** @var $this BackendController */
 $this->breadcrumbs = [
-    ['title' => 'Articles']
+    ['title' => 'News']
 ];
 ?>
 

@@ -1,6 +1,6 @@
 <? $assets_path = $this->controller->get_behavioral_url(); ?>
 
-<h2>From The Gallery</h2>
+<h2>Із галереї наших робіт</h2>
 <ul class="gallery-list">
   <li> <a href="#"> <img src="<?= $assets_path; ?>/images/image11.jpg" alt=""/> </a> </li>
   <li> <a href="#"> <img src="<?= $assets_path; ?>/images/image12.jpg" alt=""/> </a> </li>
@@ -15,4 +15,4 @@
   <li> <a href="#"> <img src="<?= $assets_path; ?>/images/image16.jpg" alt=""/> </a> </li>
   <li> <a href="#"> <img src="<?= $assets_path; ?>/images/image15.jpg" alt=""/> </a> </li>
 </ul>
-<a href="#" class="more-btn2">+ View More</a> 
+<a href="#" class="more-btn2">+ Більше</a> 

@@ -8,6 +8,7 @@ class ContactMessageForm extends CFormModel
 {
 	public $name;
 	public $email;
+    public $phone;
 	public $content;
 	public $verify_code;
 
@@ -15,32 +16,24 @@ class ContactMessageForm extends CFormModel
     {
         return array(
             array(
-                'name, email, content',
+                'name, phone, content',
                 'required',
-                'message' => _('обязательное поле')
             ),
 
             array(
                 'email',
-                'email',
-                'message' => _('неправильный адрес электронной почты')
+                'email'
             ),
 
             array(
                 'verify_code',
                 'captcha',
                 'allowEmpty'    => !CCaptcha::checkRequirements(),
-                'captchaAction' => Yii::app()->createUrl( 'captcha/new' ),
-                'message'       => _('неправильный код')
+                'captchaAction' =>  'captcha/new'
             ),
         );
     }
 
-	/**
-	 * Declares customized attribute labels.
-	 * If not declared here, an attribute would have a label that is
-	 * the same as its name with the first letter in upper case.
-	 */
 	public function attributeLabels()
 	{
 		return array(
@@ -58,14 +51,16 @@ class ContactMessageForm extends CFormModel
     {
         $contact_message = new ContactMessage();
 
-        $contact_message->name = $this->name;
-        $contact_message->email = $this->email;
+        $contact_message->name    = $this->name;
+        $contact_message->email   = $this->email;
+        $contact_message->phone   = $this->phone;
         $contact_message->content = $this->content;
+        $contact_message->save();
 
-        if ($contact_message->save())
-        {
-            $mailer = new ApplicationMailer();
-            $mailer->new_contact_message_notification($contact_message);
-        }
+        // if ($contact_message->save())
+        // {
+        //     $mailer = new ApplicationMailer();
+        //     $mailer->new_contact_message_notification($contact_message);
+        // }
     }
 }

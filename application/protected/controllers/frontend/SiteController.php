@@ -5,25 +5,19 @@ class SiteController extends FrontendController
 
 	public function actionIndex()
 	{
-        /** @var $page StaticPages */
-        #$page = StaticPages::model()->byPageId( StaticPagesMl::HOME )->byLanguage()->find();
-        #$this->appendTitle( $page->getTitle() );
-        #$this->setMainMetaTags( $page->getMetaKeyWords(), $page->getMetaDescription() );
+        $page = Page::model()->find_by_alias('home');
+        $this->page_name = $page->title;
+        $this->appendTitle( $page->title );
+        $this->setMainMetaTags( $page->meta_keywords, $page->meta_description );
 
 		$this->render(
             'index',
             [
-                'content' => '###',
+                'content' => $page->content,
             ]
         );
 	}
 
-    public function actionLogin()
-    {
-        $this->set_layout('login-frontend');
-
-        $this->render( 'login', ['form' => new LoginForm()] );
-    }
 
     public function actionError()
     {

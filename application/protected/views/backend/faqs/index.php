@@ -1,7 +1,7 @@
 <?
 $this->breadcrumbs = [
     ['title' => 'Faqs', 'url' => url('faqs/index')],
-    ['title' => 'New article']
+    ['title' => 'Articles']
 ];
 ?>
 

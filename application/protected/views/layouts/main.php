@@ -64,15 +64,15 @@
             <section class="container">
                 <section class="top">
                     <section class="row-fluid">
-                        <figure class="span4">
+                        <figure class="span4" style="margin-bottom: 0px;">
                             <? $this->widget('application.widgets.Frontend.FromGallery'); ?>
                         </figure>
 
-                        <figure class="span4 b-post">
+                        <figure class="span4 b-post" style="margin-bottom: 0px;">
                             <? $this->widget('application.widgets.Frontend.LastNews'); ?>
                         </figure>
 
-                        <figure class="span4">
+                        <figure class="span4" style="margin-bottom: 0px;">
                             <? $this->widget('application.widgets.Frontend.ContactUs'); ?>   
                         </figure>
                     </section>

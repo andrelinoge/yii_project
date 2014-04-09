@@ -7,16 +7,16 @@
 	<?= $form->textField($model, 'name', ['class' => 'f-field', 'placeholder' => 'Ім\'я']); ?>
 	<?= $form->emailField($model, 'email', ['class' => 'f-field', 'placeholder' => 'Електронна пошта']); ?>
 	<?= $form->telField($model, 'phone', ['class' => 'f-field', 'placeholder' => 'Телефон']); ?>
-	<?= $form->textArea($model, 'content', ['class' => 'f-area', 'placeholder' => 'Повідомлення', 'cols' => 4, 'rows' => 15]); ?>
+	<?= $form->textArea($model, 'content', ['class' => 'f-area', 'placeholder' => 'Повідомлення', 'cols' => 4, 'rows' => 15, 'style' => 'height: 80px']); ?>
   	<? if(CCaptcha::checkRequirements()): ?>
 	     <figure class="span4">
 	         <?
 		         $this->widget(
 		             'CCaptcha',
 		             [
-						'captchaAction' => 'captcha/new' ,
+						'captchaAction'     => 'captcha/new' ,
 						'showRefreshButton' => FALSE,
-						'buttonLabel'   => _('Обновить'),
+						'buttonLabel'       => _('Обновить'),
 						'imageOptions' => [
 						 'class' => 'captcha-img author-img',
 						 'title' => 'Клацніть, щоб обновити картинку'
@@ -31,8 +31,8 @@
 		             $model,
 		             'verify_code',
 		             array(
-		                'class' => 'f-field',
-		                'placeholder' => 'Код з картинки'
+						'class'       => 'f-field',
+						'placeholder' => 'Код з картинки'
 		             )
 		         ); ?>
 		         <?= $form->error($model, 'verify_code'); ?>

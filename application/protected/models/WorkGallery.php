@@ -30,7 +30,7 @@ class WorkGallery extends Image
                 'image_folder'          => 'public/uploads/images/gallery',
                 'temp_folder'           => 'public/uploads/temp',
                 'thumbnails'            => [
-                    'm' => [700, 700],
+                    'm' => [375, 160],
                     's' => [60, 40]
                 ]
             ]

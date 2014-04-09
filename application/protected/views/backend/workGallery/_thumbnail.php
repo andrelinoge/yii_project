@@ -7,8 +7,8 @@
         </div>
         <div class="block-content npt text-muted">
             <div class="pull-left">
-                <a href="<?= url('images/edit', ['id' => $data->id]); ?>"><i class="fa fa-pencil"></i></a>
-                <a href="<?= url('images/delete', ['id' => $data->id]); ?>" class="delete-image"><i class="fa fa-times"></i></a>
+                <a href="<?= $this->createUrl('edit', ['id' => $data->id]); ?>"><i class="fa fa-pencil"></i></a>
+                <a href="<?= $this->createUrl('delete', ['id' => $data->id]); ?>" class="delete-image"><i class="fa fa-times"></i></a>
             </div>
             <div class="pull-right">
                 <?

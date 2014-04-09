@@ -40,6 +40,13 @@ class FrontendMenu
             'items'          => null
         ];
 
+        $menu[] = [
+            'title'          => 'Каталог для друку',
+            'activityMarker' => 'contactUs',
+            'url'            => url('print/index'),
+            'items'          => null
+        ];
+
         return $menu;
     }
 

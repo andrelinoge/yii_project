@@ -11,7 +11,7 @@ class SiteController extends FrontendController
         $this->setMainMetaTags( $page->meta_keywords, $page->meta_description );
 
 		$this->render(
-            'index',
+            '/shared/index',
             [
                 'content' => $page->content,
             ]
@@ -33,34 +33,5 @@ class SiteController extends FrontendController
                 $this->render('error', [ 'error' => $error ]);
             }
         }
-    }
-
-    public function filters()
-    {
-        return ['accessControl'];
-    }
-
-    public function accessRules()
-    {
-        return array(
-
-            array(
-                'allow',
-                'actions' => ['index', 'error'],
-                'users' => [ '*' ]
-            ),
-
-            array(
-                'allow',
-                'actions' => [ 'login' ],
-                'users' => [ '?' ],
-                'deniedCallback' => function() { $this->redirect(url('site/index')); }
-            ),
-
-            array(
-                'deny',
-                'users' => [ '*' ]
-            ),
-        );
     }
 }

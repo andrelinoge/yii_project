@@ -10,11 +10,14 @@ class GalleryController extends FrontendController
         $this->appendTitle( $page->title );
         $this->setMainMetaTags( $page->meta_keywords, $page->meta_description );
 
+        $dp = WorkGallery::model()->search();
+
         $this->render(
             'index',
             [
-                'content'       => $page->content,
-                'data_provider' => WorkGallery::model()->search()
+                'content'    => $page->content,
+                'images'     => $dp->getData(),
+                'pagination' => $dp->getPagination()
             ]
         );
 	}

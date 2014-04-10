@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.11.1deb1
+-- version 4.0.6deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 09, 2014 at 02:20 PM
--- Server version: 5.5.31
--- PHP Version: 5.4.6-1ubuntu1.7
+-- Generation Time: Apr 10, 2014 at 09:58 AM
+-- Server version: 5.5.35-0ubuntu0.13.10.2
+-- PHP Version: 5.5.3-1ubuntu2.2
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -53,7 +53,7 @@ INSERT INTO `articles` (`id`, `category_id`, `title`, `content`, `meta_keywords`
 (2, 3, 'Collection 2', '<p>asd</p>\r\n', '', '', '2.jpg', '2014-04-07 09:28:54', '2014-04-07 09:31:13', 'collection2', 'Product'),
 (3, 0, 'Тестова нивна 1', '<h2>Варианты организации категорий</h2>\r\n\r\n<p>В определённый момент число моделей категорий начнёт расти. Появятся категории блога, категории магазина, категории портфолио и т.д. с методом <code>getMenuList()</code> для генерации пунктов меню. Для вложенных категорий и вложенных статических страниц нам уже потребовалось ввести свои методы <code>findByPath()</code>. Было бы неплохо сделать несколько удобных методов для построения различных списков. Разброс наборов одинаковых методов по разным моделям засоряет код, поэтому целесообразнее сделать универсальными и собрать все в одном месте. Рассмотрим два варианта.</p>\r\n\r\n<h3>1. Выделение общих методов в базовый класс</h3>\r\n\r\n<p>Для объединения общего кода можно выделить базовый абстрактный или конкретный класс Category, от которого наследовать все модели категорий.</p>\r\n', '', '', '6.jpg', '2014-04-07 21:23:33', '0000-00-00 00:00:00', 'testovanivna1', 'News'),
 (4, 0, 'Тестова нoвbна 2', '<p class="para">This can be more reliable than simply adding or subtracting the number of seconds in a day or month to a timestamp because of daylight saving time.</p>\r\n\r\n<p class="para">Some examples of <span class="function"><strong>date()</strong></span> formatting. Note that you should escape any other characters, as any which currently have a special meaning will produce undesirable results, and other characters may be assigned meaning in future PHP versions. When escaping, be sure to use single quotes to prevent characters like \\n from becoming newlines.</p>\r\n', '', '', '5.jpg', '2014-04-08 09:43:14', '0000-00-00 00:00:00', 'testovanovbna2', 'News'),
-(5, 0, 'Тестова нoвина 3', '<p class="para">This can be more reliable than simply adding or subtracting the number of seconds in a day or month to a timestamp because of daylight saving time.</p>\r\n\r\n<p class="para">Some examples of <span class="function"><strong>date()</strong></span> formatting. Note that you should escape any other characters, as any which currently have a special meaning will produce undesirable results, and other characters may be assigned meaning in future PHP versions. When escaping, be sure to use single quotes to prevent characters like \\n from becoming newlines.</p>\r\n', '', '', '5.jpg', '2014-04-08 09:46:12', '0000-00-00 00:00:00', 'testovanovina3', 'News');
+(5, 0, 'Тестова нoвина 3', '<p class="para">This can be more reliable than simply adding or subtracting the number of seconds in a day or month to a timestamp because of daylight saving time.</p>\r\n\r\n<p class="para">Some examples of <span class="function"><strong>date()</strong></span> formatting. Note that you should escape any other characters, as any which currently have a special meaning will produce undesirable results, and other characters may be assigned meaning in future PHP versions. When escaping, be sure to use single quotes to prevent characters like \\n from becoming newlines.</p>\r\n', '', '', '16139581270061.jpg', '2014-04-08 09:46:12', '2014-04-10 00:18:04', 'testovanovina3', 'News');
 
 -- --------------------------------------------------------
 
@@ -99,7 +99,15 @@ CREATE TABLE IF NOT EXISTS `contact_messages` (
   `updated_at` datetime NOT NULL,
   `is_read` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `contact_messages`
+--
+
+INSERT INTO `contact_messages` (`id`, `name`, `email`, `phone`, `content`, `created_at`, `updated_at`, `is_read`) VALUES
+(1, 'qwe', 'qqq@qqq.com', '', 'ads', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(2, 'aaaaasd', 'qqq@qqq.com', '', '22', '2014-04-10 00:48:27', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -133,11 +141,11 @@ CREATE TABLE IF NOT EXISTS `images` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `image` char(255) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `description` text NOT NULL,
   `type` char(20) NOT NULL,
   `owner_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=30 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
 
 --
 -- Dumping data for table `images`
@@ -151,14 +159,16 @@ INSERT INTO `images` (`id`, `image`, `title`, `description`, `type`, `owner_id`)
 (11, '16139684911698.jpg', '', '', 'Slider', 0),
 (12, '74139684917169.jpg', '', '', 'Slider', 0),
 (13, '4513968523428.jpg', '', '', 'Slider', 0),
-(14, '1.jpg', 'Test 1', 'Если Вы не любите использовать DAO или если ссылки в вашем проекте генерируются не очень банально (например, если проект многоязычный и нужно использовать указание языка в адресе), то можно воспользоваться достоинствами ActiveRecord.', 'WorkGallery', 0),
-(15, '3.jpg', 'test 2', 'Если Вы не любите использовать DAO или если ссылки в вашем проекте генерируются не очень банально (например, если проект многоязычный и нужно использовать указание языка в адресе), то можно воспользоваться достоинствами ActiveRecord.', 'WorkGallery', 0),
-(16, '5.jpg', 'test 3', 'Если Вы не любите использовать DAO или если ссылки в вашем проекте генерируются не очень банально (например, если проект многоязычный и нужно использовать указание языка в адресе), то можно воспользоваться достоинствами ActiveRecord.', 'WorkGallery', 0),
-(17, '6.jpg', 'test 4', 'Если Вы не любите использовать DAO или если ссылки в вашем проекте генерируются не очень банально (например, если проект многоязычный и нужно использовать указание языка в адресе), то можно воспользоваться достоинствами ActiveRecord.', 'WorkGallery', 0),
+(14, '60139098640534.jpg', 'Test 1', 'Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney''s photo booth 3 wolf moon irure. ', 'WorkGallery', 0),
+(15, '50136613653132.jpg', 'test 2', 'Если Вы не любите использовать DAO или если ссылки в вашем проекте генерируются не очень банально (например, если проект многоязычный и нужно использовать указание языка в адресе), то можно воспользоваться достоинствами ActiveRecord.', 'WorkGallery', 0),
+(16, '4413958127002.jpg', 'test 3', 'Если Вы не любите использовать DAO или если ссылки в вашем проекте генерируются не очень банально (например, если проект многоязычный и нужно использовать указание языка в адресе), то можно воспользоваться достоинствами ActiveRecord.', 'WorkGallery', 0),
+(17, '50139577477453.jpg', 'test 4', 'Если Вы не любите использовать DAO или если ссылки в вашем проекте генерируются не очень банально (например, если проект многоязычный и нужно использовать указание языка в адресе), то можно воспользоваться достоинствами ActiveRecord.', 'WorkGallery', 0),
 (24, '8413969436004.jpg', '', '', 'Product', 1),
 (25, '51139694360041.jpg', '', '', 'Product', 1),
 (26, '0139694360037.jpg', '', '', 'Product', 1),
-(29, '97139704126560.jpg', 'test 5', 'Если Вы не любите использовать DAO или если ссылки в вашем проекте генерируются не очень банально (например, если проект многоязычный и нужно использовать указание языка в адресе), то можно воспользоваться достоинствами ActiveRecord.', 'WorkGallery', 0);
+(29, '27136613651033.jpg', 'test 5', 'Если Вы не любите использовать DAO или если ссылки в вашем проекте генерируются не очень банально (например, если проект многоязычный и нужно использовать указание языка в адресе), то можно воспользоваться достоинствами ActiveRecord.', 'WorkGallery', 0),
+(30, '16139581270061.jpg', 'qwe', 'qweqw qwe qwe qwe qwe qwe', 'WorkGallery', 0),
+(31, '37139581270099.jpg', 'wqewqe', 'qwewqe wqewqewqe wqe qwe ', 'WorkGallery', 0);
 
 -- --------------------------------------------------------
 
@@ -187,6 +197,21 @@ INSERT INTO `pages` (`id`, `title`, `content`, `meta_keywords`, `meta_descriptio
 (4, 'gallery', 'gallery', '', '', 'gallery'),
 (5, 'print_catalog', '', '', '', 'print_catalog'),
 (6, 'faq', 'faq', '', '', 'faq');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `site_settings`
+--
+
+CREATE TABLE IF NOT EXISTS `site_settings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `phone_1` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `phone_2` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `email` varchar(255) COLLATE utf8_estonian_ci NOT NULL,
+  `address` varchar(255) CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 

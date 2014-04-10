@@ -16,7 +16,7 @@ class ContactMessageForm extends CFormModel
     {
         return array(
             array(
-                'name, phone, content',
+                'name, content',
                 'required',
             ),
 
@@ -37,7 +37,11 @@ class ContactMessageForm extends CFormModel
 	public function attributeLabels()
 	{
 		return array(
-			'verify_code' => _('код')
+            'verify_code' => 'код',
+            'name'        => 'Ім\'я',
+            'email'       => 'Електронна пошта',
+            'phone'       => 'Телефон',
+            'content'     => 'Повідомлення'
 		);
 	}
 

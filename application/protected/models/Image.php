@@ -75,7 +75,7 @@ class Image extends CActiveRecord
 		$criteria->compare('owner_id', $this->owner_id);
 
 		$pagination = new CPagination();
-        $pagination->pageSize = 2;
+        $pagination->pageSize = 4;
 
 		return new CActiveDataProvider($this, array(
 			'criteria'   => $criteria,
@@ -88,12 +88,12 @@ class Image extends CActiveRecord
 		return parent::model($className);
 	}
 
-	public function scopes()
+    public function recently($limit)
     {
-        return [
-            'recently' => [
-                'order' => 'id DESC',
-            ]
-        ];
+    	$this->getDbCriteria()->mergeWith([
+	        'order' => 'id DESC',
+	        'limit' => $limit
+	    ]);
+	    return $this;
     }
 }

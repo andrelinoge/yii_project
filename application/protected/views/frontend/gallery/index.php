@@ -1,3 +1,9 @@
+<? 
+  Yii::app()->getClientScript()
+    ->registerScriptFile($this->get_behavioral_url() . '/js/lightbox.js')
+    ->registerCssFile($this->get_behavioral_url() . '/css/lightbox.min.css');
+?>
+
 <figure class="span9">
   <?= $content; ?>
   <div class="clearfix"></div>
@@ -29,11 +35,19 @@
 </section>
 
 <section class="row-fluid">
-  <? $this->widget('ext.bootstrap.widgets.TbPager', [
-      'pages' => $pagination,
+  <? $this->widget('CLinkPager', [
+      'pages'                => $pagination,
+      'previousPageCssClass' => 'btn',
+      'nextPageCssClass'     => 'btn',
+      'internalPageCssClass' => 'btn',
+      'lastPageLabel'        => '',
+      'firstPageLabel'       => '',
+      'firstPageCssClass'    => 'hidden',
+      'lastPageCssClass'     => 'hidden',
+      'selectedPageCssClass' => 'active',
+      'header'               => '',
       'htmlOptions' => [
-        'class' => 'art-bottom'
+        'class' => 'span9'
       ]
-      
   ]); ?>
 </section>

@@ -41,12 +41,3 @@
 	    <div class="clearfix"></div>
   	<input name="" type="submit" class="send-btn" value="Надіслати">
 <? $this->endWidget(); ?>
-
-<script>
-	$(function(){
-		$('.contact-us-widget').on('ajax:success', function(){
-			$(this).reset();
-			$('img.captcha-img').click();
-		});
-	});
-</script>

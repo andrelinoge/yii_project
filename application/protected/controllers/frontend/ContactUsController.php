@@ -8,6 +8,7 @@ class ContactUsController extends FrontendController
         return [
             'create' => [
                 'class' => 'application.actions.crud.CreateAction',
+                'redirect_after_save' => false
             ]
         ];
     }
@@ -19,10 +20,19 @@ class ContactUsController extends FrontendController
         $this->appendTitle( $page->title );
         $this->setMainMetaTags( $page->meta_keywords, $page->meta_description );
 
+        $model = new ContactMessageForm();
+        $site_settings = SiteSetting::model()->find();
+        if (!$site_settings)
+        {
+            $site_settings = new SiteSetting();
+        }
+
         $this->render(
-            'index',
+            'new',
             [
                 'content' => $page->content,
+                'model'   => $model,
+                'site_settings' => $site_settings
             ]
         );
     }

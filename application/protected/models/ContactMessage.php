@@ -23,15 +23,27 @@ class ContactMessage extends CActiveRecord
 		return 'contact_messages';
 	}
 
+	public function behaviors()
+    {
+        return [
+            'timestampable' => [
+                'class'             => 'zii.behaviors.CTimestampBehavior',
+                'setUpdateOnCreate' => false,
+                'createAttribute'   => 'created_at',
+                'updateAttribute'   => 'updated_at',
+            ]
+        ];
+    }
+
 	/**
 	 * @return array validation rules for model attributes.
 	 */
 	public function rules()
 	{
 		return array(
-			array('name, phone, content, is_read', 'required'),
+			array('name, content', 'required'),
 			array('is_read', 'numerical', 'integerOnly'=>true),
-			array('name, email', 'length', 'max'=>255),
+			array('name, email, phone', 'length', 'max'=>255),
 			array('id, name, email, content, created_at, updated_at, is_read', 'safe', 'on'=>'search'),
 		);
 	}
@@ -41,7 +53,7 @@ class ContactMessage extends CActiveRecord
 	 */
 	public function relations()
 	{
-		return array();
+		return [];
 	}
 
 	/**

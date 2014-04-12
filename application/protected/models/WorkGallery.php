@@ -11,14 +11,9 @@
  * @property string $title
  * @property string $lang
  */
-class WorkGallery extends Image
+class WorkGallery extends BaseImage
 {
     public $type = 'WorkGallery';
-
-    public function defaultScope()
-    {
-        return [ 'condition' => "type = '{$this->type}'" ];
-    }
 
     public function behaviors()
     {

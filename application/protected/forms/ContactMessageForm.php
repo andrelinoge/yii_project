@@ -59,12 +59,11 @@ class ContactMessageForm extends CFormModel
         $contact_message->email   = $this->email;
         $contact_message->phone   = $this->phone;
         $contact_message->content = $this->content;
-        $contact_message->save();
 
-        // if ($contact_message->save())
-        // {
-        //     $mailer = new ApplicationMailer();
-        //     $mailer->new_contact_message_notification($contact_message);
-        // }
+        if ($contact_message->save())
+        {
+            $mailer = new ApplicationMailer();
+            $mailer->new_contact_message_notification($contact_message);
+        }
     }
 }

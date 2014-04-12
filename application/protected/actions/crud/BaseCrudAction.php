@@ -4,6 +4,7 @@ class BaseCrudAction extends CAction
 {
     public $success_message = '';
     public $error_message = '';
+    public $default_search_value = false;
 
     /**
      * @param $method string
@@ -61,7 +62,7 @@ class BaseCrudAction extends CAction
     protected function load_model()
     {
         $this->check_method_exists('load_model');
-        $id = get_param('id');
+        $id = get_param('id', $this->default_search_value);
         if ($id)
         {
             $model = $this->controller->load_model($id);

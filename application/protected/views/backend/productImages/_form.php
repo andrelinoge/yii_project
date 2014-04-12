@@ -1,15 +1,9 @@
 <?
     Yii::app()->clientScript->registerPackage( 'jqueryForm' )->registerPackage( 'ckEditor' );
-    /**
-     * @var CActiveForm $form
-     * @var CModel $model
-     */
 ?>
 
 
 <? $form = $this->beginWidget('CActiveForm', [
-    'enableAjaxValidation' => false,
-    'enableClientValidation' => false,
     'action' => $form_action,
     'focus' => array($model,'title'),
     'htmlOptions' => [ 'enctype' => "multipart/form-data" ]
@@ -20,8 +14,8 @@
             <div class="pull-left col-md-2">
                 <div class="block">
                     <div class="block-content">
-                        <img class="fancybox" src="<?= $model->file->get_image_url('s'); ?>">
-                    </div>
+                        <img class="fancybox" height="125px" width="125px" src="<?= $model->file->get_image_url('m'); ?>">
+                    </div> 
                 </div>
             </div>
         <? endif; ?>

@@ -34,7 +34,7 @@ Yii::app()->clientScript
     image_controller.initialize_index_page();
 
     uploader.initialize(
-        '<?= url("slider/upload", ["type" => "Slider"]); ?>',
+        '<?= url("productImages/upload", ["owner_id" => get_param('owner_id')]); ?>',
         'uploader',
         {
             onComplete: function(id, fileName, response)

@@ -15,7 +15,7 @@
  */
 class ProductCategory extends BaseCategory
 {
-	protected $_route = 'product/category';
+	protected $_route = 'products/index';
 	public $type = 'Product';
 
 	public function defaultScope()
@@ -75,7 +75,7 @@ class ProductCategory extends BaseCategory
     {
         if ($this->_url === null)
         {
-            $this->_url = url($this->_route, ['category' => $this->alias]);
+            $this->_url = url($this->_route, ['category_alias' => $this->alias]);
         }
         return $this->_url;
     }

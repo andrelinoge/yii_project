@@ -23,12 +23,18 @@ class SiteSettingsController extends BackendController
 
     public function load_model($id)
     {
-        return SiteSettings::model()->findByPk($id);
+        return SiteSetting::model()->findByPk($id);
     }
 
     public function get_collection_provider()
     {
-        return SiteSettings::model()->search();
+        $dp = SiteSetting::model()->search();
+        if ($dp->totalItemCount == 0)
+        {
+            $settings = new SiteSetting();
+            $settings->save();
+        }
+        return SiteSetting::model()->search();
     }
 
     /**                                     FILTERS                                **/

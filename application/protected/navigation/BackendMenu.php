@@ -140,6 +140,18 @@ class BackendMenu
             ]
         ];
 
+        $menuItems[] = [
+            'title'          => _( 'Settings' ),
+            'activityMarker' => 'siteSettings',
+            'items' => [
+                [
+                    'title'          => _( 'Edit' ),
+                    'url'            => url( 'siteSettings/index' ),
+                    'activityMarker' => 'index'
+                ],
+            ]
+        ];
+
         return $menuItems;
     }
 

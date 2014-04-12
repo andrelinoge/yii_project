@@ -17,6 +17,7 @@ class ImageBehavior extends CActiveRecordBehavior
     public $size_limit = 10485760;
 
     public $is_ajax_upload = false;
+    public $default_thumbnail_type = 'adaptive';
 
     protected $initial_image = '';
 
@@ -194,13 +195,32 @@ class ImageBehavior extends CActiveRecordBehavior
 
             $image_handler = new CImageHandler();
 
-            foreach( $this->thumbnails as $prefix => $dimensions )
+            foreach( $this->thumbnails as $prefix => $thumbnail_info )
             {
                 $image_handler->load( $image_folder . $file_name );
-                list( $width, $height ) = $dimensions;
-                $image_handler
-                    ->adaptiveThumb( $width, $height )
-                    ->save( $image_folder . $prefix . $file_name );
+                list( $width, $height, $thumbnail_type ) = $thumbnail_info;
+
+                if (empty($thumbnail_type))
+                {
+                    $thumbnail_type = $this->default_thumbnail_type;
+                }
+
+                switch($thumbnail_type)
+                {
+                    case 'adaptive':
+                        $image_handler->adaptiveThumb( $width, $height );
+                        break;
+
+                    case 'square':
+                        $image_handler->squareThumb( $width, $height );
+                        break;
+
+                    default:
+                        $image_handler->thumb( $width, $height );
+                        break;
+                }
+
+                $image_handler->save( $image_folder . $prefix . $file_name );
             }
         }
     }

@@ -31,7 +31,7 @@ $this->widget(
                             'class' => 'btn btn-xs btn-warning'
                         ],
                         'icon' => 'fa fa-pencil',
-                        'url'  => '$this->createUrl("edit", ["id" => $data->id])'
+                        'url'  => 'url("siteSettings/edit", ["id" => $data->id])'
                     ]
                 ]
             ]

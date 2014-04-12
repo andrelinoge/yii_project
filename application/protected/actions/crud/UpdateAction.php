@@ -8,6 +8,7 @@ class UpdateAction extends BaseCrudAction
     public $success_message = 'Edited successfully';
     public $error_message = 'Invalid data';
     public $redirect_to_view = false;
+    public $redirect_to = 'index';
 
     public function run()
     {
@@ -69,7 +70,7 @@ class UpdateAction extends BaseCrudAction
             }
             else
             {
-                $this->controller->redirect(['index' ]);
+                $this->controller->redirect([ $this->redirect_to ]);
             }
         }
     }

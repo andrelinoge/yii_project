@@ -1,6 +1,6 @@
 <?
 
-class WorkGalleryController extends BackendController
+class ProductImagesController extends BackendController
 {
     public function actions()
     {
@@ -35,7 +35,11 @@ class WorkGalleryController extends BackendController
     public function before_index($data_provider)
     {
         $this->breadcrumbs = [
-            ['title' => 'Work gallery']
+            [
+                'title' => 'Products',
+                'url' => url('products/index')
+            ],
+            ['title' => 'Product images']
         ];
     }
 
@@ -46,12 +50,15 @@ class WorkGalleryController extends BackendController
 
     public function create_model()
     {
-        return new WorkGallery();
+        $model = new ProductImage();
+        $model->owner_id = get_param('owner_id');
+
+        return $model;
     }
 
     public function load_model($id)
     {
-        return WorkGallery::model()->findByPk($id);
+        return ProductImage::model()->findByPk($id);
     }
 
     public function before_update($model)
@@ -62,7 +69,14 @@ class WorkGalleryController extends BackendController
 
     public function get_collection_provider()
     {
-        $model = new WorkGallery();
+        $owner_id = get_param('owner_id');
+        if (!$owner_id)
+        {
+            throw new CHttpException("404");
+        }
+
+        $model = new ProductImage();
+        $model->owner_id = get_param('owner_id');
 
         return $model->search();
     }

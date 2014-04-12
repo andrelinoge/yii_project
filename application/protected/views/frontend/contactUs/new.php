@@ -1,11 +1,11 @@
-<iframe width="100%" height="300" scrolling="no" frameborder="0" class="map-border" src="https://maps.google.com/?ie=UTF8&amp;ll=-20.234496,57.603722&amp;spn=0.093419,0.169086&amp;t=m&amp;z=13&amp;output=embed" marginwidth="0" marginheight="0"></iframe>
+<?= $site_settings->google_map; ?>
 <section class="row-fluid">
   <figure class="span7">
     <h2>Напишіть нам</h2>
 
     <? $form = $this->beginWidget('CActiveForm', [
       'action'      => url('contactUs/create'),
-      'htmlOptions' => [ 'class' => 'ajax-form contact-us-widget' ]
+      'htmlOptions' => [ 'class' => 'ajax-form contact-us-form' ]
     ]); ?>
       <ul class="comm-list">
         <li>
@@ -39,7 +39,7 @@
                     'showRefreshButton' => false,
                     'buttonLabel'       => _('Обновить'),
                     'imageOptions' => [
-                    'class' => 'captcha-img author-img',
+                    'class' => 'form-captha author-img',
                     'title' => 'Клацніть, щоб обновити картинку'
                   ],
                     'clickableImage' => true
@@ -73,8 +73,8 @@
   <figure class="span4">
     <h2>Наша адреса</h2>
     <ul class="contact-list">
-      <li class="phone"><?= $site_settings->phone_1 . $site_settings->phone_2 ? ', ' . $site_settings->phone_2 : ''; ?></li>
-      <li class="mail"><a href="#"><?= $site_settings->emaill ?></a></li>
+      <li class="phone"><?= $site_settings->phone_1 . ($site_settings->phone_2 ? ', ' . $site_settings->phone_2 : ''); ?></li>
+      <li class="mail"><a href="#"><?= $site_settings->email ?></a></li>
       <li class="address"><?= $site_settings->address; ?></li>
     </ul>
   </figure>
@@ -82,9 +82,9 @@
 
 <script>
   $(function(){
-    $('.contact-us-widget').on('ajax:success', function(){
+    $('.contact-us-form').on('ajax:success', function(){
       this.reset();
-      $('img.captcha-img').click();
+      $('img.form-captha').click();
       alert('Ми отримали ваше повідомлення і дамо відповідь якомога швидше!');
       return false;
     });

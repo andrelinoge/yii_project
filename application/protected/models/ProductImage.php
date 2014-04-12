@@ -11,14 +11,9 @@
  * @property string $title
  * @property string $lang
  */
-class Slide extends Image
+class ProductImage extends BaseImage
 {
-    public $type = 'Slider';
-
-    public function defaultScope()
-    {
-        return [ 'condition' => "type = '{$this->type}'" ];
-    }
+    public $type = 'Product';
 
     public function behaviors()
     {
@@ -27,11 +22,10 @@ class Slide extends Image
                 'class'                 => 'ImageBehavior',
                 'image_attribute'       => 'image',
                 'is_ajax_upload'        => true,
-                'image_folder'          => 'public/uploads/images/slider',
+                'image_folder'          => 'public/uploads/images/gallery',
                 'temp_folder'           => 'public/uploads/temp',
                 'thumbnails'            => [
-                    'm' => [700, 700],
-                    's' => [250, 125]
+                    'm' => [270, 216, 'adaptive']
                 ]
             ]
         ];

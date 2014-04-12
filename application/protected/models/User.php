@@ -17,9 +17,7 @@
  */
 class User extends CActiveRecord
 {
-    const CACHE_KEY_USER_MODEL = 'user_';
-    const CACHE_TTL_USER_MODEL = 600; // 10 min
-    const MIN_PASSWORD_LENGTH = 6;
+    const CACHE_TTL = 600; // 10 min
     const SALT = 'qweasdzxc123'; // salt for protection id when it sends with post data
 
 
@@ -78,7 +76,7 @@ class User extends CActiveRecord
 	 */
 	public function relations()
 	{
-        return array();
+        return [];
 	}
 
 	/**
@@ -86,17 +84,17 @@ class User extends CActiveRecord
 	 */
 	public function attributeLabels()
 	{
-		return array(
-			'id' => 'ID',
-			'role' => _( 'Роль' ),
-			'email' => 'Email',
-			'password' => _( 'Пароль' ),
+		return [
+            'id'               => 'ID',
+            'role'             => _( 'Роль' ),
+            'email'            => 'Email',
+            'password'         => _( 'Пароль' ),
             'confirm_password' => _( 'Повтор пароля' ),
-			'salt' => _( 'Salt' ),
-			'first_name' => _( 'Имя' ),
-            'last_name' => _( 'Фамиля' ),
-            'created_at' => _('Registered at'),
-		);
+            'salt'             => _( 'Salt' ),
+            'first_name'       => _( 'Имя' ),
+            'last_name'        => _( 'Фамиля' ),
+            'created_at'       => _('Registered at'),
+		];
 	}
 
     /**
@@ -191,7 +189,7 @@ class User extends CActiveRecord
      */
     public static function get_from_cache( $id )
     {
-        $user = Yii::app()->cache->get( self::CACHE_KEY_USER_MODEL . $id);
+        $user = Yii::app()->cache->get( __CLASS__ . $id);
         if ( !$user )
         {
             $user = static::refresh_cache( $id );
@@ -208,7 +206,7 @@ class User extends CActiveRecord
     public static function refresh_cache( $id )
     {
         $model = User::model()->findByPk( $id );
-        Yii::app()->cache->set( self::CACHE_KEY_USER_MODEL . $id, $model, self::CACHE_TTL_USER_MODEL );
+        Yii::app()->cache->set( __CLASS__ . $id, $model, self::CACHE_TTL );
         return $model;
     }
 
@@ -218,7 +216,7 @@ class User extends CActiveRecord
      */
     public static function purge_cache( $id )
     {
-        Yii::app()->cache->delete( self::CACHE_KEY_USER_MODEL . $id );
+        Yii::app()->cache->delete( __CLASS__ . $id );
     }
 
     /**
@@ -235,54 +233,22 @@ class User extends CActiveRecord
     /**
      * @static
      * @param $password string initial password value
-     * @param $passwordHash string encrypted password value with salt
+     * @param $password_hash string encrypted password value with salt
      * @param $salt string
      * @return bool
      */
-    public static function is_password_valid( $password, $passwordHash, $salt)
+    public static function is_password_valid( $password, $password_hash, $salt)
     {
-        return $passwordHash === self::password_hash( $password, $salt );
+        return $password_hash === self::password_hash( $password, $salt );
     }
 
-    
-    public static function getAdmins()
+    public static function admins()
     {
         return self::model()->findAllByAttributes( array( 'role' => WebUser::ROLE_ADMIN ) );
     }
 
-
-    /**
-     * @return string
-     */
     public function full_name()
     {
         return $this->first_name . ' ' . $this->last_name;
     }
-
-
-    /**
-     * check if email already in use
-     * @param $email
-     * @return bool
-     */
-    public static function isEmailUnique( $email )
-    {
-        $sql = 'SELECT email FROM user WHERE email = :email';
-        $command = Yii::app()->db->createCommand($sql);
-        $command->bindParam( ':email', $email, PDO::PARAM_STR );
-
-        $result = $command->queryRow();
-
-        return $result === FALSE;
-    }
-
-    public static function getEmailsByRole($role)
-    {
-        $sql = "SELECT email FROM user WHERE role = {$role}";
-        /** @var CDbCommand $command */
-        $command = Yii::app()->db->createCommand($sql);
-
-        return $command->queryColumn();
-    }
-
 }

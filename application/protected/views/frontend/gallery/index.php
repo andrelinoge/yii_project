@@ -4,7 +4,6 @@
     ->registerCssFile($this->get_behavioral_url() . '/css/lightbox.min.css');
 ?>
 
-<figure class="span9">
   <?= $content; ?>
   <div class="clearfix"></div>
   <br/><br/>
@@ -14,10 +13,10 @@
   <? foreach($images as $image ): ?>
     <figure class="span6 <?= $first ? 'first' : ''; ?>"> 
       <a data-toggle="lightbox" href="#gallery_<?= $image->id; ?>" > 
-          <img class="team-img f-width-img" src="<?= $image->get_image_url('m'); ?>" alt=""/> 
-        </a>
-        <p><?= $image->description; ?></p>
-      </figure>
+        <img class="team-img f-width-img" src="<?= $image->get_image_url('m'); ?>" alt=""/> 
+      </a>  
+      <p><?= $image->description; ?></p>
+    </figure> 
 
       <div id="gallery_<?= $image->id; ?>" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
         <div class='lightbox-header'>

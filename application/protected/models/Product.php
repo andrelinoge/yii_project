@@ -19,11 +19,11 @@
 class Product extends BaseArticle
 {
 	public $type = 'Product';
-	protected $_route = 'product/show';
+	protected $_route = 'products/show';
 
 	public function defaultScope()
     {
-        return [ 'condition' => "type = '{$this->type}'" ];
+        return [ 'condition' => "t.type = '{$this->type}'" ];
     }
 
 	public function tableName()
@@ -39,7 +39,8 @@ class Product extends BaseArticle
 	public function relations()
 	{
 		return [
-			'category' => [static::BELONGS_TO, 'ProductCategory', 'category_id']
+			'category' => [static::BELONGS_TO, 'ProductCategory', 'category_id'],
+            'gallery'   => [static::HAS_MANY, 'ProductImage', 'owner_id']
 		];
 	}
 
@@ -78,7 +79,7 @@ class Product extends BaseArticle
     {
         if ($this->_url === null)
         {
-            $this->_url = url($this->_route, ['category' => $this->category->alias, 'id' => $this->id, 'alias' => $this->alias]);
+            $this->_url = url($this->_route, ['category_alias' => $this->category->alias, 'product_alias' => $this->alias]);
         }
         return $this->_url;
     }   

@@ -1,4 +1,3 @@
-<figure class="span9">
   <?= $content; ?>
   <div class="clearfix"></div>
   <br/><br/>
@@ -20,4 +19,3 @@
       </div>
     </article>
   <? endforeach; ?>
-</figure>

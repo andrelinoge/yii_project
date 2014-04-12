@@ -9,6 +9,7 @@
  * @property string $phone_2
  * @property string $email
  * @property string $address
+ * @property string $google_map
  */
 class SiteSetting extends CActiveRecord
 {
@@ -26,9 +27,9 @@ class SiteSetting extends CActiveRecord
 	public function rules()
 	{
 		return array(
-			array('phone_1, phone_2, email, address', 'required'),
 			array('phone_1, phone_2, email, address', 'length', 'max'=>255),
-			array('id, phone_1, phone_2, email, address', 'safe', 'on'=>'search'),
+			['google_map', 'safe'],
+			array('id, phone_1, phone_2, email, address, google_map', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -40,10 +41,11 @@ class SiteSetting extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'phone_1' => 'Phone 1',
-			'phone_2' => 'Phone 2',
-			'email'   => 'Email',
-			'address' => 'Address',
+			'phone_1'    => 'Phone 1',
+			'phone_2'    => 'Phone 2',
+			'email'      => 'Email',
+			'address'    => 'Address',
+			'google_map' => 'Embed google map'
 		);
 	}
 

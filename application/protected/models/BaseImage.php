@@ -11,25 +11,8 @@
  * @property string $type
  * @property integer $owner_id
  */
-class Image extends CActiveRecord
+abstract class BaseImage extends CActiveRecord
 {
-	public function behaviors()
-    {
-        return [
-            'file' => [
-				'class'                 => 'ImageBehavior',
-				'image_attribute'       => 'image',
-				'is_ajax_upload'        => true,
-				'image_folder'          => 'public/uploads/images/gallery',
-				'temp_folder'           => 'public/uploads/temp',
-				'thumbnails'            => [
-                    'm' => [300, 300],
-                    's' => [100, 100]
-                ]
-            ]
-        ];
-    }
-
 	public function tableName()
 	{
 		return 'images';
@@ -46,11 +29,6 @@ class Image extends CActiveRecord
 			[ 'type', 'length', 'max' => 20 ],
 			[ 'id, image, text, type, owner_id', 'safe', 'on' => 'search' ]
 		];
-	}
-
-	public function relations()
-	{
-		return [];
 	}
 
 	/**
@@ -83,10 +61,10 @@ class Image extends CActiveRecord
 		));
 	}
 
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
+	public function defaultScope()
+    {
+        return [ 'condition' => "t.type = '{$this->type}'" ];
+    }
 
     public function recently($limit)
     {

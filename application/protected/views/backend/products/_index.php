@@ -39,7 +39,7 @@ $this->widget(
                             'class' => 'btn btn-xs btn-default'
                         ],
                         'icon' => 'fa fa-picture-o',
-                        'url' => 'url("images/index", ["owner_id" => $data->id, "type" => "Product"])'
+                        'url' => 'url("productImages/index", ["owner_id" => $data->id])'
                     ],
                     'view' => [
                         'options' => [

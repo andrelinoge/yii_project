@@ -75,8 +75,8 @@ a img:hover{
 
 /* Header */
 #logo {
-	background:url(../images/logo.jpg) no-repeat;
-	margin:0;
+	background:url(../images/logo.png) no-repeat;
+	margin: 0px 0px 0px 50px;
 	padding:0;
 	text-indent: -9999px;
 	width:275px;

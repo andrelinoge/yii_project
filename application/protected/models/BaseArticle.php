@@ -78,7 +78,7 @@ abstract class BaseArticle extends CActiveRecord
         $sort = new CSort();
         $sort->attributes   = [
             'id' => [
-                'asc' => 'id asc',
+                'asc'  => 'id asc',
                 'desk' => 'id desk'
             ], 
             'title', 'alias', 'category_id', 'created_at'

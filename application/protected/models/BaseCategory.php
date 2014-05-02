@@ -23,7 +23,8 @@ abstract class BaseCategory extends CActiveRecord
     public function rules()
     {
         return array(
-            array('title, content', 'required'),
+            array('title', 'required'),
+            ['content', 'safe'],
             array('type, parent_id', 'numerical', 'integerOnly'=>true),
             array('title, alias, meta_keywords, meta_description', 'length', 'max'=>255),
             

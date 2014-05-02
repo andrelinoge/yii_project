@@ -81,7 +81,7 @@ return [
 
         // DB
 		'db' => [
-            'connectionString'      => 'mysql:host=localhost;dbname=test',
+            'connectionString'      => 'mysql:host=localhost;dbname=diploma',
             'username'              => 'root',
             'password'              => 'root',
             

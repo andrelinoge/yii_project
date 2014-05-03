@@ -5,11 +5,15 @@
 
 class FrontendController extends ApplicationController
 {
+    public $site_settings;
+
     public function init()
     {
         $this->pageTitle = Yii::app()->name;
         $this->set_layout( 'main' );
         Yii::app()->clientScript->registerPackage( 'frontend' );
+
+        $this->site_settings = SiteSettings::get();
 
         parent::init();
     }

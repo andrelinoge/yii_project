@@ -25,11 +25,18 @@ class Slide extends Image
                 'image_folder'          => 'public/uploads/images/slider',
                 'temp_folder'           => 'public/uploads/temp',
                 'thumbnails'            => [
-                    'm' => [700, 700],
+                    'm' => [770, 400],
                     's' => [100, 100]
                 ]
             ]
         ];
+    }
+
+    public function defaultScope()
+    {
+        return array(
+            'condition' => "type='" . $this->type. "'",
+        );
     }
 
     /**

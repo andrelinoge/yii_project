@@ -194,7 +194,7 @@ class ImageBehavior extends CActiveRecordBehavior
                 $image_handler->load( $image_folder . $file_name );
                 list( $width, $height ) = $dimensions;
                 $image_handler
-                    ->squareThumb( $width, $height )
+                    ->adaptiveThumb( $width, $height )
                     ->save( $image_folder . $prefix . $file_name );
             }
         }

@@ -2,12 +2,11 @@
 
 class Slider extends CWidget
 {
-    /** @var Slider[] */
     protected  $slides;
 
     public function init()
     {
-        $this->slides = Slide::getSlides();
+        $this->slides = Slide::model()->findAll();
     }
 
     public function run()

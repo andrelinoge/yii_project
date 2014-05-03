@@ -1,40 +1,17 @@
-<? /** @var $slides Slider[] */?>
-<? if( !empty($slides) ): ?>
-    <section class="sub-head">
-
-        <div class="container">
-            <div class="carousel slide" id="slidesHome">
-                <ol class="carousel-indicators">
-                    <? for( $i = 0; $i < count($slides); $i++): ?>
-                        <li data-slide-to="<?= $i; ?>" data-target="#slidesHome" <? if ($i == 0): ?>class="active"<? endif; ?>>
-                            <?= $i + 1; ?>
-                        </li>
-                    <? endfor; ?>
-                </ol>
-
-                <div class="carousel-inner">
-                    <? $class = "item active"; ?>
-                    <? foreach($slides as $slide): ?>
-                        <div class="<?= $class; ?>">
-                            <a href="#">
-                                <img src="<?= $slide->getOriginalImage(); ?>"
-                                     class="slide"
-                                     alt="<?= $slide->getAlt(); ?>"
-                                     title="<?= $slide->getTitle(); ?>">
-                            </a>
+<div class="main-slideshow">
+    <div class="flexslider">
+        <ul class="slides">
+            <? foreach($slides as $slide): ?>
+                <li>
+                    <img src="<?= $slide->get_image_url('m'); ?>" />
+                    <? if (!empty($slide->title) || !empty($slide->description)): ?>
+                        <div class="slider-caption">
+                            <h2><?= $slide->title; ?></h2>
+                            <p><?= $slide->description; ?></p>
                         </div>
-                        <? $class = "item"; ?>
-                    <? endforeach; ?>
-                </div>
-            </div>
-        </div>
-    </section>
-<? endif; ?>
-
-<script>
-    $(document).ready(function() {
-        $('.carousel').carousel({
-            interval: 5000
-        })
-    });
-</script>
+                    <? endif?>
+                </li>
+            <? endforeach; ?>
+        </ul>
+    </div>
+</div>

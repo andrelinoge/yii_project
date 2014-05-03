@@ -34,7 +34,7 @@ Yii::app()->clientScript
     image_controller.initialize_index_page();
 
     uploader.initialize(
-        '<?= url("workGallery/upload", ["type" => "WorkGallery"]); ?>',
+        '<?= url("workGallery/upload", ["type" => "Slider"]); ?>',
         'uploader',
         {
             onComplete: function(id, fileName, response)
@@ -44,11 +44,11 @@ Yii::app()->clientScript
                 if ($container.find('ul.thumbnails').length == 0)
                 {
                     $container.html('<ul class="thumbnails"></ul>');
-                    $container = $container.find('ul.thumbnails');
                 }
 
-                $container.append(response.html);
+                $container.find('ul.thumbnails').append(response.html);
                 $('.scroll').mCustomScrollbar("update");
+                $(".fancybox").fancybox({padding: 5});
             }
         }
     );

@@ -15,6 +15,13 @@ class WorkGallery extends Image
 {
     public $type = 'WorkGallery';
 
+    public function defaultScope()
+    {
+        return array(
+            'condition' => "type='" . $this->type. "'",
+        );
+    }
+
     public function behaviors()
     {
         return [
@@ -22,11 +29,11 @@ class WorkGallery extends Image
                 'class'                 => 'ImageBehavior',
                 'image_attribute'       => 'image',
                 'is_ajax_upload'        => true,
-                'image_folder'          => 'public/uploads/images/slider',
+                'image_folder'          => 'public/uploads/images/gallery',
                 'temp_folder'           => 'public/uploads/temp',
                 'thumbnails'            => [
                     'm' => [260, 180],
-                    's' => [100, 100]
+                    's' => [70, 70]
                 ]
             ]
         ];
@@ -41,5 +48,40 @@ class WorkGallery extends Image
     public static function model($className=__CLASS__)
     {
         return parent::model($className);
+    }
+
+    public function search()
+    {
+        $criteria = new CDbCriteria;
+
+        $criteria->compare('id',$this->id);
+
+        $pagination = new CPagination();
+        $pagination->pageSize = 5;
+
+
+        return new CActiveDataProvider($this, array(
+            'criteria'   => $criteria,
+            'pagination' => $pagination,
+        ));
+    }
+
+    public function last($limit = null)
+    {
+        if ($limit)
+        {
+            $this->getDbCriteria()->mergeWith([
+                'order' => 'id DESC',
+                'limit' => $limit
+            ]);
+        }
+        else
+        {
+            $this->getDbCriteria()->mergeWith([
+                'order' => 'id DESC'
+            ]);
+        }
+
+        return $this;
     }
 }

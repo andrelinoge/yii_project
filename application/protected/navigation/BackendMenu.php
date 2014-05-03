@@ -20,7 +20,7 @@ class BackendMenu
             'items' => [
                 [
                     'title'          => _( 'Все' ),
-                    'url'            => url( 'slider/index', ['type' => 'Slide'] ),
+                    'url'            => url( 'slider/index'),
                     'activityMarker' => 'index'
                 ],
             ]
@@ -105,10 +105,22 @@ class BackendMenu
             'items' => [
                 [
                     'title'          => _( 'Все' ),
-                    'url'            => url( 'workGallery/index', ['type' => 'WorkGallery'] ),
+                    'url'            => url( 'workGallery/index'),
                     'activityMarker' => 'index'
                 ],
             ]
+        ];
+
+        $menuItems[] = [
+            'title'          => _( 'Settings' ),
+            'url'            => url('settings/edit'),
+            'activityMarker' => ''
+        ];
+
+        $menuItems[] = [
+            'title'          => _( 'Перейти до сайту' ),
+            'url'            => Yii::app()->getBaseUrl(true),
+            'activityMarker' => ''
         ];
 
         return $menuItems;

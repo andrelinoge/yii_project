@@ -19,7 +19,7 @@ abstract class BaseArticle extends CActiveRecord
                 'image_folder'    => 'public/uploads/images/articles',
                 'temp_folder'     => 'public/uploads/temp',
                 'thumbnails'      => [
-                    'm' => [300, 300],
+                    'm' => [360, 220],
                     's' => [100, 100]
                 ]
             ],
@@ -89,6 +89,16 @@ abstract class BaseArticle extends CActiveRecord
             'pagination' => $pagination,
             'sort'       => $sort
         ));
+    }
+
+    public function by_category($category)
+    {
+        $this->getDbCriteria()->mergeWith([
+            'condition' => 'category_id = :category_id',
+            'params'    => [':category_id' => is_object($category) ? $category->id : $category] 
+        ]);
+
+        return $this;
     }
 
     abstract public function get_url();

@@ -1,11 +1,43 @@
 <?
 
-class SliderController extends ImagesController
+class SliderController extends BackendController
 {
+    public function actions()
+    {
+        return [
+            'index' => [
+                'class'                 => 'application.actions.crud.IndexAction',
+                'view'                  => 'index',
+                'ajax_view'             => '_index',
+            ],
+            'edit' => [
+                'class'                 => 'application.actions.crud.EditAction',
+                'view'                  => 'edit'
+            ],
+            'update' => [
+                'class'                 => 'application.actions.crud.UpdateImageAction',
+                'view'                  => 'edit'
+            ],
+            'delete' => [
+                'class'                 => 'application.actions.crud.DeleteAction',
+            ],
+            'view' => [
+                'class'                 => 'application.actions.crud.ViewAction',
+            ],
+            'upload' => [
+                'class'                 => 'application.actions.crud.UploadImageAction',
+                'upload_and_save'       => true,
+                'ajax_view'             => '_thumbnail'
+            ]
+        ];
+    }
+
     public function before_index($data_provider)
     {
         $this->breadcrumbs = [
-            ['title' => 'Slider']
+            [
+                'title' => 'Slider'
+            ]   
         ];
     }
 
@@ -16,7 +48,10 @@ class SliderController extends ImagesController
 
     public function create_model()
     {
-        return new Slide();
+        $model = new Slide();
+        $model->owner_id = get_param('owner_id');
+
+        return $model;
     }
 
     public function load_model($id)
@@ -27,12 +62,12 @@ class SliderController extends ImagesController
     public function before_update($model)
     {
         $model->setScenario('update');
+        $model->file->is_ajax_upload = false;
     }
 
     public function get_collection_provider()
     {
         $model = new Slide();
-
         return $model->search();
     }
 }

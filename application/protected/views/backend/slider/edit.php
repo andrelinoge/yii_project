@@ -2,8 +2,8 @@
 /** @var $this BackendController */
 $this->breadcrumbs = [
     [
-        'title' => 'Images', 
-        'url'   => url('image/index', ['owner_id' => $model->owner_id, 'type' => $model->type])
+        'title' => 'Slider', 
+        'url'   => url('slider/index', ['owner_id' => $model->owner_id, 'type' => $model->type])
     ],
     [ 'title' => 'Edit image' ]
 ];

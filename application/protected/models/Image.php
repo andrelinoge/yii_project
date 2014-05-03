@@ -30,17 +30,11 @@ class Image extends CActiveRecord
         ];
     }
 
-	/**
-	 * @return string the associated database table name
-	 */
 	public function tableName()
 	{
 		return 'images';
 	}
 
-	/**
-	 * @return array validation rules for model attributes.
-	 */
 	public function rules()
 	{
 		return [
@@ -54,17 +48,11 @@ class Image extends CActiveRecord
 		];
 	}
 
-	/**
-	 * @return array relational rules.
-	 */
 	public function relations()
 	{
 		return [];
 	}
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
 	public function attributeLabels()
 	{
 		return array(
@@ -77,10 +65,6 @@ class Image extends CActiveRecord
 		);
 	}
 
-	/**
-	 * @return CActiveDataProvider the data provider that can return the models
-	 * based on the search/filter conditions.
-	 */
 	public function search()
 	{
 		$criteria = new CDbCriteria;
@@ -96,12 +80,6 @@ class Image extends CActiveRecord
 		));
 	}
 
-	/**
-	 * Returns the static model of the specified AR class.
-	 * Please note that you should have this exact method in all your CActiveRecord descendants!
-	 * @param string $className active record class name.
-	 * @return Image the static model class
-	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

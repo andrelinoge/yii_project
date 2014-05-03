@@ -42,7 +42,6 @@
 </head>
 <body>
 
-    <!-- This one in here is responsive menu for tablet and mobiles -->
     <div class="responsive-navigation visible-sm visible-xs">
         <a href="#" class="menu-toggle-btn">
             <i class="fa fa-bars"></i>
@@ -56,8 +55,8 @@
                 ]);
             ?> 
 
-        </div> <!-- /.responsive_menu -->
-    </div> <!-- /responsive_navigation -->
+        </div>
+    </div>
 
 
     <header class="site-header">
@@ -71,45 +70,45 @@
                     <? if (!empty($this->site_settings->phone_2)): ?>
                         <p><i class="fa fa-phone"></i><?= $this->site_settings->phone_2; ?></p>
                     <? endif; ?>
-                </div> <!-- /.header-left -->
+                </div>
 
                 <div class="col-md-4">
                     <div class="logo">
-                        <a href="index.html" title="Universe" rel="home">
+                        <a href="<?= url('site/index'); ?>" title="Universe" rel="home">
                             <img src="<?= $assets_path; ?>/images/logo.png" alt="Universe">
                         </a>
-                    </div> <!-- /.logo -->
-                </div> <!-- /.col-md-4 -->
+                    </div>
+                </div>
 
                 <div class="col-md-4 header-right">
                     <ul class="small-links">
                         <li><a href="<?= url('page/about'); ?>">About Us</a></li>
-                        <li><a href="<?= url('contacts/new'); ?>">Contact</a></li>
-                        <li><a href="#" class="call-sizer">Викликати замірника</a></li>
+                        <li><a href="<?= url('page/faq'); ?>">FAQ</a></li>
+                        <li><a href="<?= url('contactUs/new'); ?>">Contact</a></li>
+                        <li><a href="#" class="sizer-request">Викликати замірника</a></li>
                     </ul>
-                </div> <!-- /.header-right -->
+                </div>
             </div>
-        </div> <!-- /.container -->
+        </div>
 
         <div class="nav-bar-main" role="navigation">
             <div class="container">
                 <nav class="main-navigation clearfix visible-md visible-lg" role="navigation">
-                        <?
-                            $this->widget('application.widgets.Common.Menu', [
-                                    'active' => strtolower( $this->id ),
-                                    'items'  => FrontendMenu::get($this->id),
-                                    'view' => 'frontend'
-                            ]);
-                        ?>
-                </nav> <!-- /.main-navigation -->
-            </div> <!-- /.container -->
-        </div> <!-- /.nav-bar-main -->
+                    <?
+                        $this->widget('application.widgets.Common.Menu', [
+                                'active' => strtolower( $this->id ),
+                                'items'  => FrontendMenu::get($this->id),
+                                'view' => 'frontend'
+                        ]);
+                    ?>
+                </nav>
+            </div>
+        </div>
 
-    </header> <!-- /.site-header -->
+    </header>
     
     <?= $content; ?>
 
-    <!-- begin The Footer -->
     <footer class="site-footer">
         <div class="container">
             <div class="row">
@@ -120,13 +119,14 @@
                     <ul class="footer-nav">
                         <li><a href="<?= url('site/index'); ?>">Home</a></li>
                         <li><a href="<?= url('page/about'); ?>">About us</a></li>
-                        <li><a href="<?= url('contacts/new'); ?>">Contact us</a></li>
-                        <li><a href="#" class="call-sizer">Викликати замірника</a></li>
+                        <li><a href="<?= url('page/faq'); ?>">FAQ</a></li>
+                        <li><a href="<?= url('contactUs/new'); ?>">Contact us</a></li>
+                        <li><a href="#" class="sizer-request">Викликати замірника</a></li>
                     </ul>
-                </div> <!-- /.col-md-7 -->
-            </div> <!-- /.row -->
-        </div> <!-- /.container -->
-    </footer> <!-- /.site-footer -->
+                </div>
+            </div>
+        </div>
+    </footer> 
 
 
     <script src="<?= $assets_path; ?>/bootstrap/js/bootstrap.min.js"></script>
@@ -141,8 +141,6 @@
             }
         );
     </script>
-
-<? $this->renderPartial('../i18n/js-messages'); ?>
 
 </body>
 </html>

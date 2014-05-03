@@ -19,6 +19,7 @@ abstract class BaseArticle extends CActiveRecord
                 'image_folder'    => 'public/uploads/images/articles',
                 'temp_folder'     => 'public/uploads/temp',
                 'thumbnails'      => [
+                    'b' => [750, 400],
                     'm' => [360, 220],
                     's' => [100, 100]
                 ]

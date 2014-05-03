@@ -40,7 +40,8 @@ class Article extends BaseArticle
 	public function relations()
 	{
 		return [
-			'category' => [static::BELONGS_TO, 'ArticleCategory', 'category_id']
+			'category' => [static::BELONGS_TO, 'ArticleCategory', 'category_id'],
+            'gallery' => [static::HAS_MANY, 'Image', 'owner_id']
 		];
 	}
 
@@ -51,7 +52,7 @@ class Article extends BaseArticle
     {
         if ($this->_url === null)
         {
-            $this->_url = url($this->_route, ['category' => $this->category->alias, 'alias' => $this->alias]);
+            $this->_url = url($this->_route, ['category_alias' => $this->category->alias, 'article_alias' => $this->alias]);
         }
         return $this->_url;
     }   

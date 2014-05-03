@@ -7,6 +7,7 @@ class CreateAction extends BaseCrudAction
     public $ajax_view = null;
     public $success_message = 'Added successfully';
     public $error_message = 'Invalid data';
+    public $redirect_after_save = true;
     public $redirect_to_view = false;
 
     public function run()
@@ -43,13 +44,16 @@ class CreateAction extends BaseCrudAction
             else
             {
                 $response = [];
-                if ($this->redirect_to_view)
+                if ($this->redirect_after_save)
                 {
-                    $response['redirect'] = url('view', ['id' => $model->getPrimaryKey() ]);
-                }
-                else
-                {
-                    $response['redirect'] = url('index' );
+                    if ($this->redirect_to_view)
+                    {
+                        $response['redirect'] = url('view', ['id' => $model->getPrimaryKey() ]);
+                    }
+                    else
+                    {
+                        $response['redirect'] = url('index' );
+                    }
                 }
                 success($this->success_message, $response);
             }

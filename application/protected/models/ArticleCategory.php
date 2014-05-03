@@ -15,6 +15,8 @@
  */
 class ArticleCategory extends BaseCategory
 {
+    protected $_route = 'articles/index';
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -44,7 +46,7 @@ class ArticleCategory extends BaseCategory
     {
         if ($this->_url === null)
         {
-            $this->_url = url($this->_route, ['category' => $this->alias]);
+            $this->_url = url($this->_route, ['category_alias' => $this->alias]);
         }
         return $this->_url;
     }

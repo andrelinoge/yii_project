@@ -57,7 +57,7 @@ class WorkGallery extends Image
         $criteria->compare('id',$this->id);
 
         $pagination = new CPagination();
-        $pagination->pageSize = 5;
+        $pagination->pageSize = 20;
 
 
         return new CActiveDataProvider($this, array(

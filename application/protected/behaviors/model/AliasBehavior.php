@@ -12,4 +12,19 @@ class AliasBehavior extends CActiveRecordBehavior
         }
     }
 
+    /**
+     * Finds model by alias attribute
+     * @param $alias
+     * @return CActiveRecord model
+     */
+    public function find_by_alias($alias)
+    {
+        $model = $this->getOwner()->find([
+            'condition' => 't.' . $this->alias_attribute . '=:alias',
+            'params'    => [ ':alias' => $alias ]
+        ]);
+
+        return $model;
+    }
+
 }

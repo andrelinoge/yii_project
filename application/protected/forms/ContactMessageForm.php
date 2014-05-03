@@ -7,7 +7,7 @@
 class ContactMessageForm extends CFormModel
 {
 	public $name;
-	public $email;
+	public $phone;
 	public $content;
 	public $verify_code;
 
@@ -15,15 +15,9 @@ class ContactMessageForm extends CFormModel
     {
         return array(
             array(
-                'name, email, content',
+                'name, phone, content',
                 'required',
                 'message' => _('обязательное поле')
-            ),
-
-            array(
-                'email',
-                'email',
-                'message' => _('неправильный адрес электронной почты')
             ),
 
             array(
@@ -51,7 +45,7 @@ class ContactMessageForm extends CFormModel
     public function populate(User $user)
     {
         $this->name = $user->getFullName();
-        $this->email = $user->getEmail();
+        $this->phone = $user->getphone();
     }
 
     public function save()
@@ -59,7 +53,7 @@ class ContactMessageForm extends CFormModel
         $contact_message = new ContactMessage();
 
         $contact_message->name = $this->name;
-        $contact_message->email = $this->email;
+        $contact_message->phone = $this->phone;
         $contact_message->content = $this->content;
 
         if ($contact_message->save())

@@ -31,7 +31,7 @@ class FrontendMenu
                 'title'          => $category->title,
                 'activityMarker' => '#',
                 'active'         => $controller,
-                'url'            => url( 'category/index' ),
+                'url'            => $category->get_url(),
                 'items'          => $subitems
             ];
         }
@@ -47,7 +47,7 @@ class FrontendMenu
             'title'          => _( 'Contact us' ),
             'activityMarker' => '#',
             'active'         => $controller,
-            'url'            => url('contacts/new')
+            'url'            => url('contactUs/new')
         ];
 
         return $menu;

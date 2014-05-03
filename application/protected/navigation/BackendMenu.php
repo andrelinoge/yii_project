@@ -27,6 +27,18 @@ class BackendMenu
         ];
 
         $menuItems[] = [
+            'title' => _( 'Static pages' ),
+            'activityMarker' => 'StaticPage',
+            'items' => [
+                [
+                    'title'          => _( 'Все' ),
+                    'url'            => url( 'staticPage/index'),
+                    'activityMarker' => 'index'
+                ],
+            ]
+        ];
+
+        $menuItems[] = [
             'title' => _( 'Articles' ),
             'activityMarker' => 'articles',
             'items' => [
@@ -94,6 +106,28 @@ class BackendMenu
                 [
                     'title'          => _( 'Unread' ),
                     'url'            => url( 'messages/unread' ),
+                    'activityMarker' => 'unread'
+                ]
+            ]
+        ];
+
+        $menuItems[] = [
+            'title' => _( 'Sizer request' ),
+            'activityMarker' => 'messages',
+            'items' => [
+                [
+                    'title'          => _( 'All' ),
+                    'url'            => url( 'sizerRequest/index' ),
+                    'activityMarker' => 'index'
+                ],
+                [
+                    'title'          => _( 'Read' ),
+                    'url'            => url( 'sizerRequest/read' ),
+                    'activityMarker' => 'read'
+                ],
+                [
+                    'title'          => _( 'Unread' ),
+                    'url'            => url( 'sizerRequest/unread' ),
                     'activityMarker' => 'unread'
                 ]
             ]

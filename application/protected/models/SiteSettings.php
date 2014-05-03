@@ -24,7 +24,7 @@ class SiteSettings extends CActiveRecord
 	public function rules()
 	{
 		return array(
-			array('phone_1, phone_2', 'safe'),
+			array('phone_1, phone_2, address, google_map', 'safe'),
 			array('phone_1, phone_2', 'length', 'max'=>255),
 			array('id, phone_1, phone_2', 'safe', 'on'=>'search'),
 		);
@@ -44,9 +44,11 @@ class SiteSettings extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id'      => 'ID',
-			'phone_1' => 'Phone 1',
-			'phone_2' => 'Phone 2',
+			'id'         => 'ID',
+			'phone_1'    => 'Phone 1',
+			'phone_2'    => 'Phone 2',
+			'address'    => 'address',
+			'google_map' => 'google_map'
 		);
 	}
 
@@ -62,8 +64,10 @@ class SiteSettings extends CActiveRecord
 		if (!$model)
 		{
 			$model = new self;
-			$model->phone_1 = 'none';
-			$model->phone_2 = 'none';
+			$model->phone_1    = 'none';
+			$model->phone_2    = 'none';
+			$model->address    = 'none';
+			$model->google_map = 'none';
 			$model->save();
 		}
 

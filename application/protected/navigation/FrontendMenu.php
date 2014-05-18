@@ -6,7 +6,7 @@ class FrontendMenu
         $menu = array();
 
         $menu[] = [
-            'title'          => _( 'Home' ),
+            'title'          => _( 'Головна' ),
             'activityMarker' => '#',
             'active'         => $controller,
             'url'            => url( 'site/index' ),
@@ -37,14 +37,14 @@ class FrontendMenu
         }
 
         $menu[] = [
-            'title'          => _( 'Our works' ),
+            'title'          => _( 'Галерея' ),
             'activityMarker' => '#',
             'active'         => $controller,
             'url'            => url('gallery/index')
         ];
 
         $menu[] = [
-            'title'          => _( 'Contact us' ),
+            'title'          => _( 'Напишіть нам' ),
             'activityMarker' => '#',
             'active'         => $controller,
             'url'            => url('contactUs/new')

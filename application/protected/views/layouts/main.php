@@ -94,9 +94,9 @@
 
                 <div class="col-md-4 header-right">
                     <ul class="small-links">
-                        <li><a href="<?= url('page/about'); ?>">About Us</a></li>
+                        <li><a href="<?= url('page/about'); ?>">Про нас</a></li>
                         <li><a href="<?= url('page/faq'); ?>">FAQ</a></li>
-                        <li><a href="<?= url('contactUs/new'); ?>">Contact</a></li>
+                        <li><a href="<?= url('contactUs/new'); ?>">Контакти</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#sizer">Викликати замірника</a></li>
                     </ul>
                 </div>
@@ -129,9 +129,9 @@
                 </div> <!-- /.col-md-5 -->
                 <div class="col-md-7">
                     <ul class="footer-nav">
-                        <li><a href="<?= url('site/index'); ?>">Home</a></li>
-                        <li><a href="<?= url('page/about'); ?>">About us</a></li>
-                        <li><a href="<?= url('contactUs/new'); ?>">Contact us</a></li>
+                        <li><a href="<?= url('site/index'); ?>">Головна</a></li>
+                        <li><a href="<?= url('page/about'); ?>">Про нас</a></li>
+                        <li><a href="<?= url('contactUs/new'); ?>">Напишіть нам</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#sizer">Викликати замірника</a></li>
                     </ul>
                 </div>

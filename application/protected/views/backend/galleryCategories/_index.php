@@ -34,14 +34,14 @@ $this->widget(
                             'class' => 'btn btn-xs btn-warning'
                         ],
                         'icon' => 'fa fa-pencil',
-                        'url' => 'url("articleCategories/edit", ["id" => $data->id])'
+                        'url' => 'url("galleryCategories/edit", ["id" => $data->id])'
                     ],
                     'delete' => [
                         'options' => [
                             'class' => 'btn btn-xs btn-danger'
                         ],
                         'icon' => 'fa fa-times',
-                        'url' => 'url("articleCategories/delete", ["id" => $data->id])'
+                        'url' => 'url("galleryCategories/delete", ["id" => $data->id])'
                     ]
                 ]
             ]

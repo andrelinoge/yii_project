@@ -1,6 +1,6 @@
 <?
 $this->breadcrumbs = [
-    ['title' => 'Edit site settings']
+    ['title' => 'Редагувати налаштування сайту']
 ];
 ?>
 
@@ -8,7 +8,7 @@ $this->breadcrumbs = [
     <div class="col-md-12">
         <div class="block">
             <div class="block-head">
-                <h2>Edit site settings</h2>
+                <h2>Редагувати налаштування сайту</h2>
             </div>
 
             <div class="block-content">

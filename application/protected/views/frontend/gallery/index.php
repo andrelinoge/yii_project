@@ -18,7 +18,7 @@
                             </div>
                             <div class="widget-inner">
                                 <ul class="mixitup-controls">
-                                    <li class="filter" data-filter="all">Show All</li>
+                                    <li class="filter" data-filter="all">Все</li>
                                     <? foreach($categories as $category): ?>
                                         <li class="filter" data-filter="<?= $category->alias; ?>"><?= $category->title; ?></li>
                                     <? endforeach; ?>

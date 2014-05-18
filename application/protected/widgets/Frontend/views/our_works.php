@@ -1,6 +1,6 @@
 <div class="widget-main">
     <div class="widget-main-title">
-        <h4 class="widget-title">Our Gallery</h4>
+        <h4 class="widget-title">Галерея</h4>
     </div>
     <div class="widget-inner">
         <div class="gallery-small-thumbs clearfix">

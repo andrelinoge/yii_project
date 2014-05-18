@@ -9,13 +9,13 @@ class BackendMenu
     {
         $menuItems = [];
         $menuItems[] = [
-            'title'          => _( 'Home' ) ,
+            'title'          => _( 'Головна' ) ,
             'url'            => url( 'site/index' ),
             'activityMarker' => 'site'
         ];
 
         $menuItems[] = [
-            'title' => _( 'Slider' ),
+            'title' => _( 'Слайдер' ),
             'activityMarker' => 'Slider',
             'items' => [
                 [
@@ -27,7 +27,7 @@ class BackendMenu
         ];
 
         $menuItems[] = [
-            'title' => _( 'Static pages' ),
+            'title' => _( 'Статичні сторінки' ),
             'activityMarker' => 'StaticPage',
             'items' => [
                 [
@@ -39,16 +39,16 @@ class BackendMenu
         ];
 
         $menuItems[] = [
-            'title' => _( 'Articles' ),
+            'title' => _( 'Статті' ),
             'activityMarker' => 'articles',
             'items' => [
                 [
-                    'title'          => _( 'All' ),
+                    'title'          => _( 'Все' ),
                     'url'            => url( 'articles/index' ),
                     'activityMarker' => 'index'
                 ],
                 [
-                    'title'          => _( 'New' ),
+                    'title'          => _( 'Додати' ),
                     'url'            => url( 'articles/new' ),
                     'activityMarker' => 'new'
                 ]
@@ -56,16 +56,16 @@ class BackendMenu
         ];
 
         $menuItems[] = [
-            'title' => _( 'Article categories' ),
+            'title' => _( 'Категорії статей' ),
             'activityMarker' => 'articleCategories',
             'items' => [
                 [
-                    'title'          => _( 'All' ),
+                    'title'          => _( 'Все' ),
                     'url'            => url( 'articleCategories/index' ),
                     'activityMarker' => 'index'
                 ],
                 [
-                    'title'          => _( 'New' ),
+                    'title'          => _( 'Додати' ),
                     'url'            => url( 'articleCategories/new' ),
                     'activityMarker' => 'new'
                 ]
@@ -73,21 +73,21 @@ class BackendMenu
         ];
 
         $menuItems[] = [
-            'title' => _( 'Contact messages' ),
+            'title' => _( 'Контактні повідомлення' ),
             'activityMarker' => 'messages',
             'items' => [
                 [
-                    'title'          => _( 'All' ),
+                    'title'          => _( 'Все' ),
                     'url'            => url( 'messages/index' ),
                     'activityMarker' => 'index'
                 ],
                 [
-                    'title'          => _( 'Read' ),
+                    'title'          => _( 'Прочитані' ),
                     'url'            => url( 'messages/read' ),
                     'activityMarker' => 'read'
                 ],
                 [
-                    'title'          => _( 'Unread' ),
+                    'title'          => _( 'Непрочитані' ),
                     'url'            => url( 'messages/unread' ),
                     'activityMarker' => 'unread'
                 ]
@@ -95,21 +95,21 @@ class BackendMenu
         ];
 
         $menuItems[] = [
-            'title' => _( 'Sizer request' ),
+            'title' => _( 'Виклик замірника' ),
             'activityMarker' => 'sizerRequest',
             'items' => [
                 [
-                    'title'          => _( 'All' ),
+                    'title'          => _( 'Все' ),
                     'url'            => url( 'sizerRequest/index' ),
                     'activityMarker' => 'index'
                 ],
                 [
-                    'title'          => _( 'Read' ),
+                    'title'          => _( 'Прочитані' ),
                     'url'            => url( 'sizerRequest/read' ),
                     'activityMarker' => 'read'
                 ],
                 [
-                    'title'          => _( 'Unread' ),
+                    'title'          => _( 'Непрочитані' ),
                     'url'            => url( 'sizerRequest/unread' ),
                     'activityMarker' => 'unread'
                 ]
@@ -117,16 +117,16 @@ class BackendMenu
         ];
 
         $menuItems[] = [
-            'title' => _( 'Gallery categories' ),
+            'title' => _( 'Категорії галереї' ),
             'activityMarker' => 'galleryCategories',
             'items' => [
                 [
-                    'title'          => _( 'All' ),
+                    'title'          => _( 'Все' ),
                     'url'            => url( 'galleryCategories/index' ),
                     'activityMarker' => 'index'
                 ],
                 [
-                    'title'          => _( 'New' ),
+                    'title'          => _( 'Додати' ),
                     'url'            => url( 'galleryCategories/new' ),
                     'activityMarker' => 'new'
                 ]
@@ -134,7 +134,7 @@ class BackendMenu
         ];
 
         $menuItems[] = [
-            'title' => _( 'Our works' ),
+            'title' => _( 'Галерея' ),
             'activityMarker' => 'WorkGallery',
             'items' => [
                 [
@@ -146,7 +146,7 @@ class BackendMenu
         ];
 
         $menuItems[] = [
-            'title'          => _( 'Settings' ),
+            'title'          => _( 'Налаштування' ),
             'url'            => url('settings/edit'),
             'activityMarker' => ''
         ];

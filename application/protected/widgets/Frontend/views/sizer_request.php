@@ -13,18 +13,18 @@
         ?>
         <div class="row">
           <div class="col-md-6">
-            <label for="yourname">Name:</label>
+            <label for="yourname">Ім'я:</label>
             <?= $form->textField($model, 'name'); ?>
           </div>
 
           <div class="col-md-6">
-            <label for="email-id">Phone:</label>
+            <label for="email-id">Телефон:</label>
             <?= $form->textField($model, 'phone'); ?>
           </div>
         </div>
 
         <div class="full-row">
-            <label for="email-id">Address:</label>
+            <label for="email-id">Адреса:</label>
             <?= $form->textField($model, 'address'); ?>
         </div>
 
@@ -42,7 +42,7 @@
                   [
                     'captchaAction'     => 'captcha/sizerWidget' ,
                     'showRefreshButton' => false,
-                    'buttonLabel'       => _('Обновить'),
+                    'buttonLabel'       => _('Обновити'),
                     'imageOptions' => [
                       'class' => 'form-captha author-img',
                       'title' => 'Клацніть, щоб обновити картинку',
@@ -58,7 +58,7 @@
 
         <div class="row">
           <div class="col-md-12">
-              <label for="message">Message:</label>
+              <label for="message">Повідомлення:</label>
               <?= $form->textArea($model, 'content', ['rows' => '2']); ?>
           </div>
         </div>

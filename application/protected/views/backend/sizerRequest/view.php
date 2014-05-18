@@ -1,8 +1,8 @@
 <?
 /** @var $this BackendController */
 $this->breadcrumbs = [
-    ['title' => 'Sizer request', 'url' => url('sizerRequest/index')],
-    ['title' => 'Preview']
+    ['title' => 'Виклик замірника', 'url' => url('sizerRequest/index')],
+    ['title' => 'Попередній перегляд']
 ];
 ?>
 

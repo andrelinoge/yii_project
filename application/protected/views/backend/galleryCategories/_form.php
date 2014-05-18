@@ -1,9 +1,5 @@
 <?
     Yii::app()->clientScript->registerPackage( 'jqueryForm' )->registerPackage( 'ckEditor' );
-    /**
-     * @var CActiveForm $form
-     * @var CModel $model
-     */
 ?>
 
 
@@ -24,17 +20,8 @@
         <? endif; ?>
     </div>
 
-    <div class="form-group <? if ($model->hasErrors('content')): ?> has-error <? endif; ?>">
-        <label class="control-label">Text</label>
-        <?= $form->textArea($model, 'content', ['class' => 'ckeditor']); ?>
-
-        <? if ($model->hasErrors('content')): ?>
-            <span class="error"><?= $model->getError('content')?></span>
-        <? endif; ?>
-    </div>
-
     <hr>
     <div class="form-group">
-        <button class="btn btn-success" type="submit">Save</button>
+        <button class="btn btn-success" type="submit">Зберегти</button>
     </div>
 <? $this->endWidget(); ?>

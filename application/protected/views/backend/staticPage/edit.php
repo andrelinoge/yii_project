@@ -1,8 +1,8 @@
 <?
 /** @var $this BackendController */
 $this->breadcrumbs = [
-    ['title' => 'Static pages', 'url' => url('staticPages/index')],
-    ['title' => 'Edit page']
+    ['title' => 'Статичні сторінки', 'url' => url('staticPages/index')],
+    ['title' => 'Редагувати сторінку']
 ];
 ?>
 
@@ -10,7 +10,7 @@ $this->breadcrumbs = [
     <div class="col-md-12">
         <div class="block">
             <div class="block-head">
-                <h2>Edit page "<?= $model->title; ?>"</h2>
+                <h2>Редагувати сторінку "<?= $model->title; ?>"</h2>
             </div>
 
             <div class="block-content">

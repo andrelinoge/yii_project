@@ -93,8 +93,8 @@ class User extends CActiveRecord
 			'password' => _( 'Пароль' ),
             'confirm_password' => _( 'Повтор пароля' ),
 			'salt' => _( 'Salt' ),
-			'first_name' => _( 'Имя' ),
-            'last_name' => _( 'Фамиля' ),
+			'first_name' => _( 'Ім\'я' ),
+            'last_name' => _( 'Прізвище' ),
             'created_at' => _('Registered at'),
 		);
 	}

@@ -1,7 +1,7 @@
 <?
 /** @var $this BackendController */
 $this->breadcrumbs = [
-    ['title' => 'Articles']
+    ['title' => 'Статті']
 ];
 ?>
 
@@ -11,7 +11,7 @@ $this->breadcrumbs = [
 
 <div class="block">
     <div class="block-head">
-        <h2>Articles</h2>
+        <h2>Статті</h2>
     </div>
 
     <div class="block-content np">
@@ -30,7 +30,7 @@ $this->breadcrumbs = [
 <div class="sp"></div>
 
 <div class="pull-right">
-    <a href="<?= $this->createUrl('new'); ?>" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Create</a>
+    <a href="<?= $this->createUrl('new'); ?>" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Додати</a>
 </div>
 
 

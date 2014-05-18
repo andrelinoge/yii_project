@@ -10,6 +10,14 @@ class WorkGalleryController extends BackendController
                 'view'                  => 'index',
                 'ajax_view'             => '_index',
             ],
+            'new' => [
+                'class'                 => 'application.actions.crud.NewAction',
+                'view'                  => 'new'
+            ],
+            'create' => [
+                'class'                 => 'application.actions.crud.CreateAction',
+                'view'                  => 'new'
+            ],
             'edit' => [
                 'class'                 => 'application.actions.crud.EditAction',
                 'view'                  => 'edit'
@@ -23,11 +31,6 @@ class WorkGalleryController extends BackendController
             ],
             'view' => [
                 'class'                 => 'application.actions.crud.ViewAction',
-            ],
-            'upload' => [
-                'class'                 => 'application.actions.crud.UploadImageAction',
-                'upload_and_save'       => true,
-                'ajax_view'             => '_thumbnail'
             ]
         ];
     }
@@ -41,11 +44,6 @@ class WorkGalleryController extends BackendController
         ];
     }
 
-    public function before_upload($model)
-    {
-        $model->setScenario('ajax_create');
-    }
-
     public function create_model()
     {
         $model = new WorkGallery();
@@ -56,12 +54,6 @@ class WorkGalleryController extends BackendController
     public function load_model($id)
     {
         return WorkGallery::model()->findByPk($id);
-    }
-
-    public function before_update($model)
-    {
-        $model->setScenario('update');
-        $model->file->is_ajax_upload = false;
     }
 
     public function get_collection_provider()

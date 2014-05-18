@@ -5,7 +5,8 @@ class SizerRequestForm extends CFormModel
     public $name;
     public $phone;
     public $address;
-    //public $verify_code;
+    public $content;
+    public $verify_code;
 
     public function rules()
     {
@@ -17,16 +18,16 @@ class SizerRequestForm extends CFormModel
             ),
 
             array(
-                'address', 'safe'
+                'address, content', 'safe'
             ),
 
-            // array(
-            //     'verify_code',
-            //     'captcha',
-            //     'allowEmpty'=>!CCaptcha::checkRequirements(),
-            //     'captchaAction' => Yii::app()->createUrl( 'captcha/new' ),
-            //     'message' => _('неправильный код')
-            // ),
+            array(
+                'verify_code',
+                'captcha',
+                'allowEmpty'=>!CCaptcha::checkRequirements(),
+                'captchaAction' => Yii::app()->createUrl( 'captcha/sizerWidget' ),
+                'message' => _('неправильный код')
+            ),
         );
     }
 
@@ -41,9 +42,9 @@ class SizerRequestForm extends CFormModel
     {
         $model = new SizerRequest();
 
-        $model->name = $this->name;
-        $model->phone = $this->email;
-        $model->address = $this->address;
+
+        debug($this->getAttributes());
+        $model->setAttributes($this->getAttributes());
 
         if ($model->save())
         {

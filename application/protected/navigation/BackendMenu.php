@@ -73,23 +73,6 @@ class BackendMenu
         ];
 
         $menuItems[] = [
-            'title' => _( 'Faq' ),
-            'activityMarker' => 'faqs',
-            'items' => [
-                [
-                    'title'          => _( 'All' ),
-                    'url'            => url( 'faqs/index' ),
-                    'activityMarker' => 'index'
-                ],
-                [
-                    'title'          => _( 'New' ),
-                    'url'            => url( 'faqs/new' ),
-                    'activityMarker' => 'new'
-                ]
-            ]
-        ];
-
-        $menuItems[] = [
             'title' => _( 'Contact messages' ),
             'activityMarker' => 'messages',
             'items' => [
@@ -113,7 +96,7 @@ class BackendMenu
 
         $menuItems[] = [
             'title' => _( 'Sizer request' ),
-            'activityMarker' => 'messages',
+            'activityMarker' => 'sizerRequest',
             'items' => [
                 [
                     'title'          => _( 'All' ),
@@ -129,6 +112,23 @@ class BackendMenu
                     'title'          => _( 'Unread' ),
                     'url'            => url( 'sizerRequest/unread' ),
                     'activityMarker' => 'unread'
+                ]
+            ]
+        ];
+
+        $menuItems[] = [
+            'title' => _( 'Gallery categories' ),
+            'activityMarker' => 'galleryCategories',
+            'items' => [
+                [
+                    'title'          => _( 'All' ),
+                    'url'            => url( 'galleryCategories/index' ),
+                    'activityMarker' => 'index'
+                ],
+                [
+                    'title'          => _( 'New' ),
+                    'url'            => url( 'galleryCategories/new' ),
+                    'activityMarker' => 'new'
                 ]
             ]
         ];

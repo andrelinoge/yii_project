@@ -7,6 +7,7 @@ class FrontendController extends ApplicationController
 {
     public $site_settings;
     public $page_name = 'Головна';
+    public $breadcumbs = [];
 
     public function init()
     {

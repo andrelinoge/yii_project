@@ -9,6 +9,10 @@ class ArticlesController extends FrontendController
             throw new CHttpException(404);
         }
 
+        $this->breadcrumbs[] = [
+            'title' => $category->title
+        ];
+
         $this->render('index',[
             'articles' => Article::model()->by_category($category)->findAll()
         ]);
@@ -20,6 +24,15 @@ class ArticlesController extends FrontendController
         {
             throw new CHttpException(404);
         }
+
+        $this->breadcrumbs[] = [
+            'title' => $article->category->title,
+            'url'   => $article->category->get_url()
+        ];
+
+        $this->breadcrumbs[] = [
+            'title' => $article->title
+        ];
 
         $this->render('show',[
             'article' => $article

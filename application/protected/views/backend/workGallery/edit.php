@@ -2,10 +2,10 @@
 /** @var $this BackendController */
 $this->breadcrumbs = [
     [
-        'title' => 'Images', 
+        'title' => 'Зображення', 
         'url'   => url('image/index', ['owner_id' => $model->owner_id, 'type' => $model->type])
     ],
-    [ 'title' => 'Edit image' ]
+    [ 'title' => 'Редагувати зображення' ]
 ];
 
 ?>
@@ -14,7 +14,7 @@ $this->breadcrumbs = [
     <div class="col-md-12">
         <div class="block">
             <div class="block-head">
-                <h2>Edit article "<?= $model->title; ?>"</h2>
+                <h2>Редагувати зображення "<?= $model->title; ?>"</h2>
             </div>
 
             <div class="block-content">

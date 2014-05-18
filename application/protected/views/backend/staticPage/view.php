@@ -1,7 +1,7 @@
 <?
 $this->breadcrumbs = [
-    ['title' => 'Static pages', 'url' => url('staticPage/index')],
-    ['title' => 'Preview']
+    ['title' => 'Статичні сторінки', 'url' => url('staticPage/index')],
+    ['title' => 'Перегляд']
 ];
 ?>
 

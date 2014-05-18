@@ -3,6 +3,10 @@ class GalleryController extends FrontendController
 {
 	public function actionIndex()
 	{
+		$this->breadcrumbs[] = [
+            'title' => 'Наші роботи'
+        ];
+
 		$data_provider = WorkGallery::model()->search();
 		$gallery       = $data_provider->getData();
 		$pager         = $data_provider->getPagination();	
@@ -24,8 +28,9 @@ class GalleryController extends FrontendController
 		else
 		{
 			$this->render('index', [
-				'gallery' => $gallery,
-				'pager'   => $pager
+				'categories' => GalleryCategory::model()->findAll(),
+				'gallery'    => $gallery,
+				'pager'      => $pager
 			]);
 		}
 	}

@@ -62,13 +62,25 @@
     <header class="site-header">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 header-left">
+                <div class="col-md-2 header-left">
                     <? if (!empty($this->site_settings->phone_1)): ?>
                         <p><i class="fa fa-phone"></i><?= $this->site_settings->phone_1; ?></p>
                     <? endif; ?>
                     
                     <? if (!empty($this->site_settings->phone_2)): ?>
                         <p><i class="fa fa-phone"></i><?= $this->site_settings->phone_2; ?></p>
+                    <? endif; ?>
+                </div>
+                <div class="col-md-2 header-left">
+                    <? if (!empty($this->site_settings->phone_3)): ?>
+                        <p><i class="fa fa-phone"></i><?= $this->site_settings->phone_3; ?></p>
+                    <? endif; ?>
+                    
+                    <? if (!empty($this->site_settings->skype)): ?>
+                        <p>
+                            <i class="fa fa-phone"></i>
+                            <a href="skype:<?= $this->site_settings->skype; ?>?call">Дзвінок</a>
+                        </p>
                     <? endif; ?>
                 </div>
 
@@ -85,7 +97,7 @@
                         <li><a href="<?= url('page/about'); ?>">About Us</a></li>
                         <li><a href="<?= url('page/faq'); ?>">FAQ</a></li>
                         <li><a href="<?= url('contactUs/new'); ?>">Contact</a></li>
-                        <li><a href="#" class="sizer-request">Викликати замірника</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#sizer">Викликати замірника</a></li>
                     </ul>
                 </div>
             </div>
@@ -113,21 +125,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
-                    <p class="small-text">&copy; Всі права захищені 2014</p>
+                    <p class="small-text">&copy; Всі права захищені 2014. <?= !empty($site_settings->address) ? $site_settings->address : ''; ?></p>
                 </div> <!-- /.col-md-5 -->
                 <div class="col-md-7">
                     <ul class="footer-nav">
                         <li><a href="<?= url('site/index'); ?>">Home</a></li>
                         <li><a href="<?= url('page/about'); ?>">About us</a></li>
-                        <li><a href="<?= url('page/faq'); ?>">FAQ</a></li>
                         <li><a href="<?= url('contactUs/new'); ?>">Contact us</a></li>
-                        <li><a href="#" class="sizer-request">Викликати замірника</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#sizer">Викликати замірника</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </footer> 
 
+    <? $this->widget('application.widgets.Frontend.WSizerRequest', ['modal' => true]); ?>
 
     <script src="<?= $assets_path; ?>/bootstrap/js/bootstrap.min.js"></script>
     <script src="<?= $assets_path; ?>/js/plugins.js"></script>

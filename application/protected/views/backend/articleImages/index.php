@@ -20,7 +20,7 @@ Yii::app()->clientScript
 
     <div class="col-md-12">
         <div class="pull-right">
-            <a href="#" class="btn btn-primary" id="uploader"><i class="fa fa-plus-circle"></i> Upload</a>
+            <a href="#" class="btn btn-primary" id="uploader"><i class="fa fa-plus-circle"></i> Завантажити</a>
         </div>
     </div>  
 

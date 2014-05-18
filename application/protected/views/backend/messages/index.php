@@ -1,7 +1,7 @@
 <?
 /** @var $this BackendController */
 $this->breadcrumbs = [
-    ['title' => 'Contact messages']
+    ['title' => 'Контактні повідомлення']
 ];
 ?>
 
@@ -11,7 +11,7 @@ $this->breadcrumbs = [
 
 <div class="block">
     <div class="block-head">
-        <h2>Contact Messages</h2>
+        <h2>Контактні повідомлення</h2>
     </div>
 
     <div class="block-content np">

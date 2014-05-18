@@ -47,6 +47,6 @@
 
     <hr>
     <div class="form-group">
-        <button class="btn btn-success" type="submit">Save</button>
+        <button class="btn btn-success" type="submit">Зберегти</button>
     </div>
 <? $this->endWidget(); ?>

@@ -15,6 +15,10 @@ class ContactUsController extends FrontendController
 
     public function actionNew()
     {
+        $this->breadcrumbs[] = [
+            'title' => 'Наші контакти'
+        ];
+
         $page = Page::model()->find_by_alias('contact');
         $this->page_name = $page->title;
         $this->appendTitle( $page->title );

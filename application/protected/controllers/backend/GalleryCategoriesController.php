@@ -1,6 +1,6 @@
 <?
 
-class FaqsController extends BackendController
+class GalleryCategoriesController extends BackendController
 {
     public function actions()
     {
@@ -28,34 +28,42 @@ class FaqsController extends BackendController
             ],
             'delete' => [
                 'class'                 => 'application.actions.crud.DeleteAction',
-            ],
-            'view' => [
-                'class'                 => 'application.actions.crud.ViewAction',
-                'view'                  => 'view'
-            ],
+            ]
         ];
     }
 
     public function create_model()
     {
-        return new Faq();
+        $model = new GalleryCategory();
+        $model->parent_id = get_param('parent_id', 0);
+        return $model;
     }
 
     public function load_model($id)
     {
-        return Faq::model()->findByPk($id);
+        return GalleryCategory::model()->findByPk($id);
+    }
+
+    public function before_index($data_provider)
+    {
+        $model = new GalleryCategory();
+        $model->parent_id = get_param('parent_id', null);
+
+        $this->breadcrumbs = [];
     }
 
     public function get_collection_provider()
     {
-        return Faq::model()->search();
+        $model = new GalleryCategory();
+        $model->parent_id = get_param('parent_id', null);
+        return $model->search();
     }
 
     /**                                     FILTERS                                **/
 
     public function filters()
     {
-        return [ 'accessControl' ];
+        return ['accessControl' ];
     }
 
     public function accessRules()

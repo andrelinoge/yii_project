@@ -1,3 +1,9 @@
+<? $this->widget('application.widgets.Common.BreadCrumbs', [
+    'default_title' => 'Головна', 
+    'view'          => 'frontend',
+    'items'         => $this->breadcrumbs
+]); ?>
+
 <div class="container">
     <div class="row">
 

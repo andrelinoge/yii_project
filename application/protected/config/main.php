@@ -125,16 +125,10 @@ return [
         // Mail
         'mail' => [
             'class'            => 'ext.yii-mail.YiiMail',
-            'transportType'    => 'smtp',
+            'transportType'    => 'php',
             'viewPath'         => 'application.views.mailer',
             'logging'          => true,
-            'dryRun'           => false,
-            'transportOptions' => [
-                'host'     => 'ssl://smtp.gmail.com',
-                'username' => 'name',
-                'password' => 'pass',
-                'port'     => 465
-            ],
+            'dryRun'           => false
         ],
 
         // ClientScript

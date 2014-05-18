@@ -1,7 +1,8 @@
 <?
+/** @var $this BackendController */
 $this->breadcrumbs = [
-    ['title' => 'Faqs', 'url' => url('faqs/index')],
-    ['title' => 'New article']
+    ['title' => 'Категорії', 'url' => url('articleCategories/index')],
+    ['title' => 'Нова категорія']
 ];
 ?>
 
@@ -9,7 +10,7 @@ $this->breadcrumbs = [
     <div class="col-md-12">
         <div class="block">
             <div class="block-head">
-                <h2>New faq</h2>
+                <h2>Нова категорія</h2>
             </div>
 
             <div class="block-content">

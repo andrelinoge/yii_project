@@ -1,8 +1,8 @@
 <?
 /** @var $this BackendController */
 $this->breadcrumbs = [
-    ['title' => 'Contact messages', 'url' => url('articles/index')],
-    ['title' => 'Preview']
+    ['title' => 'Контактні повідомлення', 'url' => url('articles/index')],
+    ['title' => 'Перегляд']
 ];
 ?>
 
@@ -21,7 +21,7 @@ $this->breadcrumbs = [
                 <?= $model->name; ?> [<a mailto="<?= $model->email; ?>"><?= $model->email; ?></a>] 
             </div>
             <div class="btn-group pull-right">
-                <a class="btn btn-default" href="<?= $this->createUrl('delete', ['id' => $model->id]); ?>" onclick="return confirm('Delete message?');"><i class="fa fa-trash-o"></i> Delete</a>
+                <a class="btn btn-default" href="<?= $this->createUrl('delete', ['id' => $model->id]); ?>" onclick="return confirm('Delete message?');"><i class="fa fa-trash-o"></i> Видалити</a>
             </div>
         </div>
         <div class="block-content">

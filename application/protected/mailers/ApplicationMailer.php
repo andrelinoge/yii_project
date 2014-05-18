@@ -14,7 +14,7 @@ class ApplicationMailer
 
     public function new_contact_message_notification(ContactMessage $message)
     {
-        $this->message->setSubject( _('Контактное сообщение') );
+        $this->message->setSubject( _('Контактне повідомлення') );
         $this->message->view = 'contact_message';
         $this->message->setBody(
             array(
@@ -28,7 +28,7 @@ class ApplicationMailer
         return Yii::app()->mail->send($this->message);
     }
 
-    public function new_sizer_request(SizerCall $request)
+    public function new_sizer_request(SizerRequest $request)
     {
         $this->message->setSubject( _('Виклик замірника') );
         $this->message->view = 'sizer_request';

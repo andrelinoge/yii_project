@@ -1,8 +1,14 @@
+<? $this->widget('application.widgets.Common.BreadCrumbs', [
+    'default_title' => 'Головна', 
+    'view'          => 'frontend',
+    'items'         => $this->breadcrumbs
+]); ?>
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="row">
-                <? if (!empty()): ?>
+                <? if (!empty($articles)): ?>
                     <? foreach($articles as $article): ?>
                         <div class="col-md-4 col-sm-4">
                             <div class="blog-grid-item">

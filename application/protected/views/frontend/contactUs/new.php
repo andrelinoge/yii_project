@@ -1,12 +1,15 @@
-<?= $site_settings->google_map; ?>
+<? $this->widget('application.widgets.Common.BreadCrumbs', [
+    'default_title' => 'Головна', 
+    'view'          => 'frontend',
+    'items'         => $this->breadcrumbs
+]); ?>
 
 <div class="container">
     <div class="row">
 
         <div class="col-md-5">
             <div class="contact-map">
-                <div class="google-map-canvas" id="map-canvas" style="height: 542px;">
-                </div>
+                <?= $site_settings->google_map; ?>
             </div>
         </div> <!-- /.col-md-5 -->
         
@@ -21,19 +24,22 @@
                     <? 
                       $form = $this->beginWidget('CActiveForm', [
                         'action'      => url('contactUs/create'),
-                        'htmlOptions' => [ 'class' => 'ajax-form contact-us-form' ]
+                        'htmlOptions' => [ 
+                          'class' => 'ajax-form contact-us-form',
+                          'name'  => get_class($model)
+                        ]
                       ]); 
                     ?>
                     <p class="full-row">
                         <span class="contact-label">
-                            <label for="name-id">Name:</label>
+                            <label for="name-id">Ім'я:</label>
                         </span>
                         <?= $form->textField($model, 'name'); ?>
                     </p>
 
                     <p class="full-row"> 
                         <span class="contact-label">
-                            <label for="surname-id">Phone:</label>
+                            <label for="surname-id">Телефон:</label>
                         </span>
                         <?= $form->textField($model, 'phone'); ?>
                     </p>
@@ -43,28 +49,29 @@
                         <span class="contact-label">
                           <label>Код з картинки:</label>
                         </span>
-                        <?= $form->textField( $model, 'verify_code' ); ?>
                         <?
                           $this->widget(
                             'CCaptcha',
                             [
-                              'captchaAction'     => 'captcha/new' ,
+                              'captchaAction'     => 'captcha/contactNew' ,
                               'showRefreshButton' => false,
-                              'buttonLabel'       => _('Обновить'),
+                              'buttonLabel'       => _('Обновити'),
                               'imageOptions' => [
                               'class' => 'form-captha author-img',
-                              'title' => 'Клацніть, щоб обновити картинку'
+                              'title' => 'Клацніть, щоб обновити картинку',
+                              'style' => 'float:right'
                             ],
                               'clickableImage' => true
                             ]
                           );
                         ?>
+                        <?= $form->textField( $model, 'verify_code' ); ?>
                       </p>
                     <? endif; ?>
 
                     <p class="full-row">
                         <span class="contact-label">
-                            <label for="message">Message:</label>
+                            <label for="message">Повідомлення:</label>
                         </span>
                         <?= $form->textArea($model, 'content', ['rows' => '6']); ?>
                     </p>
@@ -83,10 +90,13 @@
 
 <script>
   $(function(){
-    $('.contact-us-form').on('ajax:success', function() {
-      this.reset();
+    $('.contact-us-form').on('ajax:success', function(event) {
+      if (event.response.success == true)
+      {
+        this.reset();
+        alert('Ми отримали ваше повідомлення і дамо відповідь якомога швидше!');
+      }
       $('img.form-captha').click();
-      alert('Ми отримали ваше повідомлення і дамо відповідь якомога швидше!');
       return false;
     });
   });

@@ -5,6 +5,7 @@
 
 class BreadCrumbs extends CWidget
 {
+    public $default_title = 'Dashbord';
     /** @var array with bread crumbs items ( 'title' => Url [optional] ) */
     public $items;
     /** @var string menu template */
@@ -19,7 +20,7 @@ class BreadCrumbs extends CWidget
             throw new CException( 'Wrong options format. Look widget php-doc for help.');
         }
 
-        $this->items = array_merge([[ 'title' => 'Dashboard', 'url' => url('site/index') ]], $this->items);   
+        $this->items = array_merge([[ 'title' => $this->default_title, 'url' => url('site/index') ]], $this->items);   
     }
 
     public function run()

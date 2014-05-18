@@ -16,36 +16,32 @@ $this->widget(
                 'header' => '#',
                 'htmlOptions' => ['style' => 'width: 50px;']
             ],
+            'title',
+            'alias',
             [
-                'name' => 'title',
-                'header' => 'Question'
+                'name' => 'created_at',
+                'type' => 'datetime',
+                'htmlOptions' => ['style' => 'width: 175px;']
             ],
             [
                 'header' => _('Actions'),
                 'class' => 'bootstrap.widgets.TbJsonButtonColumn',
-                'htmlOptions' => ['style' => 'width: 100px; text-align: center' ],
+                'htmlOptions' => ['style' => 'width: 125px; text-align: center' ],
                 'template' => '{view} {update} {delete}',
                 'buttons' => [
-                    'view' => [
-                        'options' => [
-                            'class' => 'btn btn-xs btn-default'
-                        ],
-                        'icon' => 'fa fa-eye',
-                        'url' => 'url("faqs/view", ["id" => $data->id])'
-                    ],
                     'update' => [
                         'options' => [
                             'class' => 'btn btn-xs btn-warning'
                         ],
                         'icon' => 'fa fa-pencil',
-                        'url' => 'url("faqs/edit", ["id" => $data->id])'
+                        'url' => 'url("articleCategories/edit", ["id" => $data->id])'
                     ],
                     'delete' => [
                         'options' => [
                             'class' => 'btn btn-xs btn-danger'
                         ],
                         'icon' => 'fa fa-times',
-                        'url' => 'url("faqs/delete", ["id" => $data->id])'
+                        'url' => 'url("articleCategories/delete", ["id" => $data->id])'
                     ]
                 ]
             ]

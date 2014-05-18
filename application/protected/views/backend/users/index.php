@@ -42,7 +42,7 @@ Yii::app()
                     <ul class="dd-list">
                         <li>
                             <a href="<?= $actionCreateUrl; ?>">
-                                <span class="isw-plus"></span><?= _( 'новый' ); ?>
+                                <span class="isw-plus"></span><?= _( 'новий' ); ?>
                             </a>
                         </li>
                         <!--
@@ -56,7 +56,7 @@ Yii::app()
                         <li>
                             <a href="<?= $actionGroupDeleteUrl; ?>"
                                onclick="return onGroupDelete( this );">
-                                <span class="isw-delete"></span> <?= _( 'удалить' ); ?>
+                                <span class="isw-delete"></span> <?= _( 'видалити' ); ?>
                             </a>
                         </li>
                     </ul>

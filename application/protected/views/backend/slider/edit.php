@@ -2,10 +2,10 @@
 /** @var $this BackendController */
 $this->breadcrumbs = [
     [
-        'title' => 'Slider', 
+        'title' => 'Слайдер', 
         'url'   => url('slider/index', ['owner_id' => $model->owner_id, 'type' => $model->type])
     ],
-    [ 'title' => 'Edit image' ]
+    [ 'title' => 'Редагувати зображення' ]
 ];
 
 ?>

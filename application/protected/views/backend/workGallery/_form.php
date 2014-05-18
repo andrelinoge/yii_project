@@ -38,6 +38,21 @@
 
     <div class="clearfix"></div>
 
+    <div class="form-group" <? if ($model->hasErrors('category_id')): ?> has-error <? endif; ?>>
+        <label class="control-label">Category</label>
+
+        <?= $form->dropDownList(
+            $model, 
+            'category_id', 
+            ['' => '[Select category]'] + GalleryCategory::model()->get_titles_list()
+            , ['class' => 'form-control']
+        ); ?>
+
+        <? if ($model->hasErrors('category_id')): ?>
+            <span class="error"><?= $model->getError('category_id')?></span>
+        <? endif; ?>
+    </div>
+
     <div class="form-group <? if ($model->hasErrors('title')): ?> has-error <? endif; ?>">
         <label class="control-label">Title</label>
         <?= $form->textField($model, 'title', ['class' => 'form-control']); ?>
@@ -58,6 +73,6 @@
 
     <hr>
     <div class="form-group">
-        <button class="btn btn-success" type="submit">Save</button>
+        <button class="btn btn-success" type="submit">Зберегти</button>
     </div>
 <? $this->endWidget(); ?>

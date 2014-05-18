@@ -29,10 +29,10 @@ class SizerRequest extends CActiveRecord
 	public function rules()
 	{
 		return array(
-			array('name, phone, is_read', 'required'),
+			array('name, phone', 'required'),
 			array('is_read', 'numerical', 'integerOnly'=>true),
 			array('name, phone', 'length', 'max'=>255),
-            array('address', 'safe'),
+            array('address, content', 'safe'),
 			array('id, name, phone, is_read', 'safe', 'on'=>'search'),
 		);
 	}

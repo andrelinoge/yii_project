@@ -1,7 +1,7 @@
 <? /** @var $message ContactMessage */ ?>
 
-От: <a href="mailto:<?= $message->email; ?>"><?= $message->name; ?></a>
-Сообщение:
+Від: <a href="mailto:<?= $message->email; ?>"><?= $message->name; ?></a>
+Повідомлення:
 <p>
     <?= $message->content; ?>
 </p>

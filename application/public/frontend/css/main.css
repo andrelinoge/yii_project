@@ -1249,3 +1249,28 @@ input, select {
   padding: 0 10px;
   content: '|';
 }
+
+
+/* LOADER */
+.loader-transparent {
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50); /* IE 5.5+*/
+    -moz-opacity: 0.5; /* Mozilla 1.6 и ниже */
+    -khtml-opacity: 0.5; /* Konqueror 3.1, Safari 1.1 */
+    opacity: 0.5; /* CSS3 - Mozilla 1.7b +, Firefox 0.9 +, Safari 1.2+, Opera 9 */
+}
+
+.loader-wrapper {
+    /*background:url("../images/loader-bg.png") repeat transparent;*/
+    height:0;
+    position:absolute;
+    width:0;
+    z-index: 10020;
+}
+
+.loader {
+    background:url( "../images/roller.gif" ) no-repeat scroll left top transparent;
+    height:11px;
+    margin:18px auto 0;
+    width:43px;
+    z-index: 100025;
+}

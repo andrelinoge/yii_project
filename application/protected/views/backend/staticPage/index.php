@@ -1,6 +1,6 @@
 <?
     $this->breadcrumbs = [
-        ['title' => 'Static pages']
+        ['title' => 'Статичні сторінки']
     ];
 ?>
 
@@ -10,7 +10,7 @@
 
 <div class="block">
     <div class="block-head">
-        <h2>Static pages</h2>
+        <h2>Статичні сторінки</h2>
     </div>
 
     <div class="block-content np">

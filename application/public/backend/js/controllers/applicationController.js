@@ -84,7 +84,6 @@ ApplicationController = (function() {
                     // show Errors from form validation action if it is setted
                     if( (typeof(response.errors) != 'undefined') && (response.errors != '') )
                     {
-                        console.log(response.errors);
                         _this.show_form_errors( response.errors, $form );
                     }
 
@@ -175,15 +174,20 @@ ApplicationController = (function() {
             var $input = $form.find( '#' + form_name + '_' + field_name );
             var $errorContainer = $form.find('#'+form_name + '_' + field_name + '_error' );
 
-            if( !$errorContainer[0] ){ // no error container
-                $('<div class="error-message" id="' + form_name + '_' + field_name + '_error">' + error_message + '</div>')
-                    .insertAfter( $input )
-                    .show( 0 );
-            } else {
-                $errorContainer
-                    .html( error_message.toString() )
-                    .show( 0 );
+            if (!$form.hasClass('highlight-only'))
+            {
+                if( !$errorContainer[0])
+                { 
+                    $('<div class="error-message" id="' + form_name + '_' + field_name + '_error">' + error_message + '</div>')
+                        .insertAfter( $input )
+                        .show( 0 );
+                } 
+                else 
+                {
+                    $errorContainer.html( error_message.toString() ).show( 0 );
+                }
             }
+
             $input.addClass( 'error' );
         });
     };

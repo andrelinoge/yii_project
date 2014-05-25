@@ -44,6 +44,13 @@ class FrontendMenu
         ];
 
         $menu[] = [
+            'title'          => _( 'Калькулятор' ),
+            'activityMarker' => '#',
+            'active'         => $controller,
+            'url'            => url('calculator/index')
+        ];
+
+        $menu[] = [
             'title'          => _( 'Напишіть нам' ),
             'activityMarker' => '#',
             'active'         => $controller,

@@ -13,37 +13,35 @@ class CalcForm extends CFormModel
     public function rules()
     {
         return [
-            [ 'window_system_id, glass_id, construction_type, width, height', 'required' ],
-            [ 'width, height', 'number' ]
+            [ 'window_system_id, glass_id, construction_type, width, height', 'required', 'message' => _('Обов\'язкове поле') ],
+            [ 'width, height', 'numerical' ]
         ];
     }
 
     public function attributeLabels()
     {
-        return array(
-            'email' => 'Email',
-            'password' => _( 'Пароль' ),
-            'name' => _( 'Ім\'я' ),
-        );
+        return [
+            'window_system_id'  => _('Віконна система'),
+            'glass_id'          => _('Склопакет'),
+            'construction_type' => _('Тип конструкції'),
+            'width'             => _('Ширина'),
+            'height'            => _('Висота'),
+        ];
     }
 
-    public function process()
-    {
-        // calc price
-    }
-
-    public function construction_types()
+    public static function construction_types()
     {
         return [
-            self::DEADLIGHT => _('Глухе')
+            static::DEADLIGHT => _('Глухе')
         ];
     }
 
     public function price()
     {
-        $price = 0;
+        $price         = 0;
         $glass         = Glass::model()->findByPk($this->glass_id);
         $window_system = WindowSystem::model()->findByPk($this->window_system_id);
+        $perimetry     = 2*($this->width + $this->height)/1000;
 
         if (!$glass || !$window_system)
         {
@@ -55,10 +53,16 @@ class CalcForm extends CFormModel
             case self::DEADLIGHT:
 
             default:
-                $price = 0;
+                # ціна за м^2
+                $glass_price               = $glass->price * ($this->width - 2 * $window_system->width_profile_frame) * ($this->height - 2 * $window_system->width_profile_frame)/1000;
+                # ціна за м
+                $profile_price             = $perimetry * ($window_system->profile_frame + $window_system->reinforcement + $window_system->seal + $window_system->glazing);
+                $profile_window_sill_price = $this->width * $window_system->profile_window_sill / 1000;
+
+                $price = $glass_price + $profile_price + $profile_window_sill_price;
             break;
         }
 
-        return $price;
+        return round($price);
     }
 }

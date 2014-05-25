@@ -23,7 +23,7 @@ class CalculatorController extends FrontendController
         );
     }
     
-    public function actionPrice()
+    public function actionProcess()
     {
         if ($_POST['CalcForm'])
         {

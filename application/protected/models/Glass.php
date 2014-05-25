@@ -10,9 +10,19 @@
  */
 class Glass extends CActiveRecord
 {
-	/**
-	 * @return string the associated database table name
-	 */
+	
+	public function behaviors()
+  {
+    return array(
+        'Category' => [
+            'class'            => 'CategoryBehavior',
+            'title_attribute'  => 'name',
+            'alias_attribute'  => 'alias',
+            'default_criteria' => ['order' => 't.name ASC']
+        ]
+    );
+  }
+	
 	public function tableName()
 	{
 		return 'glass';

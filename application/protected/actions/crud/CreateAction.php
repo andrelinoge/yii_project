@@ -9,6 +9,7 @@ class CreateAction extends BaseCrudAction
     public $error_message = 'Invalid data';
     public $redirect_after_save = true;
     public $redirect_to_view = false;
+    public $breadcrumbs = [];
 
     public function run()
     {
@@ -65,6 +66,7 @@ class CreateAction extends BaseCrudAction
         if ($model->hasErrors())
         {
             failure($this->error_message);
+            $this->controller->breadcrumbs = $this->breadcrumbs;
             $this->controller->render($this->view, ['model' => $model]);
         }
         else

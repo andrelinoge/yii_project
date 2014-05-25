@@ -5,6 +5,7 @@ class NewAction extends BaseCrudAction
 {
     public $view = 'new';
     public $ajax_view = '_new';
+    public $breadcrumbs = [];
 
     public function run()
     {
@@ -17,9 +18,8 @@ class NewAction extends BaseCrudAction
         }
         else
         {
+            $this->controller->breadcrumbs = $this->breadcrumbs;
             $this->controller->render($this->view, ['model' => $model]);
         }
     }
-
-
 }

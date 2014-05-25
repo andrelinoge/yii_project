@@ -19,7 +19,7 @@ class BackendMenu
             'activityMarker' => 'Slider',
             'items' => [
                 [
-                    'title'          => _( 'Все' ),
+                    'title'          => _( 'Всі' ),
                     'url'            => url( 'slider/index'),
                     'activityMarker' => 'index'
                 ],
@@ -31,7 +31,7 @@ class BackendMenu
             'activityMarker' => 'StaticPage',
             'items' => [
                 [
-                    'title'          => _( 'Все' ),
+                    'title'          => _( 'Всі' ),
                     'url'            => url( 'staticPage/index'),
                     'activityMarker' => 'index'
                 ],
@@ -43,7 +43,7 @@ class BackendMenu
             'activityMarker' => 'articles',
             'items' => [
                 [
-                    'title'          => _( 'Все' ),
+                    'title'          => _( 'Всі' ),
                     'url'            => url( 'articles/index' ),
                     'activityMarker' => 'index'
                 ],
@@ -60,7 +60,7 @@ class BackendMenu
             'activityMarker' => 'articleCategories',
             'items' => [
                 [
-                    'title'          => _( 'Все' ),
+                    'title'          => _( 'Всі' ),
                     'url'            => url( 'articleCategories/index' ),
                     'activityMarker' => 'index'
                 ],
@@ -77,7 +77,7 @@ class BackendMenu
             'activityMarker' => 'messages',
             'items' => [
                 [
-                    'title'          => _( 'Все' ),
+                    'title'          => _( 'Всі' ),
                     'url'            => url( 'messages/index' ),
                     'activityMarker' => 'index'
                 ],
@@ -99,7 +99,7 @@ class BackendMenu
             'activityMarker' => 'sizerRequest',
             'items' => [
                 [
-                    'title'          => _( 'Все' ),
+                    'title'          => _( 'Всі' ),
                     'url'            => url( 'sizerRequest/index' ),
                     'activityMarker' => 'index'
                 ],
@@ -121,7 +121,7 @@ class BackendMenu
             'activityMarker' => 'galleryCategories',
             'items' => [
                 [
-                    'title'          => _( 'Все' ),
+                    'title'          => _( 'Всі' ),
                     'url'            => url( 'galleryCategories/index' ),
                     'activityMarker' => 'index'
                 ],
@@ -138,10 +138,61 @@ class BackendMenu
             'activityMarker' => 'WorkGallery',
             'items' => [
                 [
-                    'title'          => _( 'Все' ),
+                    'title'          => _( 'Всі' ),
                     'url'            => url( 'workGallery/index'),
                     'activityMarker' => 'index'
                 ],
+            ]
+        ];
+
+        $menuItems[] = [
+            'title' => _( 'Фурнітура' ),
+            'activityMarker' => 'Furniture',
+            'items' => [
+                [
+                    'title'          => _( 'Всі' ),
+                    'url'            => url( 'furniture/index'),
+                    'activityMarker' => 'index'
+                ],
+                [
+                    'title'          => _( 'Додати' ),
+                    'url'            => url( 'furniture/new' ),
+                    'activityMarker' => 'new'
+                ]
+            ]
+        ];
+
+        $menuItems[] = [
+            'title' => _( 'Склопакет' ),
+            'activityMarker' => 'Glasses',
+            'items' => [
+                [
+                    'title'          => _( 'Всі' ),
+                    'url'            => url( 'glasses/index'),
+                    'activityMarker' => 'index'
+                ],
+                [
+                    'title'          => _( 'Додати' ),
+                    'url'            => url( 'glasses/new' ),
+                    'activityMarker' => 'new'
+                ]
+            ]
+        ];
+
+        $menuItems[] = [
+            'title' => _( 'Віконні системи' ),
+            'activityMarker' => 'WindowSystems',
+            'items' => [
+                [
+                    'title'          => _( 'Всі' ),
+                    'url'            => url( 'WindowSystems/index'),
+                    'activityMarker' => 'index'
+                ],
+                [
+                    'title'          => _( 'Додати' ),
+                    'url'            => url( 'WindowSystems/new' ),
+                    'activityMarker' => 'new'
+                ]
             ]
         ];
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 18, 2014 at 02:33 PM
+-- Generation Time: May 25, 2014 at 05:35 PM
 -- Server version: 5.5.31
 -- PHP Version: 5.4.6-1ubuntu1.7
 
@@ -84,19 +84,6 @@ INSERT INTO `article_categories` (`id`, `title`, `content`, `alias`, `meta_keywo
 -- --------------------------------------------------------
 
 --
--- Table structure for table `construction_type`
---
-
-CREATE TABLE IF NOT EXISTS `construction_type` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `coefficient` float NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `contact_messages`
 --
 
@@ -130,20 +117,14 @@ CREATE TABLE IF NOT EXISTS `furniture` (
   `price` float NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Table structure for table `furnitures`
+-- Dumping data for table `furniture`
 --
 
-CREATE TABLE IF NOT EXISTS `furnitures` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `coefficient` float NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+INSERT INTO `furniture` (`id`, `name`, `price`) VALUES
+(1, 'Кутник', 12.34);
 
 -- --------------------------------------------------------
 
@@ -182,7 +163,17 @@ CREATE TABLE IF NOT EXISTS `glass` (
   `name` varchar(255) NOT NULL,
   `price` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='склопакет' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='склопакет' AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `glass`
+--
+
+INSERT INTO `glass` (`id`, `name`, `price`) VALUES
+(1, 'Однокамерний', 1),
+(2, 'Однокамерний енергозберігаючий', 1.5),
+(3, 'Двокамерний', 2),
+(4, 'Двокамерний енергозберігаючий', 2.5);
 
 -- --------------------------------------------------------
 
@@ -255,7 +246,7 @@ INSERT INTO `pages` (`id`, `title`, `content`, `meta_keywords`, `meta_descriptio
 (4, 'gallery', 'gallery', '', '', 'gallery'),
 (6, 'faq', 'faq', '', '', 'faq'),
 (7, 'about', 'adsasd', '', '', 'about'),
-(8, 'Калькулятор', 'текст', '', '', 'calc');
+(8, 'Калькулятор', '<p>текст</p>\r\n', '', '', 'calc');
 
 -- --------------------------------------------------------
 
@@ -345,17 +336,27 @@ INSERT INTO `users` (`id`, `role`, `email`, `password`, `salt`, `first_name`, `l
 
 CREATE TABLE IF NOT EXISTS `window_systems` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `coefficient` float NOT NULL,
-  `profile_frame` float NOT NULL,
-  `profile_leaf` float NOT NULL,
-  `profile_impost` float NOT NULL,
-  `reinforcement` float NOT NULL,
-  `seal` float NOT NULL,
-  `glazing` float NOT NULL,
-  `window_sill_prfile` float NOT NULL,
+  `name` varchar(255) NOT NULL COMMENT 'назва',
+  `profit_coefficient` float NOT NULL COMMENT 'коефіціент заробітку',
+  `profile_frame` float NOT NULL COMMENT 'профіль рами',
+  `profile_leaf` float NOT NULL COMMENT 'профіль створки',
+  `profile_impost` float NOT NULL COMMENT 'профіль імпоста',
+  `reinforcement` float NOT NULL COMMENT 'армування',
+  `seal` float NOT NULL COMMENT 'ущільнювач',
+  `glazing` float NOT NULL COMMENT 'штапік',
+  `profile_window_sill` float NOT NULL COMMENT 'підставочний профіль',
+  `width_profile_frame` int(11) NOT NULL COMMENT 'ширина профіля рами, мм',
+  `width_profile_impost` int(11) NOT NULL COMMENT 'ширина профілю імпоста, мм',
+  `width_profile_leaf` int(11) NOT NULL COMMENT 'ширина профілю створки, мм',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `window_systems`
+--
+
+INSERT INTO `window_systems` (`id`, `name`, `profit_coefficient`, `profile_frame`, `profile_leaf`, `profile_impost`, `reinforcement`, `seal`, `glazing`, `profile_window_sill`, `width_profile_frame`, `width_profile_impost`, `width_profile_leaf`) VALUES
+(1, 'Winbau', 1.15, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5);
 
 -- --------------------------------------------------------
 

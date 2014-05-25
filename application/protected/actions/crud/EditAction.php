@@ -3,8 +3,9 @@ Yii::import('application.actions.crud.BaseCrudAction');
 
 class EditAction extends BaseCrudAction
 {
-    public $view = 'edit';
-    public $ajax_view = 'edit.js';
+    public $view        = 'edit';
+    public $ajax_view   = 'edit.js';
+    public $breadcrumbs = [];
 
     public function run()
     {
@@ -17,6 +18,7 @@ class EditAction extends BaseCrudAction
         }
         else
         {
+            $this->controller->breadcrumbs = $this->breadcrumbs;
             $this->controller->render($this->view, ['model' => $model]);
         }
     }

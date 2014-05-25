@@ -3,12 +3,13 @@ Yii::import('application.actions.crud.BaseCrudAction');
 
 class UpdateAction extends BaseCrudAction
 {
-    public $view = 'edit';
-    public $ajax_view = null;
-    public $success_message = 'Edited successfully';
-    public $error_message = 'Invalid data';
-    public $redirect_to_view = false;
+    public $view              = 'edit';
+    public $ajax_view         = null;
+    public $success_message   = 'Edited successfully';
+    public $error_message     = 'Invalid data';
+    public $redirect_to_view  = false;
     public $redirect_to_index = true;
+    public $breadcrumbs       = [];
 
     public function run()
     {
@@ -57,6 +58,7 @@ class UpdateAction extends BaseCrudAction
         if ($model->hasErrors())
         {
             failure($this->error_message);
+            $this->controller->breadcrumbs = $this->breadcrumbs;
             $this->controller->render($this->view, ['model' => $model]);
         }
         else

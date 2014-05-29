@@ -23,14 +23,11 @@ class Furniture extends CActiveRecord
 	 */
 	public function rules()
 	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
 		return array(
-			array('name, price', 'required'),
-			array('price', 'numerical'),
+			array('name, price, construction_type, count', 'required'),
+			array('price, construction_type, count', 'numerical'),
 			array('name', 'length', 'max'=>255),
-			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
+			
 			array('id, name, price', 'safe', 'on'=>'search'),
 		);
 	}
@@ -40,8 +37,6 @@ class Furniture extends CActiveRecord
 	 */
 	public function relations()
 	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
 		return array(
 		);
 	}
@@ -53,8 +48,11 @@ class Furniture extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
-			'price' => 'Price',
+			'name' => 'Назва',
+			'price' => 'Ціна',
+			'window_system_id' => 'Віконна система', 
+			'construction_type' => 'Тип конструкції', 
+			'count' => 'к-сть'
 		);
 	}
 
@@ -94,5 +92,11 @@ class Furniture extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	public function getConstructionType()
+	{
+		$types = CalcForm::construction_types();
+		return isset($types[$this->construction_type]) ? $types[$this->construction_type] : '-';
 	}
 }

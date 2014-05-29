@@ -19,6 +19,11 @@ $this->widget(
             'name',
             'price',
             [
+                'name' => 'constructiontype',
+                'header' => 'Тип конструкції'
+            ],
+            'count',
+            [
                 'header'      => _('Actions'),
                 'class'       => 'bootstrap.widgets.TbJsonButtonColumn',
                 'htmlOptions' => ['style' => 'width: 125px; text-align: center' ],

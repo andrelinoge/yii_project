@@ -52,7 +52,7 @@ class CalcForm extends CFormModel
     {
         $glass         = Glass::model()->findByPk($this->glass_id);
         $window_system = WindowSystem::model()->findByPk($this->window_system_id);
-        $perimetry     = 2*($this->width + $this->height)/1000;
+        $perimetry     = 2*($this->width + $this->height);
         $furniture     = Furniture::model()->findAllByAttributes([
             'construction_type' => $this->construction_type
         ]);
@@ -67,6 +67,8 @@ class CalcForm extends CFormModel
         {
             throw new CHttpException("Wrong params");
         }
+
+        $window_system->normailze_measures();
 
         switch($this->construction_type)
         {
@@ -108,7 +110,7 @@ class CalcForm extends CFormModel
         return round(($leaf_price + $glass_price + $profile_price + $profile_window_sill_price + $furniture_price) * $window_system->profit_coefficient);
     }
 
-    protected function two_sashes_price($glass, $window_system, $perimetry)
+    protected function two_sashes_price($glass, $window_system, $perimetry, $furniture_price)
     {
         $width = ($this->width - 2 * $window_system->width_profile_frame) / 2;
 
@@ -118,7 +120,7 @@ class CalcForm extends CFormModel
         $profile_window_sill_price = $this->width * $window_system->profile_window_sill;
         $leaf_price                = (2 * $width + 2 * ($this->height - 2 * $window_system->width_profile_frame)) * $window_system->profile_leaf;
         $impost_price              = $window_system->profile_impost * ($this->height - 2 * $window_system->width_profile_frame);
-
+        
         return round(($leaf_price + $deadlight_glass_price + $sash_glass_price + $profile_price + $profile_window_sill_price + $furniture_price + $impost_price) * $window_system->profit_coefficient);
     }
 

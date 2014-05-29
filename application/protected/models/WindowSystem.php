@@ -102,4 +102,11 @@ class WindowSystem extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public function normailze_measures()
+	{
+		$this->width_profile_frame  = $this->width_profile_frame/1000;
+		$this->width_profile_impost = $this->width_profile_impost/1000;
+		$this->width_profile_leaf   = $this->width_profile_leaf/1000;
+	}
 }

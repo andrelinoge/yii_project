@@ -3421,3 +3421,55 @@ Stack trace:
 REQUEST_URI=/backend.php/js/jnavigate.jquery.min.js
 HTTP_REFERER=http://yii_project.local/backend.php/
 ---
+2014/06/07 17:38:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "application/public/frontend/js/jslider/powerange.css".' in /home/andrelinoge/Localhost/yii_project/framework/yiilite.php:1754
+Stack trace:
+#0 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(1670): CWebApplication->runController('application/pub...')
+#1 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(1195): CWebApplication->processRequest()
+#2 /home/andrelinoge/Localhost/yii_project/application/protected/behaviors/ApplicationEndBehavior.php(30): CApplication->run()
+#3 [internal function]: ApplicationEndBehavior->runEnd('frontend')
+#4 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(703): call_user_func_array(Array, Array)
+#5 /home/andrelinoge/Localhost/yii_project/index.php(19): CComponent->__call('runEnd', Array)
+#6 /home/andrelinoge/Localhost/yii_project/index.php(19): CWebApplication->runEnd('frontend')
+#7 {main}
+REQUEST_URI=/application/public/frontend/js/jslider/powerange.css
+HTTP_REFERER=http://yii_project.local/calculator/index
+---
+2014/06/07 17:39:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "application/public/frontend/js/jslider/powerange.css".' in /home/andrelinoge/Localhost/yii_project/framework/yiilite.php:1754
+Stack trace:
+#0 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(1670): CWebApplication->runController('application/pub...')
+#1 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(1195): CWebApplication->processRequest()
+#2 /home/andrelinoge/Localhost/yii_project/application/protected/behaviors/ApplicationEndBehavior.php(30): CApplication->run()
+#3 [internal function]: ApplicationEndBehavior->runEnd('frontend')
+#4 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(703): call_user_func_array(Array, Array)
+#5 /home/andrelinoge/Localhost/yii_project/index.php(19): CComponent->__call('runEnd', Array)
+#6 /home/andrelinoge/Localhost/yii_project/index.php(19): CWebApplication->runEnd('frontend')
+#7 {main}
+REQUEST_URI=/application/public/frontend/js/jslider/powerange.css
+HTTP_REFERER=http://yii_project.local/calculator/index
+---
+2014/06/07 17:40:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "application/public/frontend/js/lider/powerange.css".' in /home/andrelinoge/Localhost/yii_project/framework/yiilite.php:1754
+Stack trace:
+#0 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(1670): CWebApplication->runController('application/pub...')
+#1 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(1195): CWebApplication->processRequest()
+#2 /home/andrelinoge/Localhost/yii_project/application/protected/behaviors/ApplicationEndBehavior.php(30): CApplication->run()
+#3 [internal function]: ApplicationEndBehavior->runEnd('frontend')
+#4 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(703): call_user_func_array(Array, Array)
+#5 /home/andrelinoge/Localhost/yii_project/index.php(19): CComponent->__call('runEnd', Array)
+#6 /home/andrelinoge/Localhost/yii_project/index.php(19): CWebApplication->runEnd('frontend')
+#7 {main}
+REQUEST_URI=/application/public/frontend/js/lider/powerange.css
+HTTP_REFERER=http://yii_project.local/calculator/index
+---
+2014/06/07 17:41:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "application/public/frontend/js/lider/powerange.css".' in /home/andrelinoge/Localhost/yii_project/framework/yiilite.php:1754
+Stack trace:
+#0 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(1670): CWebApplication->runController('application/pub...')
+#1 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(1195): CWebApplication->processRequest()
+#2 /home/andrelinoge/Localhost/yii_project/application/protected/behaviors/ApplicationEndBehavior.php(30): CApplication->run()
+#3 [internal function]: ApplicationEndBehavior->runEnd('frontend')
+#4 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(703): call_user_func_array(Array, Array)
+#5 /home/andrelinoge/Localhost/yii_project/index.php(19): CComponent->__call('runEnd', Array)
+#6 /home/andrelinoge/Localhost/yii_project/index.php(19): CWebApplication->runEnd('frontend')
+#7 {main}
+REQUEST_URI=/application/public/frontend/js/lider/powerange.css
+HTTP_REFERER=http://yii_project.local/calculator/index
+---

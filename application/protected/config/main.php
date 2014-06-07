@@ -102,8 +102,8 @@ return [
 			'class'=>'CLogRouter',
 			'routes' => [
 				[
-					//'class'=>'CFileLogRoute',
-                    'class'  =>'ext.yii-debug-toolbar.YiiDebugToolbarRoute', // comment in production version
+					'class'=>'CFileLogRoute',
+                    //'class'  =>'ext.yii-debug-toolbar.YiiDebugToolbarRoute', // comment in production version
                     'levels' =>'error, warning',
 				]
 			]

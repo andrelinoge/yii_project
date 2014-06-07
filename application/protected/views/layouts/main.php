@@ -1,4 +1,7 @@
-<? $assets_path = $this->get_behavioral_url(); ?>
+<? 
+    $assets_path = $this->get_behavioral_url(); 
+    Yii::app()->clientScript->scriptMap = ['jquery.js' => false];
+?>
 
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> 

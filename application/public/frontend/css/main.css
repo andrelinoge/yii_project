@@ -1278,3 +1278,8 @@ input, select {
 .error-message {
   color: #800000 !important;
 }
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}

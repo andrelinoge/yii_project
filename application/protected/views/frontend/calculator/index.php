@@ -1,8 +1,18 @@
-<? $this->widget('application.widgets.Common.BreadCrumbs', [
+<? 
+
+$cs     = Yii::app()->clientScript;
+$assets = $this->get_behavioral_url();
+
+$cs->registerScriptFile($assets . '/js/slider/powerange.min.js', ClientScript::POS_END);
+$cs->registerCssFile($assets . '/js/slider/powerange.min.css');
+
+$this->widget('application.widgets.Common.BreadCrumbs', [
     'default_title' => 'Головна', 
     'view'          => 'frontend',
     'items'         => $this->breadcrumbs
-]); ?>
+]); 
+
+?>
 
 <div class="container">
     <div class="row">   
@@ -10,6 +20,9 @@
         <div class="blog-post-container">
             <div class="blog-post-inner">
                 <?= $content; ?>
+            </div>
+            <div class="blog-post-inner">
+              <img src="/application/public/windows/1.gif" id="window_system_preview" style="display: block;" class="col-centered">
             </div>
         </div> 
     </div>
@@ -51,13 +64,25 @@
                 </div>
 
                 <div class="full-row">
-                    <label for="email-id">Ширина</label>
-                    <?= $form->textField($model, 'width'); ?>
+                    <label>Ширина</label>
+                    <br/>
+                    <div class="col-md-10">
+                      <?= $form->textField($model, 'width', ['class' => 'width']); ?>
+                    </div>
+                    <div style="margin-top: -10px">
+                      <span id="width-box">2000</span>, мм
+                    </div>
                 </div>
 
                 <div class="full-row">
-                    <label for="email-id">Висота</label>
-                    <?= $form->textField($model, 'height'); ?>
+                    <label>Висота</label>
+                    <br/>
+                    <div class="col-md-10">
+                      <?= $form->textField($model, 'height', ['class' => 'height']); ?>
+                    </div>
+                    <div style="margin-top: -10px">
+                      <span id="height-box">2000</span>, мм
+                    </div>
                 </div>
 
                 
@@ -84,6 +109,39 @@
         $('#price').html('Ціна: ' + event.response.price + ' грн');
       }
       return false;
+    });
+
+    $('#CalcForm_construction_type').on('change', function(){
+      $('#window_system_preview').attr('src', '/application/public/windows/' + this.value + '.gif'); 
+    });
+
+    var width = document.querySelector('.width');
+    new Powerange(width, {
+      decimal       : true,
+      hideRange     : true,
+      min           : 1000,
+      max           : 3000,
+      start         : 2000,
+      step: 1,
+    });
+
+    var height = document.querySelector('.height');
+
+    new Powerange(height, {
+      decimal       : true,
+      hideRange     : true,
+      min           : 1000,
+      max           : 3000,
+      start         : 2000,
+      step: 1,
+    });
+
+    $('#CalcForm_width').on('change', function(){
+      $('#width-box').html(this.value);
+    });
+
+    $('#CalcForm_height').on('change', function(){
+      $('#height-box').html(this.value);
     });
   });
 </script>

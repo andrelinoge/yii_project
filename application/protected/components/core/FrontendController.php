@@ -13,7 +13,9 @@ class FrontendController extends ApplicationController
     {
         $this->pageTitle = Yii::app()->name;
         $this->set_layout( 'main' );
-        Yii::app()->clientScript->registerPackage( 'frontend' );
+
+        $assets = $this->get_behavioral_url();
+        Yii::app()->clientScript->registerPackage('form');
 
         $this->site_settings = SiteSettings::get();
 

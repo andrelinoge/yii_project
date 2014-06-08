@@ -9,6 +9,10 @@ class BackendController extends ApplicationController
     {
         $this->pageTitle=Yii::app()->name . '-' . 'Dashboard';
         $this->set_layout( 'backend' );
+
+        Yii::app()->clientScript->scriptMap = ['jquery.js' => false];
+        Yii::app()->clientScript->registerPackage('form');
+
         parent::init();
     }
 

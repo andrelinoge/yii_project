@@ -3473,3 +3473,94 @@ Stack trace:
 REQUEST_URI=/application/public/frontend/js/lider/powerange.css
 HTTP_REFERER=http://yii_project.local/calculator/index
 ---
+2014/06/08 07:46:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "application/public/uploads/images/gallery/s12.jpg".' in /home/andrelinoge/Localhost/yii_project/framework/yiilite.php:1754
+Stack trace:
+#0 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(1670): CWebApplication->runController('application/pub...')
+#1 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(1195): CWebApplication->processRequest()
+#2 /home/andrelinoge/Localhost/yii_project/application/protected/behaviors/ApplicationEndBehavior.php(30): CApplication->run()
+#3 [internal function]: ApplicationEndBehavior->runEnd('frontend')
+#4 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(703): call_user_func_array(Array, Array)
+#5 /home/andrelinoge/Localhost/yii_project/index.php(19): CComponent->__call('runEnd', Array)
+#6 /home/andrelinoge/Localhost/yii_project/index.php(19): CWebApplication->runEnd('frontend')
+#7 {main}
+REQUEST_URI=/application/public/uploads/images/gallery/s12.jpg
+HTTP_REFERER=http://yii_project.local/
+---
+2014/06/08 07:46:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "application/public/uploads/images/gallery/s11.jpeg".' in /home/andrelinoge/Localhost/yii_project/framework/yiilite.php:1754
+Stack trace:
+#0 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(1670): CWebApplication->runController('application/pub...')
+#1 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(1195): CWebApplication->processRequest()
+#2 /home/andrelinoge/Localhost/yii_project/application/protected/behaviors/ApplicationEndBehavior.php(30): CApplication->run()
+#3 [internal function]: ApplicationEndBehavior->runEnd('frontend')
+#4 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(703): call_user_func_array(Array, Array)
+#5 /home/andrelinoge/Localhost/yii_project/index.php(19): CComponent->__call('runEnd', Array)
+#6 /home/andrelinoge/Localhost/yii_project/index.php(19): CWebApplication->runEnd('frontend')
+#7 {main}
+REQUEST_URI=/application/public/uploads/images/gallery/s11.jpeg
+HTTP_REFERER=http://yii_project.local/
+---
+2014/06/08 07:46:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "application/public/uploads/images/gallery/s7.jpg".' in /home/andrelinoge/Localhost/yii_project/framework/yiilite.php:1754
+Stack trace:
+#0 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(1670): CWebApplication->runController('application/pub...')
+#1 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(1195): CWebApplication->processRequest()
+#2 /home/andrelinoge/Localhost/yii_project/application/protected/behaviors/ApplicationEndBehavior.php(30): CApplication->run()
+#3 [internal function]: ApplicationEndBehavior->runEnd('frontend')
+#4 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(703): call_user_func_array(Array, Array)
+#5 /home/andrelinoge/Localhost/yii_project/index.php(19): CComponent->__call('runEnd', Array)
+#6 /home/andrelinoge/Localhost/yii_project/index.php(19): CWebApplication->runEnd('frontend')
+#7 {main}
+REQUEST_URI=/application/public/uploads/images/gallery/s7.jpg
+HTTP_REFERER=http://yii_project.local/
+---
+2014/06/08 07:46:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "application/public/uploads/images/gallery/s13.jpg".' in /home/andrelinoge/Localhost/yii_project/framework/yiilite.php:1754
+Stack trace:
+#0 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(1670): CWebApplication->runController('application/pub...')
+#1 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(1195): CWebApplication->processRequest()
+#2 /home/andrelinoge/Localhost/yii_project/application/protected/behaviors/ApplicationEndBehavior.php(30): CApplication->run()
+#3 [internal function]: ApplicationEndBehavior->runEnd('frontend')
+#4 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(703): call_user_func_array(Array, Array)
+#5 /home/andrelinoge/Localhost/yii_project/index.php(19): CComponent->__call('runEnd', Array)
+#6 /home/andrelinoge/Localhost/yii_project/index.php(19): CWebApplication->runEnd('frontend')
+#7 {main}
+REQUEST_URI=/application/public/uploads/images/gallery/s13.jpg
+HTTP_REFERER=http://yii_project.local/
+---
+2014/06/08 07:46:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "application/public/uploads/images/gallery/s2.jpg".' in /home/andrelinoge/Localhost/yii_project/framework/yiilite.php:1754
+Stack trace:
+#0 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(1670): CWebApplication->runController('application/pub...')
+#1 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(1195): CWebApplication->processRequest()
+#2 /home/andrelinoge/Localhost/yii_project/application/protected/behaviors/ApplicationEndBehavior.php(30): CApplication->run()
+#3 [internal function]: ApplicationEndBehavior->runEnd('frontend')
+#4 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(703): call_user_func_array(Array, Array)
+#5 /home/andrelinoge/Localhost/yii_project/index.php(19): CComponent->__call('runEnd', Array)
+#6 /home/andrelinoge/Localhost/yii_project/index.php(19): CWebApplication->runEnd('frontend')
+#7 {main}
+REQUEST_URI=/application/public/uploads/images/gallery/s2.jpg
+HTTP_REFERER=http://yii_project.local/
+---
+2014/06/08 07:46:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "application/public/uploads/images/gallery/s10.jpg".' in /home/andrelinoge/Localhost/yii_project/framework/yiilite.php:1754
+Stack trace:
+#0 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(1670): CWebApplication->runController('application/pub...')
+#1 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(1195): CWebApplication->processRequest()
+#2 /home/andrelinoge/Localhost/yii_project/application/protected/behaviors/ApplicationEndBehavior.php(30): CApplication->run()
+#3 [internal function]: ApplicationEndBehavior->runEnd('frontend')
+#4 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(703): call_user_func_array(Array, Array)
+#5 /home/andrelinoge/Localhost/yii_project/index.php(19): CComponent->__call('runEnd', Array)
+#6 /home/andrelinoge/Localhost/yii_project/index.php(19): CWebApplication->runEnd('frontend')
+#7 {main}
+REQUEST_URI=/application/public/uploads/images/gallery/s10.jpg
+HTTP_REFERER=http://yii_project.local/
+---
+2014/06/08 07:46:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Неможливо обробити запит "application/public/uploads/images/gallery/s1.jpg".' in /home/andrelinoge/Localhost/yii_project/framework/yiilite.php:1754
+Stack trace:
+#0 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(1670): CWebApplication->runController('application/pub...')
+#1 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(1195): CWebApplication->processRequest()
+#2 /home/andrelinoge/Localhost/yii_project/application/protected/behaviors/ApplicationEndBehavior.php(30): CApplication->run()
+#3 [internal function]: ApplicationEndBehavior->runEnd('frontend')
+#4 /home/andrelinoge/Localhost/yii_project/framework/yiilite.php(703): call_user_func_array(Array, Array)
+#5 /home/andrelinoge/Localhost/yii_project/index.php(19): CComponent->__call('runEnd', Array)
+#6 /home/andrelinoge/Localhost/yii_project/index.php(19): CWebApplication->runEnd('frontend')
+#7 {main}
+REQUEST_URI=/application/public/uploads/images/gallery/s1.jpg
+HTTP_REFERER=http://yii_project.local/
+---

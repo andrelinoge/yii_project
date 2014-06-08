@@ -69,26 +69,30 @@ class CalcForm extends CFormModel
         }
 
         $window_system->normailze_measures();
+        $price = 0;
 
         switch($this->construction_type)
         {
             case self::ONE_SASH:
-                return $this->one_sash_price($glass, $window_system, $perimetry, $furniture_price);
+                $price = $this->one_sash_price($glass, $window_system, $perimetry, $furniture_price);
             break;
 
             case self::TWO_SASHES:
-                return $this->two_sashes_price($glass, $window_system, $perimetry, $furniture_price);
+                $price = $this->two_sashes_price($glass, $window_system, $perimetry, $furniture_price);
             break;
 
             case self::THREE_SASHES:
-                return $this->three_sashes_price($glass, $window_system, $perimetry, $furniture_price);
+                $price = $this->three_sashes_price($glass, $window_system, $perimetry, $furniture_price);
             break;
 
             case self::DEADLIGHT:
             default:
-                return $this->deadlight_price($glass, $window_system, $perimetry, $furniture_price);
+                $price = $this->deadlight_price($glass, $window_system, $perimetry, $furniture_price);
             break;
         }
+
+        $price *= SiteSettings::get()->rate_exchange;
+        return $price;
     }
 
     protected function deadlight_price($glass, $window_system, $perimetry, $furniture_price)

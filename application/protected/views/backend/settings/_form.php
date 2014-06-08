@@ -6,7 +6,7 @@
     'focus'  => [$model, 'phone_1']
 ]); ?>
 
-    <? foreach(['phone_1', 'phone_2', 'phone_3', 'skype', 'address'] as $attribute): ?>
+    <? foreach(['phone_1', 'phone_2', 'phone_3', 'skype', 'address', 'rate_exchange'] as $attribute): ?>
         <div class="form-group <? if ($model->hasErrors($attribute)): ?> has-error <? endif; ?>">
             <label class="control-label"><?= $model->getAttributeLabel($attribute); ?></label>
             <?= $form->textField($model, $attribute, ['class' => 'form-control']); ?>

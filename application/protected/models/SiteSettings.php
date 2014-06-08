@@ -24,7 +24,7 @@ class SiteSettings extends CActiveRecord
 	public function rules()
 	{
 		return array(
-			array('phone_1, phone_2, phone_3, skype, address, google_map', 'safe'),
+			array('phone_1, phone_2, phone_3, skype, address, google_map, rate_exchange', 'safe'),
 			array('phone_1, phone_2', 'length', 'max'=>255),
 			array('id, phone_1, phone_2', 'safe', 'on'=>'search'),
 		);
@@ -49,8 +49,9 @@ class SiteSettings extends CActiveRecord
 			'phone_2'    => 'Phone 2',
 			'phone_3'	 => 'Phone 3',
 			'skype'		 => 'Skype',
-			'address'    => 'address',
-			'google_map' => 'google_map'
+			'address'    => 'Address',
+			'google_map' => 'Google map code',
+			'rate_exchange' => 'Rate exchange'
 		);
 	}
 
@@ -66,12 +67,13 @@ class SiteSettings extends CActiveRecord
 		if (!$model)
 		{
 			$model = new self;
-			$model->phone_1    = 'none';
-			$model->phone_2    = 'none';
-			$model->phone_3    = 'none';
-			$model->skype      = 'none';
-			$model->address    = 'none';
-			$model->google_map = 'none';
+			$model->phone_1       = 'none';
+			$model->phone_2       = 'none';
+			$model->phone_3       = 'none';
+			$model->skype         = 'none';
+			$model->address       = 'none';
+			$model->google_map    = 'none';
+			$model->rate_exchange = 10.5;
 			$model->save();
 		}
 

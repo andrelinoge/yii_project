@@ -1,12 +1,7 @@
 <?php
-/**
- * @author Andriy Tolstokorov
- */
 
 class ChangePasswordForm extends CFormModel
 {
-    const FORM_ID = 'change-password-form';
-
     public $old;
     public $new;
     public $confirm;
@@ -16,41 +11,41 @@ class ChangePasswordForm extends CFormModel
 
     public function rules()
     {
-        return array(
-            array(
+        return [
+            [
                 'old, new, confirm',
                 'required',
-            ),
-            array(
+            ],
+            [
                 'old',
-                'validateOldPass',
-            ),
-            array(
+                'validate_old_password',
+            ],
+            [
                 'confirm',
                 'compare',
                 'compareAttribute' => 'new',
-                'operator' => '=='
-            )
-        );
+                'operator'         => '=='
+            ]
+        ];
     }
 
-    public function validateOldPass($attribute,$params)
+    public function validate_old_password($attribute,$params)
     {
         $model = $this->get_user();
 
-        if( !$model::isPasswordValid( $this->old, $model->password, $model->salt ) )
+        if( !$model::is_password_valid( $this->old, $model->password, $model->salt ) )
         {
-            $this->addError($attribute, 'Старый пароль неверный');
+            $this->addError($attribute, 'Wrong old password');
         }
     }
 
     public function attributeLabels()
     {
-        return array(
-            'old' => 'Старый пароль',
-            'new' => 'Новый пароль',
-            'confirm' => 'Подтверждение пароля'
-        );
+        return [
+            'old'     => 'Old password',
+            'new'     => 'New password',
+            'confirm' => 'Confirm password'
+        ];
     }
 
     public function save()
@@ -60,18 +55,11 @@ class ChangePasswordForm extends CFormModel
         $model->save( FALSE );
     }
 
-    /**
-     * @param User $model
-     */
     public function set_user( User $model )
     {
         $this->_user = $model;
     }
 
-    /**
-     * @return User
-     * @throws CException
-     */
     public function get_user()
     {
         if ( empty( $this->_user ) )

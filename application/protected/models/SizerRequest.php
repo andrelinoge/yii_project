@@ -30,7 +30,6 @@ class SizerRequest extends CActiveRecord
 	{
 		return array(
 			array('name, phone', 'required'),
-			array('is_read', 'numerical', 'integerOnly'=>true),
 			array('name, phone', 'length', 'max'=>255),
             array('address, content', 'safe'),
 			array('id, name, phone, is_read', 'safe', 'on'=>'search'),
@@ -127,4 +126,16 @@ class SizerRequest extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public function behaviors()
+    {
+        return [
+            'timestampable' => [
+                'class'             => 'zii.behaviors.CTimestampBehavior',
+                'setUpdateOnCreate' => false,
+                'createAttribute'   => 'created_at',
+                'updateAttribute'   => 'updated_at',
+            ]
+        ];
+    }
 }

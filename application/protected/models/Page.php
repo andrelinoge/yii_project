@@ -23,7 +23,7 @@ class Page extends CActiveRecord
 		return array(
 			array('title, content', 'required'),
 			array('title', 'length', 'max'=>255),
-			array('id, title, content, meta_keywords, meta_description, alias', 'safe', 'on'=>'search'),
+			array('id, title, content, meta_keywords, meta_description, alias', 'safe'),
 		);
 	}
 

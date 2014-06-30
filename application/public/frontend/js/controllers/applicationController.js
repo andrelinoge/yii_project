@@ -69,13 +69,13 @@ ApplicationController = (function() {
                     _this.hide_loader($form);
 
                     // show Error Message if it is setted
-                    if( (typeof(response.error_message) != 'undefined') && (response.error_message != '') )
+                    if( (typeof(response.error_message) != 'undefined') && (response.error_message != null && response.error_message != '') )
                     {
                         _this.show_error_message( response.error_message );
                     }
 
                     // show Success Message if it is setted
-                    if( (typeof(response.success_message) != 'undefined') && (response.success_message != '') )
+                    if( (typeof(response.success_message) != 'undefined') && (response.success_message != null &&  response.success_message != '') )
                     {
                         _this.show_success_message( response.success_message );
                     }
@@ -150,24 +150,12 @@ ApplicationController = (function() {
 
     ApplicationController.prototype.show_error_message = function(message)
     {
-        $.jGrowl(
-            message,
-            {
-                sticky: true,
-                theme: 'danger'
-            }
-        );
+        alert(message);
     };
 
     ApplicationController.prototype.show_success_message = function(message)
     {
-        $.jGrowl(
-            message,
-            {
-                sticky: true,
-                theme: 'success'
-            }
-        );
+        alert(message);
     };
 
     ApplicationController.prototype.show_form_errors = function(errors, $form)
@@ -205,55 +193,6 @@ ApplicationController = (function() {
 
     ApplicationController.prototype.initialize_plugins = function()
     {
-        /*
-        $('.auto-complete-city').autocomplete({
-            serviceUrl: '/cities/index',
-            width: 300,
-            maxHeight: 500,
-            minChars: 2
-        });
-
-        $('.fancy').fancybox({
-            autoPlay: false
-        });
-
-        $(".fancy-thumb").fancybox({
-            prevEffect	: 'none',
-            nextEffect	: 'none',
-            helpers	: {
-                title	: {
-                    type: 'outside'
-                },
-                thumbs	: {
-                    width	: 50,
-                    height	: 50
-                }
-            }
-        });
-
-        $('.fancy-media').fancybox({
-            openEffect  : 'none',
-            closeEffect : 'none',
-            helpers : {
-                media : {}
-            }
-        });
-
-        $('.slider-control').each(function(index, element){
-            var $control = $(element);
-            $control.noUiSlider({
-                range: $control.data('slider-range'),
-                start: $control.data('slider-start-value'),
-                handles: 2,
-                connect: true,
-                step: 1,
-                serialization: {
-                    to: [$($control.data('input-for-min')), $($control.data('input-for-max'))]
-                    ,resolution: 1
-                }
-            });
-        });
-        */
     };
 
     return ApplicationController;

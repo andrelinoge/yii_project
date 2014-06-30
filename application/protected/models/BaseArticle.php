@@ -39,7 +39,7 @@ abstract class BaseArticle extends CActiveRecord
             ['title, content, category_id', 'required'],
             ['title, alias', 'length', 'max' => 255],
             ['cover', 'file', 'allowEmpty' => true, 'types' => 'jpg,jpeg,png'],
-            ['id, created_at, updated_at, cover, title, content, meta_keywords, meta_description, alias', 'safe', 'on'=>'search']
+            ['id, created_at, updated_at, cover, title, content, meta_keywords, meta_description, alias', 'safe']
         ];
     }
 

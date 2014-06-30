@@ -13,6 +13,7 @@ class CalculatorController extends FrontendController
         $this->setMainMetaTags( $page->meta_keywords, $page->meta_description );
 
         $model = new CalcForm();
+        $model->action = CalcForm::GET_PRICE;
 
         $this->render(
             'index',
@@ -32,7 +33,15 @@ class CalculatorController extends FrontendController
 
             if ($model->validate())
             {
-                success('', ['price' => $model->price()]);
+                if ($model->action == CalcForm::GET_PRICE)
+                {
+                    success('', ['price' => $model->price()]);
+                }
+                else
+                {
+                    $model->save();
+                    success('Ми отримали ваші розрахунку і зв\'яжемося з вами в найкоротший термін', ['price' => $model->price()]);
+                }
             }
             else
             {

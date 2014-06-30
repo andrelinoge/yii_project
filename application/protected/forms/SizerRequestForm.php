@@ -41,9 +41,6 @@ class SizerRequestForm extends CFormModel
     public function save()
     {
         $model = new SizerRequest();
-
-
-        debug($this->getAttributes());
         $model->setAttributes($this->getAttributes());
 
         if ($model->save())

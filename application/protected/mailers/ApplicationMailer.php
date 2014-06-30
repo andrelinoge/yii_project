@@ -43,4 +43,20 @@ class ApplicationMailer
 
         return Yii::app()->mail->send($this->message);
     }
+
+    public function new_calc_request_notification(CalcRequest $request)
+    {
+        $this->message->setSubject( _('Розрахунок від користувача') );
+        $this->message->view = 'calc_request';
+        $this->message->setBody(
+            array(
+                'request' => $request
+            ),
+            'text/html'
+        );
+
+        $this->message->setTo( Yii::app()->params['emails']['contact_messages_receiver'] );
+
+        return Yii::app()->mail->send($this->message);
+    }
 }

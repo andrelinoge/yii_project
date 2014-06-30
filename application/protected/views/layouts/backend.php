@@ -57,7 +57,7 @@ $assets = $this->get_behavioral_url();
                     <a class="but dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i></a>
                     <ul class="dropdown-menu" role="menu">
                         <li class="dropdown-header" role="presentation">Меню профілю</li>
-                        <li><a href="#">Settings</a></li>
+                        <li><a href="<?= url('admins/edit', ['id' => 1]); ?>">Зміна паролю</a></li>
                         <li class="divider"></li>
                         <li><a href="<?= url('site/logout'); ?>">Вийти</a></li>
                     </ul>

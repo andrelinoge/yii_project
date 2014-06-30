@@ -117,6 +117,28 @@ class BackendMenu
         ];
 
         $menuItems[] = [
+            'title' => _( 'Замовлення з калькулятора' ),
+            'activityMarker' => 'calcRequests',
+            'items' => [
+                [
+                    'title'          => _( 'Всі' ),
+                    'url'            => url( 'calcRequests/index' ),
+                    'activityMarker' => 'index'
+                ],
+                [
+                    'title'          => _( 'Прочитані' ),
+                    'url'            => url( 'calcRequests/read' ),
+                    'activityMarker' => 'read'
+                ],
+                [
+                    'title'          => _( 'Непрочитані' ),
+                    'url'            => url( 'calcRequests/unread' ),
+                    'activityMarker' => 'unread'
+                ]
+            ]
+        ];
+
+        $menuItems[] = [
             'title' => _( 'Категорії галереї' ),
             'activityMarker' => 'galleryCategories',
             'items' => [

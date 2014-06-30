@@ -32,7 +32,7 @@ class WorkGallery extends Image
     {
         return [
             [ 'type, category_id', 'required' ],
-            [ 'image', 'file', 'allowEmpty' => false, 'types' => 'jpg, jpeg, png' ],
+            [ 'image', 'file', 'allowEmpty' => true, 'types' => 'jpg, jpeg, png' ],
             [ 'image, description, title,', 'length', 'max' => 255 ],
             [ 'type', 'length', 'max' => 20 ],
             [ 'id, image, text, type, owner_id', 'safe', 'on' => 'search' ]

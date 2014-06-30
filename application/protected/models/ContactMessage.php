@@ -28,8 +28,7 @@ class ContactMessage extends CActiveRecord
 	public function rules()
 	{
 		return array(
-			array('name, phone, content, is_read', 'required'),
-			array('is_read', 'numerical', 'integerOnly'=>true),
+			array('name, phone, content', 'required'),
 			array('name, phone', 'length', 'max'=>255),
 			array('id, name, phone, content, created_at, updated_at, is_read', 'safe', 'on'=>'search'),
 		);
@@ -125,4 +124,17 @@ class ContactMessage extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+	
+	public function behaviors()
+    {
+        return [
+            'timestampable' => [
+                'class'             => 'zii.behaviors.CTimestampBehavior',
+                'setUpdateOnCreate' => false,
+                'createAttribute'   => 'created_at',
+                'updateAttribute'   => 'updated_at',
+            ]
+        ];
+    } 
+
 }
